@@ -6997,7 +6997,7 @@
     <div class="container">
       <h6 class="text-right"><b>v2.0</b></h6>
 
-      <h1 class="text-center">Convertidor Mnemot&#233;cnico BIP39</h1>
+      <h1 class="text-center">Convertidor Mnemot\u00e9cnico BIP39</h1>
 
       <div class="row">
         <div class="col-md-12">
@@ -12879,7 +12879,7 @@
                     } else if (form === "NFKD") {
                     return unorm.nfkd(str);
                     } else {
-                    throw new RangeError("Formulario de normalizaci&#243;n no v&#225;lido: " + form);
+                    throw new RangeError("Formulario de normalizaci\u00f3n no v\u00e1lido: " + form);
                     }
                     };
 
@@ -15342,7 +15342,7 @@
                     if (isArray(object)) return fromArray(that, object)
 
                     if (object == null) {
-                    throw new TypeError('debe comenzar con n&#250;mero, b&#250;fer, matriz o cadena')
+                    throw new TypeError('debe comenzar con n\u00famero, b\u00fafer, matriz o cadena')
                     }
 
                     if (typeof ArrayBuffer !== 'undefined') {
@@ -15447,8 +15447,8 @@
                     // Note: cannot use `length < kMaxLength` here because that fails when
                     // length is NaN (which is otherwise coerced to zero.)
                     if (length >= kMaxLength()) {
-                    throw new RangeError('Intento de asignar un b&#250;fer m&#225;s grande que el m&#225;ximo ' +
-                    'Tama&#241;o: 0x' + kMaxLength().toString(16) + ' bytes')
+                    throw new RangeError('Intento de asignar un b\u00fafer m\u00e1s grande que el m\u00e1ximo ' +
+                    'Tama\u00f1o: 0x' + kMaxLength().toString(16) + ' bytes')
                     }
                     return length | 0
                     }
@@ -15467,7 +15467,7 @@
 
                     Buffer.compare = function compare (a, b) {
                     if (!Buffer.isBuffer(a) || !Buffer.isBuffer(b)) {
-                    throw new TypeError('Los argumentos deben ser b&#250;feres')
+                    throw new TypeError('Los argumentos deben ser b\u00faferes')
                     }
 
                     if (a === b) return 0
@@ -15513,7 +15513,7 @@
                     }
 
                     Buffer.concat = function concat (list, length) {
-                    if (!isArray(list)) throw new TypeError('el argumento de la lista debe ser una matriz de b&#250;feres.')
+                    if (!isArray(list)) throw new TypeError('el argumento de la lista debe ser una matriz de b\u00faferes.')
 
                     if (list.length === 0) {
                     return new Buffer(0)
@@ -15614,7 +15614,7 @@
                     return utf16leSlice(this, start, end)
 
                     default:
-                    if (loweredCase) throw new TypeError('Codificaci&#243;n desconocida: ' + encoding)
+                    if (loweredCase) throw new TypeError('Codificaci\u00f3n desconocida: ' + encoding)
                     encoding = (encoding + '').toLowerCase()
                     loweredCase = true
                     }
@@ -15629,7 +15629,7 @@
                     }
 
                     Buffer.prototype.equals = function equals (b) {
-                    if (!Buffer.isBuffer(b)) throw new TypeError('El argumento debe ser un b&#250;fer')
+                    if (!Buffer.isBuffer(b)) throw new TypeError('El argumento debe ser un b\u00fafer')
                     if (this === b) return true
                     return Buffer.compare(this, b) === 0
                     }
@@ -15645,7 +15645,7 @@
                     }
 
                     Buffer.prototype.compare = function compare (b) {
-                    if (!Buffer.isBuffer(b)) throw new TypeError('El argumento debe ser un b&#250;fer')
+                    if (!Buffer.isBuffer(b)) throw new TypeError('El argumento debe ser un b\u00fafer')
                     if (this === b) return 0
                     return Buffer.compare(this, b)
                     }
@@ -15688,18 +15688,18 @@
                     return -1
                     }
 
-                    throw new TypeError('val debe ser una cadena, un n&#250;mero o un b&#250;fer')
+                    throw new TypeError('val debe ser una cadena, un n\u00famero o un b\u00fafer')
                     }
 
                     // `get` is deprecated
                     Buffer.prototype.get = function get (offset) {
-                    console.log('.get() es obsoleto. Acceda utilizando &#237;ndices de matriz en su lugar.')
+                    console.log('.get() es obsoleto. Acceda utilizando \u00edndices de matriz en su lugar.')
                     return this.readUInt8(offset)
                     }
 
                     // `set` is deprecated
                     Buffer.prototype.set = function set (v, offset) {
-                    console.log('.set() es obsoleto. Acceda utilizando &#237;ndices de matriz en su lugar.')
+                    console.log('.set() es obsoleto. Acceda utilizando \u00edndices de matriz en su lugar.')
                     return this.writeUInt8(v, offset)
                     }
 
@@ -15717,14 +15717,14 @@
 
                     // must be an even number of digits
                     var strLen = string.length
-                    if (strLen % 2 !== 0) throw new Error('Cadena hexadecimal no v&#225;lida')
+                    if (strLen % 2 !== 0) throw new Error('Cadena hexadecimal no v\u00e1lida')
 
                     if (length > strLen / 2) {
                     length = strLen / 2
                     }
                     for (var i = 0; i < length; i++) {
                     var parsed = parseInt(string.substr(i * 2, 2), 16)
-                    if (isNaN(parsed)) throw new Error('Cadena hexadecimal no v&#225;lida')
+                    if (isNaN(parsed)) throw new Error('Cadena hexadecimal no v\u00e1lida')
                     buf[offset + i] = parsed
                     }
                     return i
@@ -15783,7 +15783,7 @@
                     if (length === undefined || length > remaining) length = remaining
 
                     if ((string.length > 0 && (length < 0 || offset < 0)) || offset > this.length) {
-                    throw new RangeError('intento de escribir fuera de los l&#237;mites del b&#250;fer')
+                    throw new RangeError('intento de escribir fuera de los l\u00edmites del b\u00fafer')
                     }
 
                     if (!encoding) encoding = 'utf8'
@@ -15815,7 +15815,7 @@
                     return ucs2Write(this, string, offset, length)
 
                     default:
-                    if (loweredCase) throw new TypeError('Codificaci&#243;n desconocida: ' + encoding)
+                    if (loweredCase) throw new TypeError('Codificaci\u00f3n desconocida: ' + encoding)
                     encoding = ('' + encoding).toLowerCase()
                     loweredCase = true
                     }
@@ -16002,7 +16002,7 @@
                     */
                     function checkOffset (offset, ext, length) {
                     if ((offset % 1) !== 0 || offset < 0) throw new RangeError('el desplazamiento no es unitario')
-                    if (offset + ext > length) throw new RangeError('Intentando acceder m&#225;s all&#225; de la longitud del b&#250;fer')
+                    if (offset + ext > length) throw new RangeError('Intentando acceder m\u00e1s all\u00e1 de la longitud del b\u00fafer')
                     }
 
                     Buffer.prototype.readUIntLE = function readUIntLE (offset, byteLength, noAssert) {
@@ -16163,8 +16163,8 @@
 
                     function checkInt (buf, value, offset, ext, max, min) {
                     if (!Buffer.isBuffer(buf)) throw new TypeError('buffer debe ser una instancia de Buffer')
-                    if (value > max || value < min) throw new RangeError('el valor est&#225; fuera de los l&#237;mites')
-                    if (offset + ext > buf.length) throw new RangeError('&#237;ndice fuera de rango')
+                    if (value > max || value < min) throw new RangeError('el valor est\u00e1 fuera de los l\u00edmites')
+                    if (offset + ext > buf.length) throw new RangeError('\u00edndice fuera de rango')
                     }
 
                     Buffer.prototype.writeUIntLE = function writeUIntLE (value, offset, byteLength, noAssert) {
@@ -16387,9 +16387,9 @@
                     }
 
                     function checkIEEE754 (buf, value, offset, ext, max, min) {
-                    if (value > max || value < min) throw new RangeError('el valor est&#225; fuera de los l&#237;mites')
-                    if (offset + ext > buf.length) throw new RangeError('&#237;ndice fuera de rango')
-                    if (offset < 0) throw new RangeError('&#237;ndice fuera de rango')
+                    if (value > max || value < min) throw new RangeError('el valor est\u00e1 fuera de los l\u00edmites')
+                    if (offset + ext > buf.length) throw new RangeError('\u00edndice fuera de rango')
+                    if (offset < 0) throw new RangeError('\u00edndice fuera de rango')
                     }
 
                     function writeFloat (buf, value, offset, littleEndian, noAssert) {
@@ -16481,8 +16481,8 @@
                     if (end === start) return
                     if (this.length === 0) return
 
-                    if (start < 0 || start >= this.length) throw new RangeError('comenzar fuera de los l&#237;mites')
-                    if (end < 0 || end > this.length) throw new RangeError('terminar fuera de l&#237;mites')
+                    if (start < 0 || start >= this.length) throw new RangeError('comenzar fuera de los l\u00edmites')
+                    if (end < 0 || end > this.length) throw new RangeError('terminar fuera de l\u00edmites')
 
                     var i
                     if (typeof value === 'number') {
@@ -16690,7 +16690,7 @@
                     codePoint & 0x3F | 0x80
                     )
                     } else {
-                    throw new Error('Punto de c&#243;digo no v&#225;lido')
+                    throw new Error('Punto de c\u00f3digo no v\u00e1lido')
                     }
                     }
 
@@ -16774,7 +16774,7 @@
                     var i, j, l, tmp, placeHolders, arr
 
                     if (b64.length % 4 > 0) {
-                    throw new Error('Cadena no v&#225;lida. La longitud debe ser un m&#250;ltiplo de 4')
+                    throw new Error('Cadena no v\u00e1lida. La longitud debe ser un m\u00faltiplo de 4')
                     }
 
                     // the number of equal signs (place holders)
@@ -20705,7 +20705,7 @@
                     code.google.com/p/crypto-js/wiki/License
                     */
                     /** @preserve
-                    (c) 2012 by C&#233;dric Mesnil. All rights reserved.
+                    (c) 2012 by C\u00e9dric Mesnil. All rights reserved.
 
                     Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
@@ -42642,7 +42642,7 @@
                     code.google.com/p/crypto-js/wiki/License
                     */
                     /** @preserve
-                    (c) 2012 by C&#233;dric Mesnil. All rights reserved.
+                    (c) 2012 by C\u00e9dric Mesnil. All rights reserved.
 
                     Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
@@ -46257,11 +46257,11 @@
                     strength = strength || 128;
                     var r = strength % 32;
                     if (r > 0) {
-                    throw 'La fuerza deber&#237;a ser divisible por 32, pero no lo es. (' + r + ').';
+                    throw 'La fuerza deber\u00eda ser divisible por 32, pero no lo es. (' + r + ').';
                     }
                     var hasStrongCrypto = 'crypto' in window && window['crypto'] !== null;
                     if (!hasStrongCrypto) {
-                    throw 'Mnemonic debe generarse con fuerte aleatoriedad, pero crypto.getRandomValues no est&#225; disponible';
+                    throw 'Mnemonic debe generarse con fuerte aleatoriedad, pero crypto.getRandomValues no est\u00e1 disponible';
                     }
                     var buffer = new Uint8Array(strength / 8);
                     var data = crypto.getRandomValues(buffer);
@@ -46270,7 +46270,7 @@
 
                     self.toMnemonic = function(byteArray) {
                     if (byteArray.length % 4 > 0) {
-                    throw 'La longitud de datos en bits deber&#237;a ser divisible por 32, pero no lo es (' + byteArray.length + ' bytes = ' + byteArray.length*8 + ' bits).'
+                    throw 'La longitud de datos en bits deber\u00eda ser divisible por 32, pero no lo es (' + byteArray.length + ' bytes = ' + byteArray.length*8 + ' bits).'
                     }
 
                     //h = hashlib.sha256(data).hexdigest()
@@ -48054,7 +48054,7 @@
                     var adjacency_graphs;adjacency_graphs={qwerty:{"!":["`~",null,null,"2@","qQ",null],'"':[";:","[{","]}",null,null,"/?"],"#":["2@",null,null,"4$","eE","wW"],$:["3#",null,null,"5%","rR","eE"],"%":["4$",null,null,"6^","tT","rR"],"&":["6^",null,null,"8*","uU","yY"],"'":[";:","[{","]}",null,null,"/?"],"(":["8*",null,null,"0)","oO","iI"],")":["9(",null,null,"-_","pP","oO"],"*":["7&",null,null,"9(","iI","uU"],"+":["-_",null,null,null,"]}","[{"],",":["mM","kK","lL",".>",null,null],"-":["0)",null,null,"=+","[{","pP"],".":[",<","lL",";:","/?",null,null],"/":[".>",";:","'\"",null,null,null],0:["9(",null,null,"-_","pP","oO"],1:["`~",null,null,"2@","qQ",null],2:["1!",null,null,"3#","wW","qQ"],3:["2@",null,null,"4$","eE","wW"],4:["3#",null,null,"5%","rR","eE"],5:["4$",null,null,"6^","tT","rR"],6:["5%",null,null,"7&","yY","tT"],7:["6^",null,null,"8*","uU","yY"],8:["7&",null,null,"9(","iI","uU"],9:["8*",null,null,"0)","oO","iI"],":":["lL","pP","[{","'\"","/?",".>"],";":["lL","pP","[{","'\"","/?",".>"],"<":["mM","kK","lL",".>",null,null],"=":["-_",null,null,null,"]}","[{"],">":[",<","lL",";:","/?",null,null],"?":[".>",";:","'\"",null,null,null],"@":["1!",null,null,"3#","wW","qQ"],A:[null,"qQ","wW","sS","zZ",null],B:["vV","gG","hH","nN",null,null],C:["xX","dD","fF","vV",null,null],D:["sS","eE","rR","fF","cC","xX"],E:["wW","3#","4$","rR","dD","sS"],F:["dD","rR","tT","gG","vV","cC"],G:["fF","tT","yY","hH","bB","vV"],H:["gG","yY","uU","jJ","nN","bB"],I:["uU","8*","9(","oO","kK","jJ"],J:["hH","uU","iI","kK","mM","nN"],K:["jJ","iI","oO","lL",",<","mM"],L:["kK","oO","pP",";:",".>",",<"],M:["nN","jJ","kK",",<",null,null],N:["bB","hH","jJ","mM",null,null],O:["iI","9(","0)","pP","lL","kK"],P:["oO","0)","-_","[{",";:","lL"],Q:[null,"1!","2@","wW","aA",null],R:["eE","4$","5%","tT","fF","dD"],S:["aA","wW","eE","dD","xX","zZ"],T:["rR","5%","6^","yY","gG","fF"],U:["yY","7&","8*","iI","jJ","hH"],V:["cC","fF","gG","bB",null,null],W:["qQ","2@","3#","eE","sS","aA"],X:["zZ","sS","dD","cC",null,null],Y:["tT","6^","7&","uU","hH","gG"],Z:[null,"aA","sS","xX",null,null],"[":["pP","-_","=+","]}","'\"",";:"],"\\":["]}",null,null,null,null,null],"]":["[{","=+",null,"\\|",null,"'\""],"^":["5%",null,null,"7&","yY","tT"],_:["0)",null,null,"=+","[{","pP"],"`":[null,null,null,"1!",null,null],a:[null,"qQ","wW","sS","zZ",null],b:["vV","gG","hH","nN",null,null],c:["xX","dD","fF","vV",null,null],d:["sS","eE","rR","fF","cC","xX"],e:["wW","3#","4$","rR","dD","sS"],f:["dD","rR","tT","gG","vV","cC"],g:["fF","tT","yY","hH","bB","vV"],h:["gG","yY","uU","jJ","nN","bB"],i:["uU","8*","9(","oO","kK","jJ"],j:["hH","uU","iI","kK","mM","nN"],k:["jJ","iI","oO","lL",",<","mM"],l:["kK","oO","pP",";:",".>",",<"],m:["nN","jJ","kK",",<",null,null],n:["bB","hH","jJ","mM",null,null],o:["iI","9(","0)","pP","lL","kK"],p:["oO","0)","-_","[{",";:","lL"],q:[null,"1!","2@","wW","aA",null],r:["eE","4$","5%","tT","fF","dD"],s:["aA","wW","eE","dD","xX","zZ"],t:["rR","5%","6^","yY","gG","fF"],u:["yY","7&","8*","iI","jJ","hH"],v:["cC","fF","gG","bB",null,null],w:["qQ","2@","3#","eE","sS","aA"],x:["zZ","sS","dD","cC",null,null],y:["tT","6^","7&","uU","hH","gG"],z:[null,"aA","sS","xX",null,null],"{":["pP","-_","=+","]}","'\"",";:"],"|":["]}",null,null,null,null,null],"}":["[{","=+",null,"\\|",null,"'\""],"~":[null,null,null,"1!",null,null]},dvorak:{"!":["`~",null,null,"2@","'\"",null],'"':[null,"1!","2@",",<","aA",null],"#":["2@",null,null,"4$",".>",",<"],$:["3#",null,null,"5%","pP",".>"],"%":["4$",null,null,"6^","yY","pP"],"&":["6^",null,null,"8*","gG","fF"],"'":[null,"1!","2@",",<","aA",null],"(":["8*",null,null,"0)","rR","cC"],")":["9(",null,null,"[{","lL","rR"],"*":["7&",null,null,"9(","cC","gG"],"+":["/?","]}",null,"\\|",null,"-_"],",":["'\"","2@","3#",".>","oO","aA"],"-":["sS","/?","=+",null,null,"zZ"],".":[",<","3#","4$","pP","eE","oO"],"/":["lL","[{","]}","=+","-_","sS"],0:["9(",null,null,"[{","lL","rR"],1:["`~",null,null,"2@","'\"",null],2:["1!",null,null,"3#",",<","'\""],3:["2@",null,null,"4$",".>",",<"],4:["3#",null,null,"5%","pP",".>"],5:["4$",null,null,"6^","yY","pP"],6:["5%",null,null,"7&","fF","yY"],7:["6^",null,null,"8*","gG","fF"],8:["7&",null,null,"9(","cC","gG"],9:["8*",null,null,"0)","rR","cC"],":":[null,"aA","oO","qQ",null,null],";":[null,"aA","oO","qQ",null,null],"<":["'\"","2@","3#",".>","oO","aA"],"=":["/?","]}",null,"\\|",null,"-_"],">":[",<","3#","4$","pP","eE","oO"],"?":["lL","[{","]}","=+","-_","sS"],"@":["1!",null,null,"3#",",<","'\""],A:[null,"'\"",",<","oO",";:",null],B:["xX","dD","hH","mM",null,null],C:["gG","8*","9(","rR","tT","hH"],D:["iI","fF","gG","hH","bB","xX"],E:["oO",".>","pP","uU","jJ","qQ"],F:["yY","6^","7&","gG","dD","iI"],G:["fF","7&","8*","cC","hH","dD"],H:["dD","gG","cC","tT","mM","bB"],I:["uU","yY","fF","dD","xX","kK"],J:["qQ","eE","uU","kK",null,null],K:["jJ","uU","iI","xX",null,null],L:["rR","0)","[{","/?","sS","nN"],M:["bB","hH","tT","wW",null,null],N:["tT","rR","lL","sS","vV","wW"],O:["aA",",<",".>","eE","qQ",";:"],P:[".>","4$","5%","yY","uU","eE"],Q:[";:","oO","eE","jJ",null,null],R:["cC","9(","0)","lL","nN","tT"],S:["nN","lL","/?","-_","zZ","vV"],T:["hH","cC","rR","nN","wW","mM"],U:["eE","pP","yY","iI","kK","jJ"],V:["wW","nN","sS","zZ",null,null],W:["mM","tT","nN","vV",null,null],X:["kK","iI","dD","bB",null,null],Y:["pP","5%","6^","fF","iI","uU"],Z:["vV","sS","-_",null,null,null],"[":["0)",null,null,"]}","/?","lL"],"\\":["=+",null,null,null,null,null],"]":["[{",null,null,null,"=+","/?"],"^":["5%",null,null,"7&","fF","yY"],_:["sS","/?","=+",null,null,"zZ"],"`":[null,null,null,"1!",null,null],a:[null,"'\"",",<","oO",";:",null],b:["xX","dD","hH","mM",null,null],c:["gG","8*","9(","rR","tT","hH"],d:["iI","fF","gG","hH","bB","xX"],e:["oO",".>","pP","uU","jJ","qQ"],f:["yY","6^","7&","gG","dD","iI"],g:["fF","7&","8*","cC","hH","dD"],h:["dD","gG","cC","tT","mM","bB"],i:["uU","yY","fF","dD","xX","kK"],j:["qQ","eE","uU","kK",null,null],k:["jJ","uU","iI","xX",null,null],l:["rR","0)","[{","/?","sS","nN"],m:["bB","hH","tT","wW",null,null],n:["tT","rR","lL","sS","vV","wW"],o:["aA",",<",".>","eE","qQ",";:"],p:[".>","4$","5%","yY","uU","eE"],q:[";:","oO","eE","jJ",null,null],r:["cC","9(","0)","lL","nN","tT"],s:["nN","lL","/?","-_","zZ","vV"],t:["hH","cC","rR","nN","wW","mM"],u:["eE","pP","yY","iI","kK","jJ"],v:["wW","nN","sS","zZ",null,null],w:["mM","tT","nN","vV",null,null],x:["kK","iI","dD","bB",null,null],y:["pP","5%","6^","fF","iI","uU"],z:["vV","sS","-_",null,null,null],"{":["0)",null,null,"]}","/?","lL"],"|":["=+",null,null,null,null,null],"}":["[{",null,null,null,"=+","/?"],"~":[null,null,null,"1!",null,null]},keypad:{"*":["/",null,null,null,"-","+","9","8"],"+":["9","*","-",null,null,null,null,"6"],"-":["*",null,null,null,null,null,"+","9"],".":["0","2","3",null,null,null,null,null],"/":[null,null,null,null,"*","9","8","7"],0:[null,"1","2","3",".",null,null,null],1:[null,null,"4","5","2","0",null,null],2:["1","4","5","6","3",".","0",null],3:["2","5","6",null,null,null,".","0"],4:[null,null,"7","8","5","2","1",null],5:["4","7","8","9","6","3","2","1"],6:["5","8","9","+",null,null,"3","2"],7:[null,null,null,"/","8","5","4",null],8:["7",null,"/","*","9","6","5","4"],9:["8","/","*","-","+",null,"6","5"]},mac_keypad:{"*":["/",null,null,null,null,null,"-","9"],"+":["6","9","-",null,null,null,null,"3"],"-":["9","/","*",null,null,null,"+","6"],".":["0","2","3",null,null,null,null,null],"/":["=",null,null,null,"*","-","9","8"],0:[null,"1","2","3",".",null,null,null],1:[null,null,"4","5","2","0",null,null],2:["1","4","5","6","3",".","0",null],3:["2","5","6","+",null,null,".","0"],4:[null,null,"7","8","5","2","1",null],5:["4","7","8","9","6","3","2","1"],6:["5","8","9","-","+",null,"3","2"],7:[null,null,null,"=","8","5","4",null],8:["7",null,"=","/","9","6","5","4"],9:["8","=","/","*","-","+","6","5"],"=":[null,null,null,null,"/","9","8","7"]}},module.exports=adjacency_graphs;
 
                     },{}],2:[function(require,module,exports){
-                    var feedback,scoring;scoring=require("./scoring"),feedback={default_feedback:{warning:"",suggestions:["Use pocas palabras, evite frases comunes","No hay necesidad de s&#237;mbolos, d&#237;gitos o letras may&#250;sculas"]},get_feedback:function(e,s){var a,t,r,n,o,i;if(0===s.length)return this.default_feedback;if(e>2)return{warning:"",suggestions:[]};for(n=s[0],i=s.slice(1),t=0,r=i.length;t<r;t++)o=i[t],o.token.length>n.token.length&&(n=o);return feedback=this.get_match_feedback(n,1===s.length),a="Agregue otra palabra o dos. Las palabras poco comunes son mejores.",null!=feedback?(feedback.suggestions.unshift(a),null==feedback.warning&&(feedback.warning="")):feedback={warning:"",suggestions:[a]},feedback},get_match_feedback:function(e,s){var a,t;switch(e.pattern){case"dictionary":return this.get_dictionary_match_feedback(e,s);case"spatial":return a=e.graph.toUpperCase(),t=1===e.turns?"Las filas rectas de teclas son f&#225;ciles de adivinar":"Los patrones de teclado cortos son f&#225;ciles de adivinar",{warning:t,suggestions:["Use un patr&#243;n de teclado m&#225;s largo con m&#225;s giros"]};case"repeat":return t=1===e.base_token.length?'Las repeticiones como "aaa" son f&#225;ciles de adivinar':'Las repeticiones como "abcabcabc" son solo un poco m&#225;s dif&#237;ciles de adivinar que "abc"',{warning:t,suggestions:["Evitar palabras y caracteres repetidos."]};case"sequence":return{warning:"Secuencias como abc o 6543 son f&#225;ciles de adivinar",suggestions:["Evitar secuencias"]};case"regex":if("recent_year"===e.regex_name)return{warning:"Los a&#241;os recientes son f&#225;ciles de adivinar",suggestions:["Evitar a&#241;os recientes","Evitar a&#241;os que est&#233;n asociados contigo"]};break;case"date":return{warning:"Las fechas son a menudo f&#225;ciles de adivinar",suggestions:["Evite fechas y a&#241;os que est&#233;n asociados con usted"]}}},get_dictionary_match_feedback:function(e,s){var a,t,r,n,o;return n="passwords"===e.dictionary_name?!s||e.l33t||e.reversed?e.guesses_log10<=4?"Esto es similar a una contrase&#241;a de uso com&#250;n":void 0:e.rank<=10?"Esta es una de las 10 contrase&#241;as m&#225;s comunes":e.rank<=100?"Esta es una de las 100 contrase&#241;as m&#225;s comunes":"Esta es una contrase&#241;a muy com&#250;n":"english"===e.dictionary_name?s?"Una palabra por s&#237; sola es f&#225;cil de adivinar":void 0:"surnames"===(a=e.dictionary_name)||"male_names"===a||"female_names"===a?s?"Los nombres y apellidos por s&#237; solos son f&#225;ciles de adivinar":"Los nombres y apellidos comunes son f&#225;ciles de adivinar":"",r=[],o=e.token,o.match(scoring.START_UPPER)?r.push("Las may&#250;sculas no ayudan mucho"):o.match(scoring.ALL_UPPER)&&o.toLowerCase()!==o&&r.push("Todo en may&#250;sculas es casi tan f&#225;cil de adivinar como todo en min&#250;sculas"),e.reversed&&e.token.length>=4&&r.push("Las palabras invertidas no son mucho m&#225;s dif&#237;ciles de adivinar"),e.l33t&&r.push("Las sustituciones predecibles como '@' en lugar de 'a' no ayudan mucho"),t={warning:n,suggestions:r}}},module.exports=feedback;
+                    var feedback,scoring;scoring=require("./scoring"),feedback={default_feedback:{warning:"",suggestions:["Use pocas palabras, evite frases comunes","No hay necesidad de s\u00edmbolos, d\u00edgitos o letras may\u00fasculas"]},get_feedback:function(e,s){var a,t,r,n,o,i;if(0===s.length)return this.default_feedback;if(e>2)return{warning:"",suggestions:[]};for(n=s[0],i=s.slice(1),t=0,r=i.length;t<r;t++)o=i[t],o.token.length>n.token.length&&(n=o);return feedback=this.get_match_feedback(n,1===s.length),a="Agregue otra palabra o dos. Las palabras poco comunes son mejores.",null!=feedback?(feedback.suggestions.unshift(a),null==feedback.warning&&(feedback.warning="")):feedback={warning:"",suggestions:[a]},feedback},get_match_feedback:function(e,s){var a,t;switch(e.pattern){case"dictionary":return this.get_dictionary_match_feedback(e,s);case"spatial":return a=e.graph.toUpperCase(),t=1===e.turns?"Las filas rectas de teclas son f\u00e1ciles de adivinar":"Los patrones de teclado cortos son f\u00e1ciles de adivinar",{warning:t,suggestions:["Use un patr\u00f3n de teclado m\u00e1s largo con m\u00e1s giros"]};case"repeat":return t=1===e.base_token.length?'Las repeticiones como "aaa" son f\u00e1ciles de adivinar':'Las repeticiones como "abcabcabc" son solo un poco m\u00e1s dif\u00edciles de adivinar que "abc"',{warning:t,suggestions:["Evitar palabras y caracteres repetidos."]};case"sequence":return{warning:"Secuencias como abc o 6543 son f\u00e1ciles de adivinar",suggestions:["Evitar secuencias"]};case"regex":if("recent_year"===e.regex_name)return{warning:"Los a\u00f1os recientes son f\u00e1ciles de adivinar",suggestions:["Evitar a\u00f1os recientes","Evitar a\u00f1os que est\u00e9n asociados contigo"]};break;case"date":return{warning:"Las fechas son a menudo f\u00e1ciles de adivinar",suggestions:["Evite fechas y a\u00f1os que est\u00e9n asociados con usted"]}}},get_dictionary_match_feedback:function(e,s){var a,t,r,n,o;return n="passwords"===e.dictionary_name?!s||e.l33t||e.reversed?e.guesses_log10<=4?"Esto es similar a una contrase\u00f1a de uso com\u00fan":void 0:e.rank<=10?"Esta es una de las 10 contrase\u00f1as m\u00e1s comunes":e.rank<=100?"Esta es una de las 100 contrase\u00f1as m\u00e1s comunes":"Esta es una contrase\u00f1a muy com\u00fan":"english"===e.dictionary_name?s?"Una palabra por s\u00ed sola es f\u00e1cil de adivinar":void 0:"surnames"===(a=e.dictionary_name)||"male_names"===a||"female_names"===a?s?"Los nombres y apellidos por s\u00ed solos son f\u00e1ciles de adivinar":"Los nombres y apellidos comunes son f\u00e1ciles de adivinar":"",r=[],o=e.token,o.match(scoring.START_UPPER)?r.push("Las may\u00fasculas no ayudan mucho"):o.match(scoring.ALL_UPPER)&&o.toLowerCase()!==o&&r.push("Todo en may\u00fasculas es casi tan f\u00e1cil de adivinar como todo en min\u00fasculas"),e.reversed&&e.token.length>=4&&r.push("Las palabras invertidas no son mucho m\u00e1s dif\u00edciles de adivinar"),e.l33t&&r.push("Las sustituciones predecibles como '@' en lugar de 'a' no ayudan mucho"),t={warning:n,suggestions:r}}},module.exports=feedback;
 
                     },{"./scoring":6}],3:[function(require,module,exports){
                     var frequency_lists;frequency_lists={passwords:"123".split(",")},module.exports=frequency_lists;
@@ -48069,7 +48069,7 @@
                     var BRUTEFORCE_CARDINALITY,MIN_GUESSES_BEFORE_GROWING_SEQUENCE,MIN_SUBMATCH_GUESSES_MULTI_CHAR,MIN_SUBMATCH_GUESSES_SINGLE_CHAR,adjacency_graphs,calc_average_degree,k,scoring,v;adjacency_graphs=require("./adjacency_graphs"),calc_average_degree=function(e){var t,r,n,s,a,u;t=0;for(n in e)a=e[n],t+=function(){var e,t,r;for(r=[],t=0,e=a.length;t<e;t++)s=a[t],s&&r.push(s);return r}().length;return t/=function(){var t;t=[];for(r in e)u=e[r],t.push(r);return t}().length},BRUTEFORCE_CARDINALITY=10,MIN_GUESSES_BEFORE_GROWING_SEQUENCE=1e4,MIN_SUBMATCH_GUESSES_SINGLE_CHAR=10,MIN_SUBMATCH_GUESSES_MULTI_CHAR=50,scoring={nCk:function(e,t){var r,n,s,a;if(t>e)return 0;if(0===t)return 1;for(s=1,r=n=1,a=t;1<=a?n<=a:n>=a;r=1<=a?++n:--n)s*=e,s/=r,e-=1;return s},log10:function(e){return Math.log(e)/Math.log(10)},log2:function(e){return Math.log(e)/Math.log(2)},factorial:function(e){var t,r,n,s;if(e<2)return 1;for(t=1,r=n=2,s=e;2<=s?n<=s:n>=s;r=2<=s?++n:--n)t*=r;return t},most_guessable_match_sequence:function(e,t,r){var n,s,a,u,i,_,o,h,E,c,g,f,l,p,A,S,R,v,I,M,N,C,U,T;for(null==r&&(r=!1),l=e.length,f=function(){var e,t,r;for(r=[],n=e=0,t=l;0<=t?e<t:e>t;n=0<=t?++e:--e)r.push([]);return r}(),p=0,_=t.length;p<_;p++)c=t[p],f[c.j].push(c);for(v=0,o=f.length;v<o;v++)E=f[v],E.sort(function(e,t){return e.i-t.i});for(A={m:function(){var e,t,r;for(t=[],n=r=0,e=l;0<=e?r<e:r>e;n=0<=e?++r:--r)t.push({});return t}(),pi:function(){var e,t,r;for(t=[],n=r=0,e=l;0<=e?r<e:r>e;n=0<=e?++r:--r)t.push({});return t}(),g:function(){var e,t,r;for(t=[],n=r=0,e=l;0<=e?r<e:r>e;n=0<=e?++r:--r)t.push({});return t}()},U=function(t){return function(n,s){var a,u,i,_,o,h;_=n.j,o=t.estimate_guesses(n,e),s>1&&(o*=A.pi[n.i-1][s-1]),i=t.factorial(s)*o,r||(i+=Math.pow(MIN_GUESSES_BEFORE_GROWING_SEQUENCE,s-1)),h=A.g[_];for(u in h)if(a=h[u],!(u>s)&&a<=i)return;return A.g[_][s]=i,A.m[_][s]=n,A.pi[_][s]=o}}(this),s=function(e){return function(e){var t,r,n,s,a,u;for(c=g(0,e),U(c,1),a=[],t=u=1,s=e;1<=s?u<=s:u>=s;t=1<=s?++u:--u)c=g(t,e),a.push(function(){var e,s;e=A.m[t-1],s=[];for(r in e)n=e[r],r=parseInt(r),"bruteforce"!==n.pattern&&s.push(U(c,r+1));return s}());return a}}(this),g=function(t){return function(t,r){return{pattern:"bruteforce",token:e.slice(t,+r+1||9e9),i:t,j:r}}}(this),C=function(e){return function(e){var t,r,n,s,a,u,i;u=[],s=e-1,a=void 0,n=1/0,i=A.g[s];for(r in i)t=i[r],t<n&&(a=r,n=t);for(;s>=0;)c=A.m[s][a],u.unshift(c),s=c.i-1,a--;return u}}(this),u=N=0,I=l;0<=I?N<I:N>I;u=0<=I?++N:--N){for(M=f[u],T=0,h=M.length;T<h;T++)if(c=M[T],c.i>0)for(i in A.m[c.i-1])i=parseInt(i),U(c,i+1);else U(c,1);s(u)}return R=C(l),S=R.length,a=0===e.length?1:A.g[l-1][S],{password:e,guesses:a,guesses_log10:this.log10(a),sequence:R}},estimate_guesses:function(e,t){var r,n,s;return null!=e.guesses?e.guesses:(s=1,e.token.length<t.length&&(s=1===e.token.length?MIN_SUBMATCH_GUESSES_SINGLE_CHAR:MIN_SUBMATCH_GUESSES_MULTI_CHAR),r={bruteforce:this.bruteforce_guesses,dictionary:this.dictionary_guesses,spatial:this.spatial_guesses,repeat:this.repeat_guesses,sequence:this.sequence_guesses,regex:this.regex_guesses,date:this.date_guesses},n=r[e.pattern].call(this,e),e.guesses=Math.max(n,s),e.guesses_log10=this.log10(e.guesses),e.guesses)},bruteforce_guesses:function(e){var t,r;return t=Math.pow(BRUTEFORCE_CARDINALITY,e.token.length),r=1===e.token.length?MIN_SUBMATCH_GUESSES_SINGLE_CHAR+1:MIN_SUBMATCH_GUESSES_MULTI_CHAR+1,Math.max(t,r)},repeat_guesses:function(e){return e.base_guesses*e.repeat_count},sequence_guesses:function(e){var t,r;return r=e.token.charAt(0),t="a"===r||"A"===r||"z"===r||"Z"===r||"0"===r||"1"===r||"9"===r?4:r.match(/\d/)?10:26,e.ascending||(t*=2),t*e.token.length},MIN_YEAR_SPACE:20,REFERENCE_YEAR:2016,regex_guesses:function(e){var t,r;if(t={alpha_lower:26,alpha_upper:26,alpha:52,alphanumeric:62,digits:10,symbols:33},e.regex_name in t)return Math.pow(t[e.regex_name],e.token.length);switch(e.regex_name){case"recent_year":return r=Math.abs(parseInt(e.regex_match[0])-this.REFERENCE_YEAR),r=Math.max(r,this.MIN_YEAR_SPACE)}},date_guesses:function(e){var t,r;return r=Math.max(Math.abs(e.year-this.REFERENCE_YEAR),this.MIN_YEAR_SPACE),t=365*r,e.separator&&(t*=4),t},KEYBOARD_AVERAGE_DEGREE:calc_average_degree(adjacency_graphs.qwerty),KEYPAD_AVERAGE_DEGREE:calc_average_degree(adjacency_graphs.keypad),KEYBOARD_STARTING_POSITIONS:function(){var e,t;e=adjacency_graphs.qwerty,t=[];for(k in e)v=e[k],t.push(k);return t}().length,KEYPAD_STARTING_POSITIONS:function(){var e,t;e=adjacency_graphs.keypad,t=[];for(k in e)v=e[k],t.push(k);return t}().length,spatial_guesses:function(e){var t,r,n,s,a,u,i,_,o,h,E,c,g,f,l,p,A,S;for("qwerty"===(E=e.graph)||"dvorak"===E?(l=this.KEYBOARD_STARTING_POSITIONS,s=this.KEYBOARD_AVERAGE_DEGREE):(l=this.KEYPAD_STARTING_POSITIONS,s=this.KEYPAD_AVERAGE_DEGREE),a=0,t=e.token.length,A=e.turns,u=_=2,c=t;2<=c?_<=c:_>=c;u=2<=c?++_:--_)for(o=Math.min(A,u-1),i=h=1,g=o;1<=g?h<=g:h>=g;i=1<=g?++h:--h)a+=this.nCk(u-1,i-1)*l*Math.pow(s,i);if(e.shifted_count)if(r=e.shifted_count,n=e.token.length-e.shifted_count,0===r||0===n)a*=2;else{for(p=0,u=S=1,f=Math.min(r,n);1<=f?S<=f:S>=f;u=1<=f?++S:--S)p+=this.nCk(r+n,u);a*=p}return a},dictionary_guesses:function(e){var t;return e.base_guesses=e.rank,e.uppercase_variations=this.uppercase_variations(e),e.l33t_variations=this.l33t_variations(e),t=e.reversed&&2||1,e.base_guesses*e.uppercase_variations*e.l33t_variations*t},START_UPPER:/^[A-Z][^A-Z]+$/,END_UPPER:/^[^A-Z]+[A-Z]$/,ALL_UPPER:/^[^a-z]+$/,ALL_LOWER:/^[^A-Z]+$/,uppercase_variations:function(e){var t,r,n,s,a,u,i,_,o,h,E,c;if(c=e.token,c.match(this.ALL_LOWER)||c.toLowerCase()===c)return 1;for(_=[this.START_UPPER,this.END_UPPER,this.ALL_UPPER],u=0,a=_.length;u<a;u++)if(h=_[u],c.match(h))return 2;for(r=function(){var e,t,r,s;for(r=c.split(""),s=[],t=0,e=r.length;t<e;t++)n=r[t],n.match(/[A-Z]/)&&s.push(n);return s}().length,t=function(){var e,t,r,s;for(r=c.split(""),s=[],t=0,e=r.length;t<e;t++)n=r[t],n.match(/[a-z]/)&&s.push(n);return s}().length,E=0,s=i=1,o=Math.min(r,t);1<=o?i<=o:i>=o;s=1<=o?++i:--i)E+=this.nCk(r+t,s);return E},l33t_variations:function(e){var t,r,n,s,a,u,i,_,o,h,E,c,g;if(!e.l33t)return 1;g=1,o=e.sub;for(E in o)if(c=o[E],s=e.token.toLowerCase().split(""),t=function(){var e,t,r;for(r=[],t=0,e=s.length;t<e;t++)n=s[t],n===E&&r.push(n);return r}().length,r=function(){var e,t,r;for(r=[],t=0,e=s.length;t<e;t++)n=s[t],n===c&&r.push(n);return r}().length,0===t||0===r)g*=2;else{for(i=Math.min(r,t),_=0,a=u=1,h=i;1<=h?u<=h:u>=h;a=1<=h?++u:--u)_+=this.nCk(r+t,a);g*=_}return g}},module.exports=scoring;
 
                     },{"./adjacency_graphs":1}],7:[function(require,module,exports){
-                    var time_estimates;time_estimates={estimate_attack_times:function(e){var t,n,s,o;n={online_throttling_100_per_hour:e/(100/3600),online_no_throttling_10_per_second:e/10,offline_slow_hashing_1e4_per_second:e/1e4,offline_fast_hashing_1e10_per_second:e/1e10},t={};for(s in n)o=n[s],t[s]=this.display_time(o);return{crack_times_seconds:n,crack_times_display:t,score:this.guesses_to_score(e)}},guesses_to_score:function(e){var t;return t=5,e<1e3+t?0:e<1e6+t?1:e<1e8+t?2:e<1e10+t?3:4},display_time:function(e){var t,n,s,o,_,r,i,a,u,c;return i=60,r=60*i,s=24*r,a=31*s,c=12*a,n=100*c,u=e<1?[null,"menos de un segundo"]:e<i?(t=Math.round(e),[t,t+" segundos"]):e<r?(t=Math.round(e/i),[t,t+" minutos"]):e<s?(t=Math.round(e/r),[t,t+" horas"]):e<a?(t=Math.round(e/s),[t,t+" d&#237;as"]):e<c?(t=Math.round(e/a),[t,t+" meses"]):e<n?(t=Math.round(e/c),[t,t+" a&#241;os"]):[null,"siglos"],o=u[0],_=u[1],null!=o&&1!==o&&(_+=""),_}},module.exports=time_estimates;
+                    var time_estimates;time_estimates={estimate_attack_times:function(e){var t,n,s,o;n={online_throttling_100_per_hour:e/(100/3600),online_no_throttling_10_per_second:e/10,offline_slow_hashing_1e4_per_second:e/1e4,offline_fast_hashing_1e10_per_second:e/1e10},t={};for(s in n)o=n[s],t[s]=this.display_time(o);return{crack_times_seconds:n,crack_times_display:t,score:this.guesses_to_score(e)}},guesses_to_score:function(e){var t;return t=5,e<1e3+t?0:e<1e6+t?1:e<1e8+t?2:e<1e10+t?3:4},display_time:function(e){var t,n,s,o,_,r,i,a,u,c;return i=60,r=60*i,s=24*r,a=31*s,c=12*a,n=100*c,u=e<1?[null,"menos de un segundo"]:e<i?(t=Math.round(e),[t,t+" segundos"]):e<r?(t=Math.round(e/i),[t,t+" minutos"]):e<s?(t=Math.round(e/r),[t,t+" horas"]):e<a?(t=Math.round(e/s),[t,t+" d\u00edas"]):e<c?(t=Math.round(e/a),[t,t+" meses"]):e<n?(t=Math.round(e/c),[t,t+" a\u00f1os"]):[null,"siglos"],o=u[0],_=u[1],null!=o&&1!==o&&(_+=""),_}},module.exports=time_estimates;
 
                     },{}]},{},[4])(4)
                     });
@@ -48620,7 +48620,7 @@
                     clearDisplay();
                     clearEntropyFeedback();
                     DOM.phrase.val("");
-                    showValidationError("Entrop&#237;a en blanco");
+                    showValidationError("Entrop\u00eda en blanco");
                     return;
                     }
                     // Get the current phrase to detect changes
@@ -48645,7 +48645,7 @@
                     function delayedRootKeyChanged() {
                     // Warn if there is an existing mnemonic or passphrase.
                     if (DOM.phrase.val().length > 0 || DOM.passphrase.val().length > 0) {
-                    if (!confirm("Esto borrar&#225; la mnemot&#233;cnica y la frase de contrase&#241;a existentes")) {
+                    if (!confirm("Esto borrar\u00e1 la mnemot\u00e9cnica y la frase de contrase\u00f1a existentes")) {
                     DOM.rootKey.val(bip32RootKey);
                     return
                     }
@@ -48818,23 +48818,23 @@
                     var words = phraseToWordArray(phrase);
                     // Detect blank phrase
                     if (words.length == 0) {
-                    return "Mnemot&#233;cnica en blanco";
+                    return "Mnemot\u00e9cnica en blanco";
                     }
                     // Check each word
                     for (var i=0; i<words.length; i++) {
                     var word = words[i];
                     var language = getLanguage();
                     if (WORDLISTS[language].indexOf(word) == -1) {
-                    console.log("Encontrar la coincidencia m&#225;s cercana a " + word);
+                    console.log("Encontrar la coincidencia m\u00e1s cercana a " + word);
                     var nearestWord = findNearestWord(word);
-                    return word + " no est&#225; en la lista de palabras ";
+                    return word + " no est\u00e1 en la lista de palabras ";
                     }
                     }
                     // Check the words are valid
                     var properPhrase = wordArrayToPhrase(words);
                     var isValid = mnemonic.check(properPhrase);
                     if (!isValid) {
-                    return "Mnemot&#233;cnica inv&#225;lida";
+                    return "Mnemot\u00e9cnica inv\u00e1lida";
                     }
                     return false;
                     }
@@ -48844,7 +48844,7 @@
                     bitcoin.HDNode.fromBase58(rootKeyBase58);
                     }
                     catch (e) {
-                    return "Clave ra&#237;z no v&#225;lida";
+                    return "Clave ra\u00edz no v\u00e1lida";
                     }
                     return "";
                     }
@@ -48862,16 +48862,16 @@
                     path += change;
                     DOM.bip44path.val(path);
                     var derivationPath = DOM.bip44path.val();
-                    console.log("Uso de la ruta de derivaci&#243;n desde la pesta&#241;a BIP44: " + derivationPath);
+                    console.log("Uso de la ruta de derivaci\u00f3n desde la pesta\u00f1a BIP44: " + derivationPath);
                     return derivationPath;
                     }
                     else if (bip32TabSelected()) {
                     var derivationPath = DOM.bip32path.val();
-                    console.log("Usando la ruta de derivaci&#243;n desde la pesta&#241;a BIP32: " + derivationPath);
+                    console.log("Usando la ruta de derivaci\u00f3n desde la pesta\u00f1a BIP32: " + derivationPath);
                     return derivationPath;
                     }
                     else {
-                    console.log("Ruta de derivaci&#243;n desconocida");
+                    console.log("Ruta de derivaci\u00f3n desconocida");
                     }
                     }
 
@@ -48884,7 +48884,7 @@
                     var maxDepth = 255; // TODO verify this!!
                     var maxIndexValue = Math.pow(2, 31); // TODO verify this!!
                     if (path[0] != "m") {
-                    return "El primer car&#225;cter debe ser 'm'";
+                    return "El primer car\u00e1cter debe ser 'm'";
                     }
                     if (path.length > 1) {
                     if (path[1] != "/") {
@@ -48892,17 +48892,17 @@
                     }
                     var indexes = path.split("/");
                     if (indexes.length > maxDepth) {
-                    return "La profundidad de derivaci&#243;n es " + indexes.length + ", debe ser menor que " + maxDepth;
+                    return "La profundidad de derivaci\u00f3n es " + indexes.length + ", debe ser menor que " + maxDepth;
                     }
                     for (var depth = 1; depth<indexes.length; depth++) {
                     var index = indexes[depth];
                     var invalidChars = index.replace(/^[0-9]+'?$/g, "")
                     if (invalidChars.length > 0) {
-                    return "Caracteres inv&#225;lidos " + invalidChars + " encontrado en profundidad " + depth;
+                    return "Caracteres inv\u00e1lidos " + invalidChars + " encontrado en profundidad " + depth;
                     }
                     var indexValue = parseInt(index.replace("'", ""));
                     if (isNaN(depth)) {
-                    return "N&#250;mero inv&#225;lido en profundidad " + depth;
+                    return "N\u00famero inv\u00e1lido en profundidad " + depth;
                     }
                     if (indexValue > maxIndexValue) {
                     return "El valor de " + indexValue + " en profundidad " + depth + " debe ser menor que " + maxIndexValue;
@@ -48911,13 +48911,13 @@
                     }
                     // Check root key exists or else derivation path is useless!
                     if (!bip32RootKey) {
-                    return "Sin clave ra&#237;z";
+                    return "Sin clave ra\u00edz";
                     }
                     // Check no hardened derivation path when using xpub keys
                     var hardened = path.indexOf("'") > -1;
                     var isXpubkey = !("privKey" in bip32RootKey);
                     if (hardened && isXpubkey) {
-                    return "La ruta de derivaci&#243;n reforzada no es v&#225;lida con la clave xpub";
+                    return "La ruta de derivaci\u00f3n reforzada no es v\u00e1lida con la clave xpub";
                     }
                     return false;
                     }
@@ -49034,7 +49034,7 @@
                     DOM.rowsToAdd.val("20");
                     }
                     if (rowsToAdd > 200) {
-                    var msg = "Generar " + rowsToAdd + " filas podr&#237;a tomar un tiempo. ";
+                    var msg = "Generar " + rowsToAdd + " filas podr\u00eda tomar un tiempo. ";
                     msg += "¿Quieres continuar?";
                     if (!confirm(msg)) {
                     return;
@@ -49219,7 +49219,7 @@
                     // Use first language and warn if multiple detected
                     language = mostMatchedLanguages[0];
                     if (mostMatchedLanguages.length > 1) {
-                    console.warn("M&#250;ltiples idiomas posibles");
+                    console.warn("M\u00faltiples idiomas posibles");
                     console.warn(mostMatchedLanguages);
                     }
                     }
@@ -49345,15 +49345,15 @@
 
                     function showEntropyFeedback(entropy) {
                     var numberOfBits = entropy.binaryStr.length;
-                    var strength = "Extremadamente d&#233;bil";
+                    var strength = "Extremadamente d\u00e9bil";
                     if (numberOfBits >= 64) {
-                    strength = "Demasiado d&#233;bil";
+                    strength = "Demasiado d\u00e9bil";
                     }
                     if (numberOfBits >= 80) {
-                    strength = "Muy d&#233;bil";
+                    strength = "Muy d\u00e9bil";
                     }
                     if (numberOfBits >= 96) {
-                    strength = "D&#233;bil";
+                    strength = "D\u00e9bil";
                     }
                     if (numberOfBits >= 128) {
                     strength = "Fuerte";
@@ -49377,7 +49377,7 @@
                     var z = zxcvbn(entropy.base.parts.join(""));
                     var timeToCrack = z.crack_times_seconds.offline_fast_hashing_1e10_per_second;
                     if (timeToCrack < 86400 && entropy.binaryStr.length >= 128) {
-                    strength = "F&#225;cilmente crackeable";
+                    strength = "F\u00e1cilmente crackeable";
                     if (z.feedback.warning != "") {
                     strength = strength + " - " + z.feedback.warning;
                     };
@@ -49385,7 +49385,7 @@
                     }
                     catch (e) {
                     strength = "Fuerza incalculable";
-                    console.log("Error al detectar la fuerza de la entrop&#237;a con zxcvbn:");
+                    console.log("Error al detectar la fuerza de la entrop\u00eda con zxcvbn:");
                     console.log(e);
                     }
                     var entropyTypeStr = getEntropyTypeStr(entropy);
