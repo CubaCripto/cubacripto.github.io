@@ -1,7 +1,7 @@
 <html>
+
   <!-- head -->
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-R3KMMJG3C8"></script>
@@ -9,18 +9,18 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-R3KMMJG3C8');
     </script>
+    <!-- /Google tag (gtag.js) -->
 
-    <!-- meta -->
+    <!-- metadata -->
     <meta lang="es" />
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- /meta -->
+    <!-- /metadata -->
 
-    <!-- ///// START BASIC CODE ///// -->
+    <!-- VISUAL CODE -->
 
     <!-- title bar -->
     <title>BIP39 - CUBACRIPTO</title>
@@ -30,6 +30,14 @@
       type="image/png"
     />
     <!-- /tittle bar -->
+	
+	<!-- go to top when refresh -->
+	<script>
+    window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+    };
+    </script>
+	<!-- /go to top when refresh -->
 
     <!-- style -->
     <style>
@@ -6894,19 +6902,19 @@
       box-shadow: inset 0 1px 1px rgba(0,0,0,.0);
       -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.0);
       }
-      .source {
+      .EntropySource {
       word-break: keep-all;
       resize: none;
       }
-      .phrase {
+      .Phrase {
       word-break: keep-all;
       resize: none;
       }
-      .passphrase {
+      .Passphrase {
       word-break: keep-all;
       resize: none;
       }
-      .entropy {
+      .Entropy {
       word-break: keep-all;
       resize: none;
       }
@@ -6982,11 +6990,13 @@
       }
     </style>
     <!-- /style -->
+	
   </head>
   <!-- /head -->
 
   <!-- body -->
   <body>
+  
     <!-- dialog message -->
     <div class="feedback-container">
       <div class="feedback" style="display: none;"></div>
@@ -6995,10 +7005,8 @@
 
     <!-- header name -->
     <div class="container">
-      <h6 class="text-right"><b>v2.0</b></h6>
-
-      <h1 class="text-center">Convertidor Mnemot&#233;cnico BIP39</h1>
-
+      <h6 class="text-right"><b><i>v3.0</i></b></h6>
+      <h1 class="text-center">Convertidor Mnemot&eacute;cnico BIP39</h1>
       <div class="row">
         <div class="col-md-12">
           <form class="form-horizontal" role="form">
@@ -7007,227 +7015,213 @@
             <hr />
 
             <!-- hidden entropy container -->
+			
             <div class="entropy-container hidden">
+			
+			<!-- Entropy note-->
               <div class="row">
                 <div class="col-md-12">
-                  <h2>Entrop&#237;a</h2>
+                  <h2>Entrop&iacute;a</h2>
                 </div>
               </div>
-
               <div class="form-group">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-10">
-                  <h6>
-                    <span style="color: red;"><b>ATENCI&#211;N:</b></span>
-                    <span style="color: black;"
-                      ><b
-                        >La entrop&#237;a es una funci&#243;n avanzada. Tenga en cuenta
-                        que este m&#233;todo puede ser inseguro si se usa de una
-                        manera incorrecta.
-                      </b></span
-                    >
-                    <a
-                      href="#entropy-notes"
-                      data-translate=""
-                      ><b>M&#225;s informaci&#243;n</b></a
-                    >
-                  </h6>
+                  <h5>
+                    <span style="color: red;">ATENCI&Oacute;N: </span>
+                    La entrop&iacute;a es una funci&oacute;n avanzada. Tenga en cuenta que este m&eacute;todo puede ser inseguro si se usa de una manera incorrecta.
+					</span>
+                    <a href="#entropy-notes" data-translate=""><b><i>M&aacute;s informaci&oacute;n</i></b></a>
+                  </h5>
                 </div>
               </div>
+			<!-- /Entropy -->
+			  
+<!-- EntropySource -->
+<div class="form-group">
+  <label for="EntropySource" class="col-sm-2 control-label">Fuente de entrop&iacute;a</label>
+  <div class="col-sm-10">
+    <textarea
+      id="EntropySource"
+      class="EntropySource form-control"
+      placeholder="Ingrese una fuente de entrop&iacute;a robusta (acepta letras, n&uacute;meros y s&iacute;mbolos)">
+    </textarea>
+    <br />
+    <button onclick="copyData1()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
+      <b>Copiar</b>
+    </button>
+    <button onclick="clearData1()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
+      <b>Borrar</b>
+    </button>
+  </div>
+</div>
+<!-- /EntropySource -->
 
-              <div class="form-group">
-                <label
-                  for="source"
-                  class="col-sm-2 control-label"
-                  data-translate=""
-                  >Fuente de entrop&#237;a</label
-                >
-                <div class="col-sm-10">
-                  <textarea
-                    id="source"
-                    oninput="convertToHexOrBinary()"
-                    class="source form-control"
-                    placeholder="Ingrese su texto (acepta letras, n&#250;meros y s&#237;mbolos)"
-                  ></textarea>
-                  <br />
-                  <button
-                    onclick="copyData1()"
-                    class="btn"
-                    style="border: 1px solid #c0c0c0; width: 70px;"
-                  >
-                    <b>Copiar</b>
-                  </button>
-                  <button
-                    onclick="clearData1()"
-                    class="btn"
-                    style="border: 1px solid #c0c0c0; width: 70px;"
-                  >
-                    <b>Borrar</b>
-                  </button>
-                </div>
-              </div>
+<!-- Entropy -->
+<div class="form-group">
+  <label for="Entropy" class="col-sm-2 control-label">Entrop&iacute;a</label>
+  <div class="col-sm-10">
+    <textarea
+      id="Entropy"
+      class="Entropy form-control"
+      placeholder="Ingrese una entrop&iacute;a (acepta hexadecimal o binario)">
+    </textarea>
+  </div>
+</div>
+<div class="form-group length">
+  <label class="col-sm-2 control-label"></label>
+  <div class="col-sm-10">
+    <div class="form-inline">
+      <button onclick="copyData4()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
+        <b>Copiar</b>
+      </button>
+      <button onclick="clearAll()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
+        <b>Borrar</b>
+      </button>
+      <select id="mnemonic-length" class="mnemonic-length form-control" style="width: 130px;">
+        <option value="12" selected>12 Palabras</option>
+        <option value="15">15 Palabras</option>
+        <option value="18">18 Palabras</option>
+        <option value="21">21 Palabras</option>
+        <option value="24">24 Palabras</option>
+      </select>
+    </div>
+  </div>
+</div>
 
-              <script>
-                function copyData1() {
-                var sourceTextArea = document.getElementById("source");
-                sourceTextArea.select();
-                document.execCommand("copy");
-                }
+<script>
+  // --- Botones ---
+  function copyData1() {
+    var EntropySourceTextArea = document.getElementById("EntropySource");
+    EntropySourceTextArea.select();
+    document.execCommand("copy");
+  }
 
-                function clearData1() {
-                document.getElementById("source").value = "";
-                document.getElementById("entropyHex").value = "";
-                }
-              </script>
+  function clearData1() {
+    document.getElementById("EntropySource").value = "";
+    document.getElementById("Entropy").value = "";
+  }
 
-              <div class="form-group">
-                <label
-                  for="entropyHex"
-                  class="col-sm-2 control-label"
-                  data-translate=""
-                  >Entrop&#237;a filtrada</label
-                >
-                <div class="col-sm-10">
-                  <textarea
-                    id="entropyHex"
-                    class="entropyHex form-control"
-                    readonly=""
-                  ></textarea>
-                </div>
-              </div>
+  function copyData4() {
+    var EntropyTextArea = document.getElementById("Entropy");
+    EntropyTextArea.select();
+    document.execCommand("copy");
+  }
 
-              <div class="form-group entropy-converter">
-                <label class="col-sm-2 control-label"></label>
-                <div class="col-sm-10">
-                  <div class="form-inline">
-                    <button
-                      onclick="copyData2()"
-                      class="btn"
-                      style="border: 1px solid #c0c0c0; width: 70px;"
-                    >
-                      <b>Copiar</b>
-                    </button>
-                    <select
-                      id="conversionType"
-                      class="converter form-control"
-                      style="width: 130px;"
-                      onchange="convertToHexOrBinary()"
-                    >
-                      <option value="hexadecimal">Hexadecimal</option>
-                      <option value="binary">Binario</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
+  function clearAll() {
+    document.getElementById("Entropy").value = "";
+    document.getElementById("EntropySource").value = "";
+    document.getElementById("Phrase").value = "";
+    document.getElementById("Passphrase").value = "";
+    document.getElementById("Seed").value = "";
+    document.getElementById("root-key").value = "";
+    document.getElementById("account-xpub").value = "";
+    document.getElementById("account-xprv").value = "";
+    document.getElementById("extended-pub-key").value = "";
+    document.getElementById("extended-priv-key").value = "";
+    document.getElementById("strength-info").innerHTML = "-";
+    document.getElementById("type-info").innerHTML = "-";
+    document.getElementById("event-info").innerHTML = "0";
+    document.getElementById("bits-event-info").innerHTML = "0";
+    document.getElementById("bits-info").innerHTML = "0";
+  }
 
-              <script>
-                function copyData2() {
-                var entropyHexTextArea = document.getElementById("entropyHex");
-                entropyHexTextArea.select();
-                document.execCommand("copy");
-                }
+  // --- Ejecutar ---
+  function executeEntropy() {
+    var entropyField = document.getElementById("Entropy");
+    var value = entropyField.value;
 
-                function convertToHexOrBinary() {
-                var sourceText = document.getElementById("source").value;
-                var conversionType = document.getElementById("conversionType").value;
-                var output = "";
+    // Simula copiar y pegar en el mismo campo sin usar portapapeles
+    entropyField.value = value;
 
-                if (conversionType === "hexadecimal") {
-                for (var i = 0; i < sourceText.length; i++) {
-                var hexValue = sourceText.charCodeAt(i).toString(16);
-                output += hexValue.padStart(2, "0");
-                }
-                } else if (conversionType === "binary") {
-                for (var i = 0; i < sourceText.length; i++) {
-                var binaryValue = sourceText.charCodeAt(i).toString(2);
-                output += binaryValue.padStart(8, "0");
-                }
-                }
+    // Dispara el evento 'input' para que los listeners reaccionen
+    var evt = new Event('input', { bubbles: true });
+    entropyField.dispatchEvent(evt);
 
-                document.getElementById("entropyHex").value = output;
-                }
-              </script>
+    // Efecto visual para confirmar acción
+    entropyField.style.outline = "2px solid #7fd67f";
+    setTimeout(function() {
+      entropyField.style.outline = "";
+    }, 300);
+  }
 
-              <div class="form-group">
-                <label
-                  for="entropy"
-                  class="col-sm-2 control-label"
-                  data-translate=""
-                  >Entrop&#237;a</label
-                >
-                <div class="col-sm-10">
-                  <textarea
-                    id="entropy"
-                    class="entropy form-control"
-                    placeholder="Ingrese su entrop&#237;a (acepta hexadecimal y binario)"
-                  ></textarea>
-                </div>
-              </div>
+  // --- Utilidades ---
+  function textToHex(text) {
+    var encoder = new TextEncoder();
+    var bytes = encoder.encode(text);
+    var hex = "";
+    for (var i = 0; i < bytes.length; i++) {
+      hex += bytes[i].toString(16).padStart(2, "0");
+    }
+    return hex;
+  }
 
-              <div class="form-group length">
-                <label class="col-sm-2 control-label"></label>
-                <div class="col-sm-10">
-                  <div class="form-inline">
-                    <button
-                      onclick="copyData4()"
-                      class="btn"
-                      style="border: 1px solid #c0c0c0; width: 70px;"
-                    >
-                      <b>Copiar</b>
-                    </button>
-                    <button
-                      onclick="clearAll()"
-                      class="btn"
-                      style="border: 1px solid #c0c0c0; width: 70px;"
-                    >
-                      <b>Borrar</b>
-                    </button>
-                    <select
-                      id="mnemonic-length"
-                      class="mnemonic-length form-control"
-                      style="width: 130px;"
-                    >
-                      <option value="12" selected="" data-translate="">
-                        12 Palabras
-                      </option>
-                      <option value="15">15 Palabras</option>
-                      <option value="18">18 Palabras</option>
-                      <option value="21">21 Palabras</option>
-                      <option value="24">24 Palabras</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
+  function hexToText(hex) {
+    var clean = hex.replace(/\s+/g, "").toLowerCase();
+    if (clean.length % 2 !== 0 || /[^0-9a-f]/.test(clean)) return "";
+    var bytes = new Uint8Array(clean.length / 2);
+    for (var i = 0; i < bytes.length; i++) {
+      bytes[i] = parseInt(clean.substr(i * 2, 2), 16);
+    }
+    var decoder = new TextDecoder();
+    return decoder.decode(bytes);
+  }
 
-              <script>
-                function copyData4() {
-                var entropyTextArea = document.getElementById("entropy");
-                entropyTextArea.select();
-                document.execCommand("copy");
-                }
+  function binaryToText(bin) {
+    var clean = bin.replace(/\s+/g, "");
+    if (clean.length % 8 !== 0 || /[^01]/.test(clean)) return "";
+    var bytes = new Uint8Array(clean.length / 8);
+    for (var i = 0; i < bytes.length; i++) {
+      bytes[i] = parseInt(clean.substr(i * 8, 8), 2);
+    }
+    var decoder = new TextDecoder();
+    return decoder.decode(bytes);
+  }
 
-                function clearAll() {
-                document.getElementById("entropy").value = "";
-                document.getElementById("phrase").value = "";
-                document.getElementById("seed").value = "";
-                document.getElementById("root-key").value = "";
-                document.getElementById("account-xpub").value = "";
-                document.getElementById("account-xprv").value = "";
-                document.getElementById("extended-pub-key").value = "";
-                document.getElementById("extended-priv-key").value = "";
-                document.getElementById("strength-info").innerHTML = "-";
-                document.getElementById("type-info").innerHTML = "-";
-                document.getElementById("event-info").innerHTML = "0";
-                document.getElementById("bits-event-info").innerHTML = "0";
-                document.getElementById("bits-info").innerHTML = "0";
-                var table = document.getElementById('address-table');
-                var rows = table.getElementsByTagName('tr');
-                for (var i = rows.length - 1; i > 0; i--) {
-                table.deleteRow(i);
-                }
-                }
-              </script>
+  var isSyncing = false;
 
+  // Texto -> Hexadecimal
+  function convertSourceToHex() {
+    if (isSyncing) return;
+    isSyncing = true;
+    var text = document.getElementById("EntropySource").value || "";
+    document.getElementById("Entropy").value = textToHex(text);
+    isSyncing = false;
+
+    // Ejecutar cada vez que Entropy se actualiza desde EntropySource
+    executeEntropy();
+  }
+
+  // Entropy (hex o bin) -> Texto
+  function convertEntropyToSource() {
+    if (isSyncing) return;
+    isSyncing = true;
+    var raw = document.getElementById("Entropy").value || "";
+    var input = raw.replace(/\s+/g, "");
+    var text = "";
+
+    if (/^[01]+$/.test(input) && input.length % 8 === 0) {
+      text = binaryToText(input);
+    } else if (/^[0-9a-fA-F]+$/.test(input) && input.length % 2 === 0) {
+      text = hexToText(input);
+    }
+
+    document.getElementById("EntropySource").value = text;
+    isSyncing = false;
+
+    // Ejecutar cada vez que se escribe directamente en Entropy
+    executeEntropy();
+  }
+
+  // --- Listeners ---
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("EntropySource").addEventListener("input", convertSourceToHex);
+    document.getElementById("Entropy").addEventListener("input", convertEntropyToSource);
+  });
+</script>
+<!-- /Entropy -->
+
+      <!-- Info Entropy -->
               <div class="form-group">
                 <div class="col-sm-10">
                   <label for="entropy-info" class="col-sm-3 control-label"
@@ -7240,7 +7234,7 @@
                 </div>
                 <div class="col-sm-10">
                   <label for="entropy-info" class="col-sm-3 control-label"
-                    >Tipo de entrop&#237;a:</label
+                    >Tipo de entrop&iacute;a:</label
                   >
                   <div
                     id="type-info"
@@ -7279,47 +7273,41 @@
           </form>
         </div>
       </div>
+	  <!-- /Info Entropy -->
+	  
       <!-- /hidden entropy container -->
-
-      <!-- mnemonic area -->
+	  
+      <!-- mnemonic -->
+	  
+	  <!-- mnemonic info -->
       <div class="row">
         <div class="col-md-12">
-          <h2>Mnemot&#233;cnica</h2>
+          <h2>Mnemot&eacute;cnica</h2>
           <form class="form-horizontal" role="form">
             <div class="form-group">
               <div class="col-sm-2"></div>
               <div class="col-sm-10">
                 <p data-translate="">
-                  Puede ingresar una
-                  <a
-                    href="#mnemonic-notes"
-                    data-translate=""
-                    ><b>frase mnemot&#233;cnica</b></a
-                  >
-                  (frase semilla)
+                  Puede ingresar una frase semilla / mnemot&eacute;cnica
                   <a
                     href="#bip39-notes"
                     data-translate=""
-                    ><b>BIP39</b></a
+                    ><b><i>BIP39</i></b></a
                   >
                   existente o generar una nueva de forma aleatoria.
                 </p>
-
-                <h6>
-                  <span style="color: red;"><b>ATENCI&#211;N:</b></span>
-                  <span style="color: black;"
-                    ><b
-                      >Escribir una frase propia probablemente no funcione, ya
-                      que las palabras requieren una estructura particular y la
-                      &#250;ltima palabra contiene una suma de verificaci&#243;n.
+                <h5>
+                  <span style="color: red;">ATENCI&Oacute;N: </span>
+				  Escribir una frase propia probablemente no funcione, ya que las palabras requieren una estructura particular y la &uacute;ltima palabra contiene una suma de verificaci&oacute;n.
                       <a
                         href="#mnemonic-notes"
                         data-translate=""
-                        ><b>M&#225;s informaci&#243;n</b></a
+                        ><b><i>M&aacute;s informaci&oacute;n</i></b></a
                       >
                     </b></span
                   >
-                </h6>
+                </h5>
+				<!-- /mnemonic info -->
 
                 <!-- generate button -->
                 <div class="form-group generate-container">
@@ -7356,18 +7344,6 @@
                         class="use-entropy"
                         onchange="handleCheckboxChange(this)"
                       />
-                      <span data-translate=""
-                        ><b>Cree su propia entrop&#237;a.</b></span
-                      >
-                      <a
-                        href="#entropy-notes"
-                        data-translate=""
-                        ><b>M&#225;s informaci&#243;n</b></a
-                      >
-                    </label>
-                  </div>
-                </div>
-
                 <script>
                   function handleCheckboxChange(checkbox) {
                   if (checkbox.checked) {
@@ -7376,9 +7352,11 @@
                   }
 
                   function clearAll() {
-                  document.getElementById("entropy").value = "";
-                  document.getElementById("phrase").value = "";
-                  document.getElementById("seed").value = "";
+                  document.getElementById("Entropy").value = "";
+                  document.getElementById("EntropySource").value = "";
+                  document.getElementById("Phrase").value = "";
+                  document.getElementById("Passphrase").value = "";
+                  document.getElementById("Seed").value = "";
                   document.getElementById("root-key").value = "";
                   document.getElementById("account-xpub").value = "";
                   document.getElementById("account-xprv").value = "";
@@ -7396,22 +7374,35 @@
                   }
                   }
                 </script>
+                      <span data-translate=""
+                        >Cree su propia entrop&iacute;a.</span
+                      >
+                      <a
+                        href="#entropy-notes"
+                        data-translate=""
+                        ><b><i>M&aacute;s informaci&oacute;n</i></b></a
+                      >
+                    </label>
+                  </div>
+                </div>
                 <!-- /hidden entropy selector -->
+				
               </div>
             </div>
-
+			
+			<!-- phrase -->
             <div class="form-group">
               <label
-                for="phrase"
+                for="Phrase"
                 class="col-sm-2 control-label"
                 data-translate=""
-                >Frase mnemot&#233;cnica BIP39</label
+                >Frase semilla BIP39</label
               >
               <div class="col-sm-10">
                 <textarea
-                  id="phrase"
-                  class="phrase form-control"
-                  placeholder="Ingrese su frase mnemot&#233;cnica (generalmente 12 o 24 palabras)"
+                  id="Phrase"
+                  class="Phrase form-control"
+                  placeholder="Ingrese su frase semilla / mnemot&eacute;cnica (generalmente 12, 18 o 24 palabras)"
                   data-show-qr=""
                 ></textarea>
                 <br />
@@ -7422,6 +7413,13 @@
                 >
                   <b>Copiar</b>
                 </button>
+            <script>
+              function copyData5() {
+              var PhraseTextArea = document.getElementById("Phrase");
+              PhraseTextArea.select();
+              document.execCommand("copy");
+              }
+            </script>
                 <button
                   onclick="clearAll()"
                   class="btn"
@@ -7431,39 +7429,51 @@
                 </button>
               </div>
             </div>
-
-            <script>
-              function copyData5() {
-              var phraseTextArea = document.getElementById("phrase");
-              phraseTextArea.select();
-              document.execCommand("copy");
-              }
-            </script>
-
+			<!-- /phrase -->
+			
+			<!-- passphrase -->
             <div class="form-group">
-              <label for="passphrase" class="col-sm-2 control-label"
+              <label for="Passphrase" class="col-sm-2 control-label"
                 >Contrase&ntilde;a BIP39 (opcional)</label
               >
               <div class="col-sm-10">
                 <textarea
-                  id="passphrase"
-                  class="passphrase private-data form-control"
+                  id="Passphrase"
+                  class="Passphrase private-data form-control"
+				  placeholder="Ingrese o cree una contraseña / passphrase"
                   autocomplete="off"
                   autocorrect="off"
                   autocapitalize="off"
                   spellcheck="false"
                 ></textarea>
+				<br />
+                  <button
+                    onclick="copyData3()"
+                    class="btn"
+                    style="border: 1px solid #c0c0c0; width: 70px;"
+                  >
+                    <b>Copiar</b>
+                  </button>
+              <script>
+                function copyData3() {
+                var EntropySourceTextArea = document.getElementById("Passphrase");
+                EntropySourceTextArea.select();
+                document.execCommand("copy");
+                }
+              </script>
               </div>
             </div>
-
+			<!-- /passphrase -->
+			
+			<!-- seed -->
             <div class="form-group">
-              <label for="seed" class="col-sm-2 control-label" data-translate=""
+              <label for="Seed" class="col-sm-2 control-label" data-translate=""
                 >Semilla BIP39</label
               >
               <div class="col-sm-10">
                 <textarea
-                  id="seed"
-                  class="seed form-control"
+                  id="Seed"
+                  class="Seed form-control"
                   readonly="readonly"
                   data-show-qr=""
                 ></textarea>
@@ -7475,23 +7485,24 @@
                 >
                   <b>Copiar</b>
                 </button>
-              </div>
-            </div>
-
             <script>
               function copyData7() {
-              var seedTextArea = document.getElementById("seed");
-              seedTextArea.select();
+              var SeedTextArea = document.getElementById("Seed");
+              SeedTextArea.select();
               document.execCommand("copy");
               }
             </script>
-
+              </div>
+            </div>
+			<!-- /seed -->
+			
+			<!-- root-key -->
             <div class="form-group">
               <label
                 for="root-key"
                 class="col-sm-2 control-label"
                 data-translate=""
-                >Clave ra&#237;z BIP32</label
+                >Clave ra&iacute;z BIP32</label
               >
               <div class="col-sm-10">
                 <textarea
@@ -7508,9 +7519,6 @@
                 >
                   <b>Copiar</b>
                 </button>
-              </div>
-            </div>
-
             <script>
               function copyData8() {
               var rootTextArea = document.getElementById("root-key");
@@ -7518,17 +7526,22 @@
               document.execCommand("copy");
               }
             </script>
+              </div>
+            </div>
+			<!-- /root-key -->
+			
           </form>
         </div>
       </div>
-      <!-- /mnemonic area -->
+	  
+      <!-- /mnemonic -->
 
       <hr />
 
-      <!-- derivation route area -->
+      <!-- derivation route -->
       <div class="row">
         <div class="col-md-12">
-          <h2>Ruta de derivaci&#243;n</h2>
+          <h2>Ruta de derivaci&oacute;n</h2>
           <ul class="derivation-type nav nav-tabs" role="tablist">
             <li id="bip32-tab">
               <a href="#bip32" role="tab" data-toggle="tab">BIP32</a>
@@ -7537,17 +7550,15 @@
               <a href="#bip44" role="tab" data-toggle="tab">BIP44</a>
             </li>
           </ul>
-
           <div class="derivation-type tab-content">
             <div id="bip44" class="tab-pane active">
               <form class="form-horizontal" role="form">
                 <br />
-
                 <div class="form-group">
                   <label class="col-sm-2 control-label"> </label>
                   <div class="col-sm-10">
                     <p data-translate>
-                      M&#225;s informaci&#243;n acerca de
+                      M&aacute;s informaci&oacute;n acerca de
                       <a href="#bip44-notes" data-translate><b>BIP44</b></a
                       >.
                     </p>
@@ -7559,7 +7570,7 @@
                       href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#purpose"
                       target="_blank"
                       data-translate
-                      >Prop&#243;sito</a
+                      >Prop&oacute;sito</a
                     >
                   </label>
                   <div class="col-sm-10">
@@ -7634,7 +7645,7 @@
                   <div class="col-sm-10">
                     <p data-translate>
                       Las claves extendidas de la cuenta se pueden usar para
-                      importar a la mayor&#237;a de las billeteras compatibles con
+                      importar a la mayor&iacute;a de las billeteras compatibles con
                       BIP44, como Mycelium o Electrum.
                     </p>
                   </div>
@@ -7642,7 +7653,7 @@
                 <div class="form-group">
                   <label for="account-xpub" class="col-sm-2 control-label">
                     <span data-translate
-                      >Clave p&#250;blica extendida de la cuenta</span
+                      >Clave p&uacute;blica extendida de la cuenta</span
                     >
                   </label>
                   <div class="col-sm-10">
@@ -7661,9 +7672,6 @@
                     >
                       <b>Copiar</b>
                     </button>
-                  </div>
-                </div>
-
                 <script>
                   function copyData9() {
                   var xpubTextArea = document.getElementById("account-xpub");
@@ -7671,7 +7679,8 @@
                   document.execCommand("copy");
                   }
                 </script>
-
+                  </div>
+                </div>
                 <div class="form-group">
                   <label for="account-xprv" class="col-sm-2 control-label">
                     <span data-translate
@@ -7694,9 +7703,6 @@
                     >
                       <b>Copiar</b>
                     </button>
-                  </div>
-                </div>
-
                 <script>
                   function copyData10() {
                   var xprvTextArea = document.getElementById("account-xprv");
@@ -7704,12 +7710,13 @@
                   document.execCommand("copy");
                   }
                 </script>
-
+                  </div>
+                </div>
                 <div class="form-group">
                   <label class="col-sm-2 control-label"> </label>
                   <div class="col-sm-10">
                     <p data-translate>
-                      La ruta de derivaci&#243;n BIP32 y las claves extendidas son la
+                      La ruta de derivaci&oacute;n BIP32 y las claves extendidas son la
                       base para las direcciones derivadas.
                     </p>
                   </div>
@@ -7719,7 +7726,7 @@
                     for="bip44-path"
                     class="col-sm-2 control-label"
                     data-translate
-                    >Ruta de derivaci&#243;n BIP32</label
+                    >Ruta de derivaci&oacute;n BIP32</label
                   >
                   <div class="col-sm-10">
                     <input
@@ -7734,7 +7741,6 @@
                 </div>
               </form>
             </div>
-
             <div id="bip32" class="tab-pane">
               <form class="form-horizontal" role="form">
                 <br />
@@ -7742,7 +7748,7 @@
                   <label class="col-sm-2 control-label"> </label>
                   <div class="col-sm-10">
                     <p data-translate>
-                      M&#225;s informaci&#243;n acerca de
+                      M&aacute;s informaci&oacute;n acerca de
                       <a href="#bip32-notes" data-translate><b>BIP32</b></a
                       >.
                     </p>
@@ -7762,18 +7768,17 @@
                       style="width: 280px;"
                     >
                       <option value="custom">
-                        Ruta de derivaci&#243;n personalizada
+                        Ruta de derivaci&oacute;n personalizada
                       </option>
                     </select>
                   </div>
                 </div>
-
                 <div class="form-group">
                   <label
                     for="bip32-path"
                     class="col-sm-2 control-label"
                     data-translate
-                    >Ruta de derivaci&#243;n</label
+                    >Ruta de derivaci&oacute;n</label
                   >
                   <div class="col-sm-10">
                     <input
@@ -7785,7 +7790,6 @@
                     />
                   </div>
                 </div>
-
                 <div class="form-group">
                   <label
                     for="core-path"
@@ -7799,7 +7803,7 @@
                       reforzadas.
                     </p>
                     <p class="form-control no-border" data-translate-html>
-                      Para m&#225;s informaci&#243;n ver la implementaci&#243;n
+                      Para m&aacute;s informaci&oacute;n ver la implementaci&oacute;n
                       <a
                         href="https://github.com/bitcoin/bitcoin/pull/8035"
                         target="_blank"
@@ -7823,7 +7827,7 @@
                       >
                     </p>
                     <p class="form-control no-border">
-                      <span data-translate>Para m&#225;s informaci&#243;n ver</span>
+                      <span data-translate>Para m&aacute;s informaci&oacute;n ver</span>
                       <a href="https://multibit.org/" target="_blank"
                         ><b>Multibit HD</b></a
                       >.
@@ -7843,10 +7847,10 @@
                       <span data-translate-html
                         >Solo ingrese la
                         <a href="#public-key-notes" data-translate
-                          ><b>clave p&#250;blica</b></a
+                          ><b>clave p&uacute;blica</b></a
                         >
                         extendida <code><b>xpub</b></code> en los campos de
-                        b&#250;squeda del explorador de bloques, <b>NUNCA</b> la
+                        b&uacute;squeda del explorador de bloques, <b>NUNCA</b> la
                         <a href="#private-key-notes" data-translate
                           ><b>clave privada</b></a
                         >
@@ -7873,7 +7877,7 @@
                 for="extended-pub-key"
                 class="col-sm-2 control-label"
                 data-translate
-                >Clave p&#250;blica extendida BIP32</label
+                >Clave p&uacute;blica extendida BIP32</label
               >
               <div class="col-sm-10">
                 <textarea
@@ -7890,9 +7894,6 @@
                 >
                   <b>Copiar</b>
                 </button>
-              </div>
-            </div>
-
             <script>
               function copyData11() {
               var pubTextArea = document.getElementById("extended-pub-key");
@@ -7900,7 +7901,8 @@
               document.execCommand("copy");
               }
             </script>
-
+              </div>
+            </div>
             <div class="form-group">
               <label
                 for="extended-priv-key"
@@ -7923,9 +7925,6 @@
                 >
                   <b>Copiar</b>
                 </button>
-              </div>
-            </div>
-
             <script>
               function copyData12() {
               var privTextArea = document.getElementById("extended-priv-key");
@@ -7933,14 +7932,16 @@
               document.execCommand("copy");
               }
             </script>
+              </div>
+            </div>
           </form>
         </div>
       </div>
-      <!-- /derivation route area -->
+      <!-- /derivation route -->
 
       <hr />
 
-      <!-- derived addresses area -->
+      <!-- derived addresses -->
       <div class="row">
         <div class="col-md-12">
           <h2>Direcciones derivadas</h2>
@@ -7954,8 +7955,6 @@
             style="width: 350px;"
           ></select>
 
-          <p></p>
-
           <div class="col-md-12">
             <div class="checkbox">
               <label>
@@ -7964,7 +7963,6 @@
               </label>
             </div>
           </div>
-
           <table class="table table-striped" id="address-table">
             <thead>
               <tr>
@@ -7978,18 +7976,16 @@
                     </button>
                   </div>
                 </th>
-
                 <th>
                   <div class="input-group">
                     <button
                       class="address-toggle"
                       style="border: 1px solid #c0c0c0; width: 110px;"
                     >
-                      Direcci&#243;n
+                      Direcci&oacute;n
                     </button>
                   </div>
                 </th>
-
                 <th>
                   <div class="input-group">
                     <button
@@ -8002,7 +7998,6 @@
                 </th>
               </tr>
             </thead>
-
             <tbody class="addresses monospace">
               <tr>
                 <td>&nbsp;</td>
@@ -8033,7 +8028,6 @@
           </table>
         </div>
       </div>
-
       <script type="text/template" id="address-row-template">
         <tr>
         <td class="index"><span></span></td>
@@ -8041,8 +8035,7 @@
         <td class="privkey"><span data-show-qr></span></td>
         </tr>
       </script>
-
-      <span data-translate="">Mostrar m&#225;s filas</span>:
+      <span data-translate="">Mostrar m&aacute;s filas</span>:
       <input
         type="number"
         class="rows-to-add"
@@ -8052,47 +8045,46 @@
       <button class="more" style="border: 1px solid #c0c0c0; width: 80px;">
         <b>Mostrar</b>
       </button>
-
       <br />
       <br />
-      <!-- /derived addresses area -->
+      <!-- /derived addresses -->
 
       <hr />
 
-      <!-- more information area -->
+      <!-- more information -->
       <div class="row">
         <div class="col-md-12">
-          <h2 data-translate="">M&#225;s informaci&#243;n</h2>
+          <h2 data-translate="">M&aacute;s informaci&oacute;n</h2>
 
           <br />
 
           <h3 id="bip39-notes" data-translate="">BIP39</h3>
           <p>
-            BIP39 (Bitcoin Improvement Proposal 39) es un est&#225;ndar utilizado en
+            BIP39 (Bitcoin Improvement Proposal 39) es un est&aacute;ndar utilizado en
             criptomonedas, especialmente en Bitcoin y Ethereum, para la
-            generaci&#243;n de frases mnemot&#233;cnicas o semillas. Proporciona una forma
-            de representar claves privadas de forma m&#225;s amigable para los
-            usuarios, facilitando la copia de seguridad y la recuperaci&#243;n de
+            generaci&oacute;n de frases mnemot&eacute;cnicas o semillas. Proporciona una forma
+            de representar claves privadas de forma m&aacute;s amigable para los
+            usuarios, facilitando la copia de seguridad y la recuperaci&oacute;n de
             billeteras.
           </p>
           <p>
-            BIP39 define una lista de 2048 palabras en ingl&#233;s conocida como
+            BIP39 define una lista de 2048 palabras en ingl&eacute;s conocida como
             <a
               href="https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt"
               target="_blank"
               ><b>"Wordlist"</b></a
-            >. Cada palabra de la lista tiene asignado un n&#250;mero que representa
-            su posici&#243;n. Una frase mnemot&#233;cnica se genera seleccionando un
+            >. Cada palabra de la lista tiene asignado un n&uacute;mero que representa
+            su posici&oacute;n. Una frase mnemot&eacute;cnica se genera seleccionando un
             conjunto de palabras de la lista de acuerdo con una longitud
-            espec&#237;fica (por ejemplo, 12, 18 o 24 palabras). Esta frase
-            mnemot&#233;cnica se utiliza como semilla para generar las claves
-            privadas y p&#250;blicas de una billetera criptogr&#225;fica.
+            espec&iacute;fica (por ejemplo, 12, 18 o 24 palabras). Esta frase
+            mnemot&eacute;cnica se utiliza como semilla para generar las claves
+            privadas y p&uacute;blicas de una billetera criptogr&aacute;fica.
           </p>
           <p>
-            El prop&#243;sito principal de BIP39 es facilitar la gesti&#243;n de claves
-            privadas y la recuperaci&#243;n de billeteras en caso de p&#233;rdida o da&#241;o
-            del dispositivo. Al anotar y almacenar la frase mnemot&#233;cnica en un
-            lugar seguro, los usuarios pueden restaurar f&#225;cilmente su billetera
+            El prop&oacute;sito principal de BIP39 es facilitar la gesti&oacute;n de claves
+            privadas y la recuperaci&oacute;n de billeteras en caso de p&eacute;rdida o da&ntilde;o
+            del dispositivo. Al anotar y almacenar la frase mnemot&eacute;cnica en un
+            lugar seguro, los usuarios pueden restaurar f&aacute;cilmente su billetera
             utilizando esa semilla en un nuevo dispositivo o
             <a
               href="#hd-wallet-notes"
@@ -8102,14 +8094,14 @@
             compatible.
           </p>
           <p>
-            Es importante destacar que BIP39 no est&#225; limitado a Bitcoin y
+            Es importante destacar que BIP39 no est&aacute; limitado a Bitcoin y
             Ethereum, ya que ha sido ampliamente adoptado en otras criptomonedas
-            y proyectos relacionados con la tecnolog&#237;a blockchain, siempre y
-            cuando sigan el est&#225;ndar propuesto. Conocer m&#225;s en la
+            y proyectos relacionados con la tecnolog&iacute;a blockchain, siempre y
+            cuando sigan el est&aacute;ndar propuesto. Conocer m&aacute;s en la
             <a
               href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki"
               target="_blank"
-              ><b>especificaci&#243;n oficial de BIP39</b></a
+              ><b>especificaci&oacute;n oficial de BIP39</b></a
             >.
           </p>
 
@@ -8117,53 +8109,53 @@
 
           <h3 id="bip32-notes" data-translate="">BIP32</h3>
           <p>
-            BIP32 (Bitcoin Improvement Proposal 32) es un est&#225;ndar utilizado en
-            criptomonedas, especialmente en Bitcoin, para la generaci&#243;n de
-            jerarqu&#237;as de claves determin&#237;sticas. Proporciona una forma de
-            derivar m&#250;ltiples claves privadas y p&#250;blicas a partir de una &#250;nica
-            semilla o frase mnemot&#233;cnica.
+            BIP32 (Bitcoin Improvement Proposal 32) es un est&aacute;ndar utilizado en
+            criptomonedas, especialmente en Bitcoin, para la generaci&oacute;n de
+            jerarqu&iacute;as de claves determin&iacute;sticas. Proporciona una forma de
+            derivar m&uacute;ltiples claves privadas y p&uacute;blicas a partir de una &uacute;nica
+            semilla o frase mnemot&eacute;cnica.
           </p>
           <p>
-            El objetivo principal de BIP32 es mejorar la seguridad y la gesti&#243;n
-            de las claves privadas en las billeteras criptogr&#225;ficas. Permite
-            generar una estructura jer&#225;rquica de claves a partir de una semilla
-            maestra, utilizando una funci&#243;n criptogr&#225;fica conocida como funci&#243;n
+            El objetivo principal de BIP32 es mejorar la seguridad y la gesti&oacute;n
+            de las claves privadas en las billeteras criptogr&aacute;ficas. Permite
+            generar una estructura jer&aacute;rquica de claves a partir de una semilla
+            maestra, utilizando una funci&oacute;n criptogr&aacute;fica conocida como funci&oacute;n
             hash.
           </p>
           <p>
-            La semilla maestra es un valor aleatorio de alta entrop&#237;a que se
+            La semilla maestra es un valor aleatorio de alta entrop&iacute;a que se
             utiliza como punto de partida para derivar todas las claves dentro
-            de la jerarqu&#237;a. A partir de esta semilla maestra, BIP32 permite
-            generar claves privadas adicionales para diferentes prop&#243;sitos, como
-            recibir fondos (claves p&#250;blicas) y firmar transacciones (claves
+            de la jerarqu&iacute;a. A partir de esta semilla maestra, BIP32 permite
+            generar claves privadas adicionales para diferentes prop&oacute;sitos, como
+            recibir fondos (claves p&uacute;blicas) y firmar transacciones (claves
             privadas).
           </p>
           <p>
-            La ventaja clave de BIP32 es que con una &#250;nica semilla maestra se
-            pueden generar y gestionar m&#250;ltiples claves privadas y p&#250;blicas.
-            Esto facilita la administraci&#243;n de carteras y la realizaci&#243;n de
+            La ventaja clave de BIP32 es que con una &uacute;nica semilla maestra se
+            pueden generar y gestionar m&uacute;ltiples claves privadas y p&uacute;blicas.
+            Esto facilita la administraci&oacute;n de carteras y la realizaci&oacute;n de
             copias de seguridad, ya que solo se necesita realizar copias de
             seguridad de la semilla maestra en lugar de todas las claves
             individuales.
           </p>
           <p>
-            BIP32 tambi&#233;n introduce el concepto de derivaci&#243;n de claves basada
-            en &#237;ndices. Esto significa que, a partir de una clave derivada, se
-            pueden calcular claves secundarias utilizando un &#237;ndice espec&#237;fico,
-            lo que permite una organizaci&#243;n m&#225;s ordenada y la generaci&#243;n de
-            nuevas direcciones de recepci&#243;n sin necesidad de compartir claves
+            BIP32 tambi&eacute;n introduce el concepto de derivaci&oacute;n de claves basada
+            en &iacute;ndices. Esto significa que, a partir de una clave derivada, se
+            pueden calcular claves secundarias utilizando un &iacute;ndice espec&iacute;fico,
+            lo que permite una organizaci&oacute;n m&aacute;s ordenada y la generaci&oacute;n de
+            nuevas direcciones de recepci&oacute;n sin necesidad de compartir claves
             privadas.
           </p>
           <p>
-            En resumen, BIP32 es un est&#225;ndar que define la generaci&#243;n de
-            jerarqu&#237;as de claves determin&#237;sticas a partir de una semilla maestra
-            en las billeteras criptogr&#225;ficas. Proporciona una forma segura y
-            eficiente de gestionar m&#250;ltiples claves privadas y p&#250;blicas a partir
-            de una &#250;nica semilla. Conocer m&#225;s en la
+            En resumen, BIP32 es un est&aacute;ndar que define la generaci&oacute;n de
+            jerarqu&iacute;as de claves determin&iacute;sticas a partir de una semilla maestra
+            en las billeteras criptogr&aacute;ficas. Proporciona una forma segura y
+            eficiente de gestionar m&uacute;ltiples claves privadas y p&uacute;blicas a partir
+            de una &uacute;nica semilla. Conocer m&aacute;s en la
             <a
               href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki"
               target="_blank"
-              ><b>especificaci&#243;n oficial de BIP32</b></a
+              ><b>especificaci&oacute;n oficial de BIP32</b></a
             >.
           </p>
 
@@ -8171,7 +8163,7 @@
 
           <p>
             <b
-              >Ver demostraci&#243;n en
+              >Ver demostraci&oacute;n en
               <a href="http://bip32.org/" target="_blank">bip32.org</a></b
             >
           </p>
@@ -8180,30 +8172,30 @@
 
           <h3 id="bip44-notes" data-translate="">BIP44</h3>
           <p>
-            BIP44 (Bitcoin Improvement Proposal 44) es un est&#225;ndar utilizado en
+            BIP44 (Bitcoin Improvement Proposal 44) es un est&aacute;ndar utilizado en
             criptomonedas, especialmente en Bitcoin y Ethereum, para la
-            estructura y la gesti&#243;n de carteras determin&#237;sticas jer&#225;rquicas (HD,
-            por sus siglas en ingl&#233;s). BIP44 proporciona una estructura de
-            derivaci&#243;n de claves est&#225;ndar para facilitar la interoperabilidad
+            estructura y la gesti&oacute;n de carteras determin&iacute;sticas jer&aacute;rquicas (HD,
+            por sus siglas en ingl&eacute;s). BIP44 proporciona una estructura de
+            derivaci&oacute;n de claves est&aacute;ndar para facilitar la interoperabilidad
             entre diferentes billeteras y aplicaciones.
           </p>
           <p>
-            La principal contribuci&#243;n de BIP44 es la definici&#243;n de una
-            convenci&#243;n para la organizaci&#243;n de las claves derivadas y las
+            La principal contribuci&oacute;n de BIP44 es la definici&oacute;n de una
+            convenci&oacute;n para la organizaci&oacute;n de las claves derivadas y las
             direcciones dentro de una billetera HD. Proporciona un conjunto de
             reglas y convenciones para generar claves y direcciones consistentes
             entre diferentes implementaciones.
           </p>
           <p>
-            BIP44 propone una estructura jer&#225;rquica de cinco niveles para la
-            derivaci&#243;n de claves y direcciones. Estos niveles son:
+            BIP44 propone una estructura jer&aacute;rquica de cinco niveles para la
+            derivaci&oacute;n de claves y direcciones. Estos niveles son:
           </p>
           <p>
             1 - Coin Type (Tipo de Moneda): Identifica la criptomoneda
-            espec&#237;fica (por ejemplo, 0 para Bitcoin, 60 para Ethereum).
+            espec&iacute;fica (por ejemplo, 0 para Bitcoin, 60 para Ethereum).
           </p>
           <p>
-            2 - Account (Cuenta): Permite la creaci&#243;n de m&#250;ltiples cuentas
+            2 - Account (Cuenta): Permite la creaci&oacute;n de m&uacute;ltiples cuentas
             dentro de una misma billetera.
           </p>
           <p>
@@ -8212,66 +8204,66 @@
             de las claves y direcciones utilizadas para el cambio.
           </p>
           <p>
-            4 - Address Index (&#205;ndice de Direcci&#243;n): Identifica una direcci&#243;n
-            espec&#237;fica dentro de una cadena (externa o interna).
+            4 - Address Index (&Iacute;ndice de Direcci&oacute;n): Identifica una direcci&oacute;n
+            espec&iacute;fica dentro de una cadena (externa o interna).
           </p>
           <p>
-            5 - Address (Direcci&#243;n): Representa una direcci&#243;n espec&#237;fica
+            5 - Address (Direcci&oacute;n): Representa una direcci&oacute;n espec&iacute;fica
             utilizada para recibir fondos.
           </p>
           <p>
-            Esta estructura jer&#225;rquica permite organizar y gestionar de manera
-            m&#225;s eficiente las claves y direcciones en una billetera HD. Adem&#225;s,
+            Esta estructura jer&aacute;rquica permite organizar y gestionar de manera
+            m&aacute;s eficiente las claves y direcciones en una billetera HD. Adem&aacute;s,
             garantiza la compatibilidad y la interoperabilidad entre diferentes
-            aplicaciones y billeteras que siguen el est&#225;ndar BIP44.
+            aplicaciones y billeteras que siguen el est&aacute;ndar BIP44.
           </p>
           <p>
-            En resumen, BIP44 es un est&#225;ndar que define la estructura y la
-            gesti&#243;n de carteras determin&#237;sticas jer&#225;rquicas (HD) en
-            criptomonedas. Proporciona una convenci&#243;n para la organizaci&#243;n de
+            En resumen, BIP44 es un est&aacute;ndar que define la estructura y la
+            gesti&oacute;n de carteras determin&iacute;sticas jer&aacute;rquicas (HD) en
+            criptomonedas. Proporciona una convenci&oacute;n para la organizaci&oacute;n de
             claves y direcciones en diferentes niveles, lo que facilita la
             interoperabilidad y la compatibilidad entre diferentes aplicaciones
-            y billeteras. Conocer m&#225;s en la
+            y billeteras. Conocer m&aacute;s en la
             <a
               href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki"
               target="_blank"
-              ><b>especificaci&#243;n oficial de BIP44</b></a
+              ><b>especificaci&oacute;n oficial de BIP44</b></a
             >.
           </p>
 
           <br />
 
-          <h3 id="public-key-notes" data-translate="">Clave P&#250;blica</h3>
+          <h3 id="public-key-notes" data-translate="">Clave P&uacute;blica</h3>
           <p>
-            La clave p&#250;blica es una direcci&#243;n &#250;nica generada a partir de una
+            La clave p&uacute;blica es una direcci&oacute;n &uacute;nica generada a partir de una
             clave privada, que se utiliza para recibir criptomonedas. Es parte
-            de un par de claves criptogr&#225;ficas (junto con la clave privada
+            de un par de claves criptogr&aacute;ficas (junto con la clave privada
             correspondiente) y forma parte integral de la infraestructura de
             seguridad de las criptomonedas.
           </p>
           <p>
-            La misma se deriva matem&#225;ticamente de la clave privada mediante
-            algoritmos criptogr&#225;ficos, como el algoritmo de curva el&#237;ptica (ECC)
+            La misma se deriva matem&aacute;ticamente de la clave privada mediante
+            algoritmos criptogr&aacute;ficos, como el algoritmo de curva el&iacute;ptica (ECC)
             utilizado en Bitcoin. La clave privada se mantiene en secreto y se
-            utiliza para firmar transacciones, mientras que la clave p&#250;blica se
+            utiliza para firmar transacciones, mientras que la clave p&uacute;blica se
             comparte libremente y se utiliza para recibir fondos.
           </p>
           <p>
-            Una clave p&#250;blica se representa generalmente como una cadena de
-            caracteres alfanum&#233;ricos que comienza con un prefijo espec&#237;fico,
+            Una clave p&uacute;blica se representa generalmente como una cadena de
+            caracteres alfanum&eacute;ricos que comienza con un prefijo espec&iacute;fico,
             como "1" en Bitcoin o "0x" en Ethereum. Esta cadena de caracteres se
-            utiliza para identificar y enviar fondos a una direcci&#243;n espec&#237;fica
+            utiliza para identificar y enviar fondos a una direcci&oacute;n espec&iacute;fica
             en la red de criptomonedas.
           </p>
           <p>
-            Es importante destacar que, aunque la clave p&#250;blica se comparte
+            Es importante destacar que, aunque la clave p&uacute;blica se comparte
             libremente y se utiliza para recibir fondos, no es posible derivar
-            la clave privada a partir de la clave p&#250;blica. Esto asegura que los
-            fondos puedan enviarse a una direcci&#243;n p&#250;blica sin comprometer la
+            la clave privada a partir de la clave p&uacute;blica. Esto asegura que los
+            fondos puedan enviarse a una direcci&oacute;n p&uacute;blica sin comprometer la
             seguridad de la clave privada correspondiente.
           </p>
           <p>
-            En resumen, una clave p&#250;blica no es m&#225;s que una direcci&#243;n &#250;nica que
+            En resumen, una clave p&uacute;blica no es m&aacute;s que una direcci&oacute;n &uacute;nica que
             se utiliza en una billetera de criptomonedas para recibir fondos y
             que se comparte libremente sin comprometer la seguridad de la clave
             privada correspondiente.
@@ -8282,138 +8274,69 @@
           <h3 id="private-key-notes" data-translate="">Clave Privada</h3>
           <p>
             La clave privada es un componente fundamental de la seguridad
-            criptogr&#225;fica que se utiliza para controlar y acceder a los activos
-            digitales, como las criptomonedas, asociado con una direcci&#243;n
-            espec&#237;fica.
+            criptogr&aacute;fica que se utiliza para controlar y acceder a los activos
+            digitales, como las criptomonedas, asociado con una direcci&oacute;n
+            espec&iacute;fica.
           </p>
           <p>
-            Una clave privada es un n&#250;mero secreto generado de manera aleatoria
-            y utilizado en algoritmos criptogr&#225;ficos asim&#233;tricos, como el
-            algoritmo de curva el&#237;ptica (ECC) o RSA. Esta es la parte
-            confidencial y esencial de un par de claves criptogr&#225;ficas, junto
-            con la clave p&#250;blica correspondiente.
+            Una clave privada es un n&uacute;mero secreto generado de manera aleatoria
+            y utilizado en algoritmos criptogr&aacute;ficos asim&eacute;tricos, como el
+            algoritmo de curva el&iacute;ptica (ECC) o RSA. Esta es la parte
+            confidencial y esencial de un par de claves criptogr&aacute;ficas, junto
+            con la clave p&uacute;blica correspondiente.
           </p>
           <p>
             La seguridad y confidencialidad de la clave privada son cruciales
-            para garantizar la protecci&#243;n de los activos digitales asociados con
+            para garantizar la protecci&oacute;n de los activos digitales asociados con
             ella. La clave privada permite realizar operaciones como firmar
-            transacciones para autorizar el env&#237;o de fondos desde una direcci&#243;n
-            espec&#237;fica y desbloquear y acceder a los activos asociados.
+            transacciones para autorizar el env&iacute;o de fondos desde una direcci&oacute;n
+            espec&iacute;fica y desbloquear y acceder a los activos asociados.
           </p>
           <p>
-            Es importante tener en cuenta que la p&#233;rdida o compromiso de la
-            clave privada puede resultar en la p&#233;rdida irreversible de los
+            Es importante tener en cuenta que la p&eacute;rdida o compromiso de la
+            clave privada puede resultar en la p&eacute;rdida irreversible de los
             activos digitales. Por lo tanto, se recomienda mantener la clave
             privada en un lugar seguro y protegido, utilizando billeteras
-            criptogr&#225;ficas seguras, hardware wallets o soluciones de
-            almacenamiento en fr&#237;o.
+            criptogr&aacute;ficas seguras, hardware wallets o soluciones de
+            almacenamiento en fr&iacute;o.
           </p>
           <p>
-            En resumen, una clave privada es un n&#250;mero secreto esencial para
+            En resumen, una clave privada es un n&uacute;mero secreto esencial para
             controlar y acceder a los activos digitales asociados con una
-            direcci&#243;n espec&#237;fica. La seguridad y confidencialidad de la misma
+            direcci&oacute;n espec&iacute;fica. La seguridad y confidencialidad de la misma
             son fundamentales para proteger los fondos.
           </p>
 
           <br />
 
-          <h3 id="mnemonic-notes" data-translate="">Frase Mnemot&#233;cnica</h3>
+          <h3 id="mnemonic-notes" data-translate="">Frase Semilla / Mnemot&eacute;cnica</h3>
           <p>
-            Una frase mnemot&#233;cnica, tambi&#233;n conocida como frase de recuperaci&#243;n,
-            frase semilla o seed phrase en ingl&#233;s, es una serie de palabras
-            utilizada para generar y recuperar claves criptogr&#225;ficas en
-            billeteras de criptomonedas. Normalmente una frase mnemot&#233;cnica
-            consta de 12 o 24 palabras, aunque tambi&#233;n puede haber otras
-            opciones.
+		  Una frase semilla o mnemot&eacute;cnica, tambi&eacute;n conocida como frase de recuperaci&oacute;n o seed phrase en ingl&eacute;s, es una secuencia de palabras que sirve como respaldo para las claves privadas en una billetera de criptomonedas u otros sistemas criptogr&aacute;ficos. Act&uacute;a como una representaci&oacute;n legible para humanos de las claves privadas reales, facilitando que los usuarios memoricen y respalden sus claves de manera segura. Estas frases generalmente consisten en 12, 18 o 24 palabras elegidas de una <a href="https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt" target="_blank"><b><i>lista de palabras</i></b></a> predefinida, asegurando un alto nivel de seguridad y estandarizaci&oacute;n.
           </p>
           <p>
-            La frase mnemot&#233;cnica se utiliza como una forma m&#225;s amigable para
-            los usuarios de representar una clave privada o semilla que puede
-            utilizarse para generar todas las claves privadas y p&#250;blicas de una
-            billetera. Consiste en una secuencia de palabras f&#225;cilmente
-            recordables, seleccionadas de una lista estandarizada, como la
-            <a
-              href="https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt"
-              target="_blank"
-              ><b>lista de palabras</b></a
-            >
-            definida en
-            <a
-              href="#bip39-notes"
-              data-translate=""
-              ><b>BIP39</b></a
-            >. Cada palabra en la lista est&#225; asociada con un n&#250;mero o &#237;ndice
-            &#250;nico que determina su posici&#243;n.
+          La frase se genera convirtiendo un n&uacute;mero aleatorio, conocido como entrop&iacute;a, en un conjunto de palabras de una lista espec&iacute;fica, lo que facilita que los usuarios puedan recordar y escribir su semilla. Este proceso se realiza siguiendo est&aacute;ndares como <a href="#bip39-notes" data-translate=""><b><i>BIP39</i></b></a>, que garantiza que la frase generada sea segura y compatible entre diferentes billeteras y sistemas criptogr&aacute;ficos, permitiendo a los usuarios recuperar sus activos digitales en caso de p&eacute;rdida o da&ntilde;o del dispositivo donde se almacenan sus claves, actuando como una llave para desbloquear su monedero.
           </p>
           <p>
-            La frase mnemot&#233;cnica se utiliza como una forma segura y conveniente
-            de respaldar y restaurar una billetera HD. Al anotar y almacenar
-            correctamente la frase mnemot&#233;cnica en un lugar seguro, los usuarios
-            pueden recuperar sus claves privadas y acceder a sus fondos en caso
-            de p&#233;rdida o da&#241;o del dispositivo original.
+          La frase semilla es un componente cr&iacute;tico en el mundo de las criptodivisas, ya que sirve como medio de recuperaci&oacute;n y seguridad para los activos digitales. Su importancia radica en que, si se pierde el dispositivo, la frase permite restaurar completamente la billetera en cualquier plataforma compatible con el mismo est&aacute;ndar. Sin embargo, su manejo debe ser extremadamente cuidadoso, ya que cualquier persona que posea la frase puede acceder a todos los fondos. Por ello, se recomienda almacenarla de forma f&iacute;sica y segura, evitando su digitalizaci&oacute;n o compartirla en l&iacute;nea. Tambi&eacute;n es recomendable adicionar una capa de seguridad extra, como una contrase&ntilde;a BIP39 o frase de contrase&ntilde;a (passphrase en ingl&eacute;s).
           </p>
           <p>
-            Es importante tener en cuenta que la frase mnemot&#233;cnica es una pieza
-            cr&#237;tica de informaci&#243;n que debe mantenerse en secreto y nunca ser
-            compartida con personas no confiables. Adem&#225;s, se recomienda guardar
-            copias de seguridad de la frase mnemot&#233;cnica en lugares seguros y
-            protegidos contra da&#241;os, p&#233;rdida o acceso no autorizado.
-          </p>
-          <p>
-            <b
-              >La probabilidad de adivinar correctamente la frase mnemot&#233;cnica
-              de alguien es 1 en 2048 ^ 24 o 2.96 x 10 ^ 79 suposiciones.</b
-            >
+          <span style="color: red;">NOTA: </span><i>La probabilidad de adivinar correctamente una frase mnemot&eacute;cnica de alguien es 1 en 2048 ^ 24 o 2.96 x 10 ^ 79 suposiciones.</i>
           </p>
 
           <br />
 
-          <h3 id="entropy-notes" data-translate="">Entrop&#237;a</h3>
+          <h3 id="entropy-notes" data-translate="">Entrop&iacute;a</h3>
           <p>
-            La entrop&#237;a, en el &#225;mbito de la criptograf&#237;a, se refiere a la medida
-            de la aleatoriedad (desorden) o imprevisibilidad de una clave
-            criptogr&#225;fica o una fuente de datos utilizada en los algoritmos
-            criptogr&#225;ficos. Esta se mide en bits y cuantifica la cantidad de
-            informaci&#243;n aleatoria contenida en una cadena de caracteres. Cuanto
-            mayor sea la entrop&#237;a, m&#225;s segura ser&#225; la clave generada.
+          La entrop&iacute;a, en el &aacute;mbito de las criptomonedas, se refiere a la cantidad de aleatoriedad que se utiliza para generar claves privadas y frases semilla seguras. Esta aleatoriedad es vital para proteger las billeteras contra accesos no autorizados y garantizar que las transacciones y los activos de cada usuario permanezcan seguros y privados. Cuanto mayor es la entrop&iacute;a, m&aacute;s impredecible y dif&iacute;cil de adivinar resulta el valor generado. En la pr&aacute;ctica, la entrop&iacute;a asegura que las claves que protegen tus activos digitales no puedan ser reproducidas f&aacute;cilmente por un atacante.
           </p>
           <p>
-            En el caso de las frases mnemot&#233;cnicas o semillas, la entrop&#237;a se
-            refiere a la combinaci&#243;n de palabras seleccionadas de una lista de
-            2048 palabras conocida como
-            <a
-              href="https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt"
-              target="_blank"
-              ><b>"Wordlist"</b></a
-            >. Las frases mnemot&#233;cnicas t&#237;picamente constan de 12 o 24 palabras
-            seleccionadas de dicha lista. Por lo tanto, es esencial utilizar una
-            entrop&#237;a suficientemente alta para garantizar la seguridad de las
-            claves privadas.
+          Cuando un usuario crea una billetera, el sistema necesita producir un n&uacute;mero aleatorio que servir&aacute; como base para la clave privada. Ese n&uacute;mero se obtiene a partir de fuentes de entrop&iacute;a, como movimientos del rat&oacute;n, pulsaciones de teclado, ruido del hardware o algoritmos especializados. Posteriormente, ese n&uacute;mero aleatorio se transforma en una frase semilla (generalmente de 12, 18 o 24 palabras) siguiendo est&aacute;ndares como BIP39, lo que garantiza compatibilidad y seguridad entre diferentes billeteras.
           </p>
           <p>
-            Se recomienda utilizar una entrop&#237;a de al menos 128 bits para
-            generar frases mnemot&#233;cnicas seguras. Esto implica seleccionar al
-            azar palabras de la lista, lo que aumenta la aleatoriedad y
-            dificulta la predicci&#243;n o el descubrimiento de las claves privadas.
-            Una alta entrop&#237;a en la generaci&#243;n de claves criptogr&#225;ficas es
-            crucial para garantizar la seguridad de las criptomonedas, ya que
-            disminuye las posibilidades de adivinar o descifrar las claves
-            privadas. Es importante utilizar generadores de claves confiables y
-            seguir las mejores pr&#225;cticas de seguridad al generar y almacenar las
-            claves criptogr&#225;ficas.
+          La importancia de la entrop&iacute;a radica en que es la primera l&iacute;nea de defensa contra ataques de fuerza bruta o intentos de adivinaci&oacute;n. Una semilla generada con baja entrop&iacute;a ser&iacute;a m&aacute;s predecible y, por lo tanto, vulnerable. En cambio, una semilla con alta entrop&iacute;a ofrece un espacio de combinaciones tan grande que resulta pr&aacute;cticamente imposible de romper. Por eso, la entrop&iacute;a es considerada el coraz&oacute;n de la seguridad en criptomonedas: sin ella, las claves privadas perder&iacute;an su fortaleza y el sistema entero quedar&iacute;a expuesto.
           </p>
           <p>
-            <span style="color: red;"><b>ATENCI&#211;N:</b></span>
-            <span style="color: black;"
-              ><b
-                >Los valores de entrop&#237;a deben obtenerse de una fuerte fuente de
-                aleatoriedad. NO use frases de libros, letras de canciones, su
-                nombre, su fecha de nacimiento, la direcci&#243;n de su domicilio,
-                combinaci&#243;n de teclado o cualquier cosa que crea que es
-                aleatoria, porque las posibilidades de que no lo sea son
-                abrumadoras.</b
-              ></span
-            >
+          <span style="color: red;">ATENCI&Oacute;N: </span><i>Los valores de entrop&iacute;a deben obtenerse de una fuerte fuente de aleatoriedad. NO use frases de libros, letras de canciones, su nombre, su fecha de nacimiento, la direcci&oacute;n de su domicilio, combinaci&oacute;n de teclado o cualquier cosa que crea que es aleatoria, porque las posibilidades de que no lo sea son abrumadoras.</i></span>
           </p>
 
           <br />
@@ -8421,47 +8344,47 @@
           <h3 id="hd-wallet-notes" data-translate="">Billetera HD</h3>
           <p>
             Una billetera HD (Hierarchical Deterministic wallet, por sus siglas
-            en ingl&#233;s) o determin&#237;stica jer&#225;rquica, en espa&#241;ol; es un tipo de
-            billetera criptogr&#225;fica que utiliza una estructura jer&#225;rquica para
+            en ingl&eacute;s) o determin&iacute;stica jer&aacute;rquica, en espa&ntilde;ol; es un tipo de
+            billetera criptogr&aacute;fica que utiliza una estructura jer&aacute;rquica para
             generar y administrar las claves privadas. Este tipo de billetera se
-            basa en un est&#225;ndar llamado BIP32 (Bitcoin Improvement Proposal 32)
-            y se utiliza com&#250;nmente en criptomonedas como Bitcoin y Ethereum.
+            basa en un est&aacute;ndar llamado BIP32 (Bitcoin Improvement Proposal 32)
+            y se utiliza com&uacute;nmente en criptomonedas como Bitcoin y Ethereum.
           </p>
           <p>
-            La caracter&#237;stica principal de una billetera HD es que puede generar
-            un &#225;rbol de claves a partir de una &#250;nica semilla o frase
-            mnemot&#233;cnica. La semilla es una serie de palabras alfanum&#233;ricas que
+            La caracter&iacute;stica principal de una billetera HD es que puede generar
+            un &aacute;rbol de claves a partir de una &uacute;nica semilla o frase
+            mnemot&eacute;cnica. La semilla es una serie de palabras alfanum&eacute;ricas que
             se utilizan como punto de partida para derivar todas las claves
-            privadas y p&#250;blicas de la billetera. A medida que se generan nuevas
-            direcciones de recepci&#243;n, la billetera HD puede generar claves
+            privadas y p&uacute;blicas de la billetera. A medida que se generan nuevas
+            direcciones de recepci&oacute;n, la billetera HD puede generar claves
             privadas adicionales sin necesidad de realizar copias de seguridad
             de cada una por separado.
           </p>
           <p>
-            La ventaja de utilizar una billetera HD es que simplifica la gesti&#243;n
-            de m&#250;ltiples direcciones y claves privadas. Adem&#225;s, permite realizar
-            copias de seguridad de la semilla o frase mnemot&#233;cnica &#250;nica, lo que
-            facilita la recuperaci&#243;n de la billetera en caso de p&#233;rdida o da&#241;o
+            La ventaja de utilizar una billetera HD es que simplifica la gesti&oacute;n
+            de m&uacute;ltiples direcciones y claves privadas. Adem&aacute;s, permite realizar
+            copias de seguridad de la semilla o frase mnemot&eacute;cnica &uacute;nica, lo que
+            facilita la recuperaci&oacute;n de la billetera en caso de p&eacute;rdida o da&ntilde;o
             del dispositivo.
           </p>
           <p>
-            En resumen, una billetera HD es una billetera criptogr&#225;fica que
-            utiliza una estructura jer&#225;rquica y una &#250;nica semilla para generar y
-            administrar las claves privadas, lo que simplifica la gesti&#243;n y
+            En resumen, una billetera HD es una billetera criptogr&aacute;fica que
+            utiliza una estructura jer&aacute;rquica y una &uacute;nica semilla para generar y
+            administrar las claves privadas, lo que simplifica la gesti&oacute;n y
             seguridad de las criptomonedas.
           </p>
-          <!-- /more information area -->
+          <!-- /more information -->
 
           <br />
 
           <hr />
 
-          <!-- library area -->
+          <!-- library -->
           <div class="row">
             <div class="col-md-12">
-              <h2 data-translate="">Este proyecto es 100% c&#243;digo abierto</h2>
+              <h2 data-translate="">Este proyecto es 100% c&oacute;digo abierto</h2>
               <p>
-                <span data-translate="">C&#243;digo fuente del repositorio - </span>
+                <span data-translate="">C&oacute;digo fuente del repositorio - </span>
                 <a href="https://github.com/iancoleman/bip39" target="_blank"
                   >https://github.com/iancoleman/bip39</a
                 >
@@ -8504,10 +8427,9 @@
                   >http://getbootstrap.com/&gt;</a
                 >
               </p>
-              <!-- /library area -->
+              <!-- /library -->
 
               <hr />
-              <br />
 
               <!-- logo2 -->
               <style>
@@ -8618,17 +8540,17 @@
                 </div>
               </div>
               <!-- /social -->
-
-              <br />
-
+			  
+			  <br>
+			  
               <!-- copyright -->
               <center>
-                <font size="1"><b>&#174; 2018-2026 CUBACRIPTO<b></b></b></font
-                ><b><b> </b></b>
+              <font size="2"><b>&copy; 2018-2026 CUBACRIPTO<b/></font>
               </center>
-              <b
-                ><b>
-                  <!-- /copyright -->
+              <center>
+              <font size="1"><b><i>Update: 2512120612</i><b/></font>
+              </center>
+              <!-- /copyright -->
 
                   <!-- show-hide QR -->
                   <div class="qr-container hidden">
@@ -8644,9 +8566,9 @@
                   </div>
                   <!-- /show-hide QR -->
 
-                  <!-- ///// END BASIC CODE ///// -->
+                  <!-- /VISUAL CODE -->
 
-                  <!-- ///// START FUNTION CODE ///// -->
+                  <!-- FUNTION CODE -->
 
                   <script>
                     // From
@@ -49558,7 +49480,8 @@
                     })();
                   </script>
 
-                  <!-- ///// END FUNTION CODE ///// -->
+                  <!-- /FUNTION CODE -->
+				  
                 </b>
               </b>
             </div>
@@ -49566,6 +49489,8 @@
         </div>
       </div>
     </div>
+	
   </body>
   <!-- /body -->
+  
 </html>
