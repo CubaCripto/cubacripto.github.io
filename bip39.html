@@ -7036,7 +7036,7 @@ background-color: #D0D3D4;
 
 <!-- entropy-source -->
 <div class="form-group">
-<label for="entropy-source" class="col-sm-2 control-label">Fuente de entrop&iacute;a</label>
+<label for="entropy-source" class="col-sm-2 control-label"><a href="#entropy-source-notes" data-translate><b>Fuente de entrop&iacute;a</b></a></label>
 <div class="col-sm-10">
 <textarea
 id="entropy-source"
@@ -7082,7 +7082,7 @@ document.getElementById("bits-info").innerHTML = "0";
 
 <!-- entropy -->
 <div class="form-group">
-<label for="entropy" class="col-sm-2 control-label">Entrop&iacute;a</label>
+<label for="entropy" class="col-sm-2 control-label"><a href="#entropy-notes" data-translate><b>Entrop&iacute;a</b></a></label>
 <div class="col-sm-10">
 <textarea
 id="entropy"
@@ -7398,7 +7398,7 @@ table.deleteRow(i);
 for="phrase"
 class="col-sm-2 control-label"
 data-translate=""
-><a href="#mnemonic-notes" data-translate="">Frase semilla BIP39</a></label
+><a href="#mnemonic-notes" data-translate="">Frase semilla</a></label
 >
 <div class="col-sm-10">
 <textarea
@@ -7579,9 +7579,8 @@ document.execCommand("copy");
 <label class="col-sm-2 control-label"> </label>
 <div class="col-sm-10">
 <p data-translate>
-M&aacute;s informaci&oacute;n acerca de
-<a href="#bip44-notes" data-translate><b>BIP44</b></a
->.
+<a href="#bip44-notes" data-translate><b>M&aacute;s informaci&oacute;n sobre BIP44</b></a
+>
 </p>
 </div>
 </div>
@@ -7607,7 +7606,7 @@ value="44"
 <div class="form-group">
 <label for="coin" class="col-sm-2 control-label">
 <a
-href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#registered-coin-types"
+href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#coin-type"
 target="_blank"
 data-translate
 >Tipo de moneda</a
@@ -7674,7 +7673,7 @@ BIP44, como Mycelium o Electrum.</i>
 <div class="form-group">
 <label for="account-xpub" class="col-sm-2 control-label">
 <span data-translate
->Clave p&uacute;blica extendida de la cuenta</span
+><a href="#xpub-notes" data-translate><b>Clave p&uacute;blica extendida de la cuenta</b></a></span
 >
 </label>
 <div class="col-sm-10">
@@ -7705,7 +7704,7 @@ document.execCommand("copy");
 <div class="form-group">
 <label for="account-xprv" class="col-sm-2 control-label">
 <span data-translate
->Clave privada extendida de la cuenta</span
+><a href="#xprv-notes" data-translate><b>Clave privada extendida de la cuenta</b></a></span
 >
 </label>
 <div class="col-sm-10">
@@ -7747,7 +7746,7 @@ document.execCommand("copy");
 for="bip44-path"
 class="col-sm-2 control-label"
 data-translate
->Ruta de derivaci&oacute;n BIP32</label
+><a href="#path-notes" data-translate><b>Ruta de derivaci&oacute;n BIP32</b></a></label
 >
 <div class="col-sm-10">
 <input
@@ -7784,9 +7783,8 @@ document.execCommand("copy");
 <label class="col-sm-2 control-label"> </label>
 <div class="col-sm-10">
 <p data-translate>
-M&aacute;s informaci&oacute;n acerca de
-<a href="#bip32-notes" data-translate><b>BIP32</b></a
->.
+<a href="#bip32-notes" data-translate><b>M&aacute;s informaci&oacute;n sobre BIP32</b></a
+>
 </p>
 </div>
 </div>
@@ -7795,7 +7793,12 @@ M&aacute;s informaci&oacute;n acerca de
 for="bip32-client"
 class="col-sm-2 control-label"
 data-translate
->Cliente</label
+><a
+href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#account"
+target="_blank"
+data-translate
+>Cliente</a
+></label
 >
 <div class="col-sm-10">
 <select
@@ -7814,7 +7817,7 @@ Ruta de derivaci&oacute;n personalizada
 for="bip32-path"
 class="col-sm-2 control-label"
 data-translate
->Ruta de derivaci&oacute;n</label
+><a href="#path-notes" data-translate><b>Ruta de derivaci&oacute;n</b></a></label
 >
 <div class="col-sm-10">
 <input
@@ -7846,7 +7849,7 @@ document.execCommand("copy");
 <div class="col-sm-2"></div>
 <div class="col-sm-10">
 <span style="color: red;"><i><b>ATENCI&Oacute;N: </b></i></span>
-<i>Solo ingrese la <a href="#xpub-notes" data-translate><b>clave p&uacute;blica extendida </b></a><code><b>xpub</b></code> en los campos de b&uacute;squeda del <a href="https://www.blockchain.com/explorer/" target="_blank"><b>explorador de bloques</b></a>, <b>NUNCA </b>la <a href="#xprv-notes" data-translate><b>clave privada extendida </b></a><code><b>xprv</b></code>.</i>
+<i>Solo ingrese la <a href="#xpub-bip32-notes" data-translate><b>clave p&uacute;blica extendida </b></a><code><b>xpub</b></code> en los campos de b&uacute;squeda del <a href="https://www.blockchain.com/explorer/" target="_blank"><b>explorador de bloques</b></a>, <b>NUNCA </b>la <a href="#xprv-bip32-notes" data-translate><b>clave privada extendida </b></a><code><b>xprv</b></code>.</i>
 </div>
 </div>
 </form>
@@ -7859,7 +7862,7 @@ document.execCommand("copy");
 for="extended-pub-key"
 class="col-sm-2 control-label"
 data-translate
->Clave p&uacute;blica extendida BIP32</label
+><a href="#xpub-bip32-notes" data-translate><b>Clave p&uacute;blica extendida BIP32</b></a></label
 >
 <div class="col-sm-10">
 <textarea
@@ -7890,7 +7893,7 @@ document.execCommand("copy");
 for="extended-priv-key"
 class="col-sm-2 control-label"
 data-translate
->Clave privada extendida BIP32</label
+><a href="#xprv-bip32-notes" data-translate><b>Clave privada extendida BIP32</b></a></label
 >
 <div class="col-sm-10">
 <textarea
@@ -7941,8 +7944,8 @@ style="width: 350px;"
 <div class="col-md-12">
 <div class="checkbox">
 <label>
-<input class="hardened-addresses" type="checkbox" />
-<span>Usar direcciones reforzadas.</span>
+<input class="hardened-derivations" type="checkbox" />
+<span>Usar derivaciones reforzadas. <a href="#hardened-notes" data-translate><b>M&aacute; informaci&oacute;n</b></a></span>
 </label>
 </div>
 </div>
@@ -8041,82 +8044,101 @@ style="border: 1px solid #c0c0c0; width: 80px;"
 
 <br />
 
-<h3 id="bip39-notes" data-translate="">BIP39</h3>
-<p>	  
-BIP39 (<a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki" target="_blank"><b>Bitcoin Improvement Proposal 39</b></a>) es un est&aacute;ndar que define c&oacute;mo transformar n&uacute;meros aleatorios, llamados entrop&iacute;a, en frases mnem&oacute;nicas (mnemot&eacute;cnicas) f&aacute;ciles de recordar. Estas frases suelen tener 12, 18 o 24 palabras seleccionadas de un diccionario (conocido como <a href="https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt" target="_blank"><b>&quot;Wordlist&quot;</b></a>) de 2048 palabras en ingl&eacute;s y representan una semilla criptogr&aacute;fica. A partir de esa semilla se pueden derivar claves privadas y p&uacute;blicas mediante otros est&aacute;ndares como BIP32, lo que permite crear billeteras determin&iacute;sticas y seguras.  
-</p>
+<h3 id="hd-wallet-notes" data-translate="">Billetera HD</h3>
 <p>
-La importancia de BIP39 radica en que simplifica la gesti&oacute;n de claves en el mundo de las criptomonedas. En lugar de manejar largas cadenas alfanum&eacute;ricas, los usuarios solo necesitan conservar su frase semilla para respaldar y restaurar sus fondos en cualquier billetera compatible. Adem&aacute;s, ofrece la opci&oacute;n de a&ntilde;adir una passphrase adicional para incrementar la seguridad. Gracias a este equilibrio entre robustez criptogr&aacute;fica y facilidad de uso, BIP39 se ha convertido en uno de los pilares de la seguridad y la interoperabilidad en el ecosistema cripto.
+Una <b><i>billetera HD</i></b> (Hierarchical Deterministic wallet), o billetera determin&iacute;stica jer&aacute;rquica, es un tipo de billetera criptogr&aacute;fica que transform&oacute; la administraci&oacute;n de claves privadas. Basada en el est&aacute;ndar BIP32, permite generar un &aacute;rbol jer&aacute;rquico de claves a partir de una &uacute;nica semilla o frase mnemot&eacute;cnica. Este dise&ntilde;o ofrece una estructura ordenada y escalable, ampliamente usada en criptomonedas como Bitcoin y Ethereum, garantizando que cada direcci&oacute;n de recepci&oacute;n se derive de forma segura y consistente sin necesidad de respaldos individuales. La gran ventaja de las billeteras HD es que simplifican la gesti&oacute;n y refuerzan la seguridad del usuario: con solo respaldar la semilla inicial, es posible recuperar toda la billetera en caso de p&eacute;rdida o da&ntilde;o del dispositivo, evitando la complejidad de manejar m&uacute;ltiples claves privadas. Adem&aacute;s, su compatibilidad con est&aacute;ndares como BIP44 permite administrar distintas cuentas y criptomonedas desde una misma ra&iacute;z, consolid&aacute;ndolas como una herramienta esencial para quienes buscan eficiencia, seguridad y facilidad en el manejo de activos digitales.
 </p>
 
 <br />
 
 <h3 id="bip32-notes" data-translate="">BIP32</h3>
 <p>
-BIP32 (<a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki" target="_blank"><b>Bitcoin Improvement Proposal 32</b></a>) es el estándar que introdujo las carteras determinísticas jerárquicas (HD wallets) en Bitcoin. Antes de su creación, cada dirección requería una clave privada independiente, lo que complicaba el respaldo y la gestión. Con BIP32, todas las claves privadas y públicas pueden derivarse de una única semilla maestra, organizada en forma de árbol jerárquico. Esto permite generar infinitas claves hijas a partir de una sola raíz, simplificando la administración y aumentando la seguridad.
+<i><b>BIP32</i></b> (<a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki" target="_blank"><b>Bitcoin Improvement Proposal 32</b></a>) es el est&aacute;ndar que introdujo las billeteras determin&iacute;sticas jer&aacute;rquicas (HD wallets) en Bitcoin. Antes, cada direcci&oacute;n requer&iacute;a una clave privada independiente, lo que dificultaba respaldo y gesti&oacute;n. Con BIP32, todas las claves privadas y p&uacute;blicas se derivan de una &uacute;nica semilla maestra organizada en un &aacute;rbol jer&aacute;rquico, permitiendo generar infinitas claves hijas desde una sola ra&iacute;z. Esto simplifica la administraci&oacute;n, mejora la seguridad y facilita manejar m&uacute;ltiples cuentas y direcciones sin guardar cada clave privada. Adem&aacute;s, posibilita derivar claves p&uacute;blicas sin exponer las privadas, &uacute;til para auditor&iacute;as y verificaciones seguras. BIP32 se convirti&oacute; en la base de est&aacute;ndares posteriores como BIP44, BIP49, BIP84 y BIP86, que definen rutas espec&iacute;ficas de derivaci&oacute;n para distintos tipos de direcciones, consolid&aacute;ndolo como un pilar esencial en la infraestructura de las criptomonedas.
 </p>
+
+<br />
+
+<h3 id="bip39-notes" data-translate="">BIP39</h3>
 <p>
-La gran ventaja de BIP32 es que facilita el manejo de múltiples cuentas y direcciones dentro de una misma billetera, sin necesidad de almacenar cada clave privada por separado. Además, permite derivar claves públicas sin exponer las privadas, lo que resulta útil para auditorías y verificaciones seguras. Este estándar se convirtió en la base para otros como BIP44, BIP49, BIP84 y BIP86, que definen rutas específicas de derivación para distintos tipos de direcciones, consolidando a BIP32 como un pilar en la infraestructura de las criptomonedas.
+<i><b>BIP39</i></b> (<a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki" target="_blank"><b>Bitcoin Improvement Proposal 39</b></a>) es un est&aacute;ndar que convierte n&uacute;meros aleatorios, llamados entrop&iacute;a, en frases mnemot&eacute;cnicas f&aacute;ciles de recordar, normalmente de 12, 18 o 24 palabras tomadas de un <a href="https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt" target="_blank"><b>diccionario</b></a> de 2048 t&eacute;rminos en ingl&eacute;s. Estas frases representan una semilla criptogr&aacute;fica desde la cual, mediante otros est&aacute;ndares como BIP32, se derivan claves privadas y p&uacute;blicas para crear billeteras HD seguras y determin&iacute;sticas. Su relevancia radica en simplificar la gesti&oacute;n de claves: en vez de largas cadenas alfanum&eacute;ricas, basta con conservar la frase semilla para respaldar y restaurar fondos en cualquier billetera compatible. Adem&aacute;s, permite a&ntilde;adir una passphrase extra para reforzar la seguridad. Gracias a este equilibrio entre solidez criptogr&aacute;fica y facilidad de uso, BIP39 se ha consolidado como un pilar esencial de la seguridad y la interoperabilidad en el ecosistema de las criptomonedas.
 </p>
 
 <br />
 
 <h3 id="bip44-notes" data-translate="">BIP44</h3>
 <p>
-BIP44 (<a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki" target="_blank"><b>Bitcoin Improvement Proposal 44</b></a>) es un est&aacute;ndar que define c&oacute;mo organizar y derivar claves en las carteras determin&iacute;sticas jer&aacute;rquicas (HD wallets) introducidas por BIP32. Su principal aporte es establecer una estructura clara de derivaci&oacute;n en cinco niveles: prop&oacute;sito, moneda, cuenta, cambio y direcci&oacute;n. Gracias a esta jerarqu&iacute;a, los usuarios pueden manejar m&uacute;ltiples cuentas y direcciones dentro de una misma semilla, manteniendo orden y compatibilidad entre diferentes billeteras.  
-</p>
-<p>
-En la pr&aacute;ctica, BIP44 permite que una sola frase semilla genere de forma consistente todas las claves necesarias para distintas criptomonedas y cuentas, siguiendo rutas de derivaci&oacute;n como m/44'/0'/0'/0/0 para Bitcoin. Esto asegura interoperabilidad entre billeteras que implementan el mismo est&aacute;ndar y facilita la gesti&oacute;n de fondos, ya que el usuario solo necesita respaldar su semilla inicial para recuperar todas sus direcciones y activos asociados.
-</p>
-<p>
-<br>
-Estructura jer&aacute;rquica de 5 niveles en BIP44:
-</p>
-<p>
-Nivel 1: Prop&oacute;sito (Purpose): Representado como 44', este nivel indica el prop&oacute;sito de la ruta y se utiliza para distinguir entre diferentes esquemas de derivaci&oacute;n. El valor 44' es el est&aacute;ndar para BIP44.
-</p>
-<p>
-Nivel 2: Tipo de Moneda (Coin Type): Identifica la criptomoneda espec&iacute;fica, como 0 para Bitcoin o 60 para Ethereum.
-</p>
-<p> 
-Nivel 3: Cuenta (Account): Permite la creaci&oacute;n de m&uacute;ltiples cuentas dentro de una misma billetera, con &iacute;ndices que comienzan desde 0.
-</p>
-<p>
-Nivel 4: Cadena Externa/Interna (Change): Usa 0 para la cadena externa (direcciones de recepci&oacute;n) y 1 para la cadena interna (direcciones de cambio).
-</p>
-<p>
-Nivel 5: &Iacute;ndice de Direcci&oacute;n (Address Index): Identifica una direcci&oacute;n espec&iacute;fica dentro de una cadena, comenzando desde 0.
+<i><b>BIP44</i></b> (<a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki" target="_blank"><b>Bitcoin Improvement Proposal 44</b></a>) es un est&aacute;ndar que organiza la derivaci&oacute;n de claves en billeteras HD basadas en BIP32. Define una estructura jer&aacute;rquica de cinco niveles: prop&oacute;sito, tipo de moneda, cuenta, cambio y direcci&oacute;n. Gracias a esta organizaci&oacute;n, una sola semilla puede generar de forma consistente todas las claves necesarias para m&uacute;ltiples criptomonedas y cuentas, manteniendo orden y compatibilidad entre billeteras. En la pr&aacute;ctica, rutas como m/44'/0'/0'/0/0 permiten crear direcciones para Bitcoin, mientras que otros valores identifican distintas monedas como Ethereum. El nivel de cuenta facilita manejar varias cuentas dentro de la misma billetera, el nivel de cambio distingue entre direcciones externas e internas, y el &iacute;ndice de direcci&oacute;n se&ntilde;ala cada direcci&oacute;n espec&iacute;fica. Esta estructura asegura interoperabilidad, simplifica la gesti&oacute;n de fondos y permite que el usuario solo deba respaldar su semilla inicial para recuperar todas sus direcciones y activos asociados.
 </p>
 
 <br />
 
-<h3 id="mnemonic-notes" data-translate="">Frase Semilla o Mnemot&eacute;cnica</h3>
+<h3 id="private-key-notes" data-translate="">Clave Privada</h3>
 <p>
-Una frase semilla o mnemot&eacute;cnica (mnem&oacute;ica) es una secuencia de 12, 18 o 24 palabras que act&uacute;a como respaldo de las claves privadas en una billetera de criptomonedas. Se genera a partir de un n&uacute;mero aleatorio llamado entrop&iacute;a, siguiendo est&aacute;ndares como BIP39, lo que garantiza seguridad y compatibilidad entre distintas plataformas. Esta frase funciona como una llave maestra: permite restaurar una billetera completa en caso de p&eacute;rdida o da&ntilde;o del dispositivo, ofreciendo al usuario una forma sencilla y confiable de proteger sus activos digitales sin necesidad de memorizar complejas cadenas alfanum&eacute;ricas.  
+La <i><b>clave privada</i></b> es una cadena alfanum&eacute;rica generada aleatoriamente que act&uacute;a como llave maestra de una billetera digital. M&aacute;s que una contrase&ntilde;a, constituye la prueba matem&aacute;tica de propiedad sobre los activos en la blockchain y otorga control absoluto sobre ellos. Permite firmar digitalmente cada transacci&oacute;n, validando la legitimidad del propietario. A diferencia de la clave p&uacute;blica, nunca debe compartirse, pues quien la posea puede transferir fondos sin restricciones ni posibilidad de revertir la operaci&oacute;n. Su car&aacute;cter &uacute;nico y su rol en la autenticaci&oacute;n la convierten en el n&uacute;cleo de la seguridad cripto. Est&aacute; vinculada a la clave p&uacute;blica, que se usa para recibir fondos, pero los algoritmos impiden deducir la privada a partir de ella. As&iacute;, aunque las direcciones sean visibles en la blockchain, los activos permanecen protegidos. Se recomienda almacenarla en medios seguros como hardware wallets o copias f&iacute;sicas, ya que su p&eacute;rdida implica la p&eacute;rdida definitiva de los fondos.
 </p>
+
+<br />
+
+<h3 id="xprv-notes" data-translate="">Clave Privada Extendida de la Cuenta</h3>
 <p>
-Su relevancia es enorme, ya que quien posea la frase semilla tiene acceso total a los fondos. Por eso, se recomienda almacenarla en un medio f&iacute;sico seguro, nunca digitalizarla ni compartirla en l&iacute;nea, y reforzarla con una passphrase adicional para a&ntilde;adir una capa extra de protecci&oacute;n. La seguridad que ofrece es pr&aacute;cticamente absoluta: la probabilidad de que alguien adivine una frase completa es tan baja que resulta imposible en la pr&aacute;ctica, consolidando a la frase semilla como uno de los pilares m&aacute;s s&oacute;lidos de la criptograf&iacute;a aplicada a las finanzas digitales.  
+La <i><b>clave privada extendida de la cuenta</i></b> (xprv, yprv, zprv) es una derivaci&oacute;n en el nivel account’ del est&aacute;ndar BIP44 dentro de una billetera HD, y constituye el n&uacute;cleo de seguridad de esa cuenta espec&iacute;fica. A partir de ella se generan todas las claves privadas y p&uacute;blicas, lo que significa que quien la posea tiene acceso completo a los fondos y transacciones. Adem&aacute;s de las claves, contiene informaci&oacute;n de derivaci&oacute;n y un c&oacute;digo de verificaci&oacute;n que garantizan la coherencia en la estructura jer&aacute;rquica de la billetera. Su importancia es cr&iacute;tica: compartirla equivale a entregar el control absoluto de los activos digitales, ya que permite firmar operaciones y mover fondos sin restricciones. Por ello debe mantenerse en secreto absoluto y nunca almacenarse en lugares inseguros o compartidos. La clave privada extendida es, en esencia, la llave maestra de la cuenta, y su protecci&oacute;n adecuada asegura la integridad, privacidad y resguardo de todos los fondos asociados.
 </p>
+
+<br />
+
+<h3 id="xprv-bip32-notes" data-translate="">Clave Privada Extendida BIP32</h3>
 <p>
-<span style="color: red;"><i><b>ATENCI&Oacute;N: </b></i></span>
-<i>La probabilidad de adivinar correctamente una frase mnemot&eacute;cnica de alguien es 1 en 2048 ^ 24 o 2.96 x 10 ^ 79 suposiciones (t&eacute;cnicamente imposible).</i>
+La <i><b>clave privada extendida BIP32</i></b>, conocida como xprv, es el coraz&oacute;n de una billetera HD, pues a partir de ella se derivan de manera jer&aacute;rquica y segura todas las claves privadas y p&uacute;blicas necesarias para operar. Este mecanismo incluye la propia clave privada, datos de la ruta de derivaci&oacute;n y un c&oacute;digo de verificaci&oacute;n que garantizan consistencia en la estructura. Su poder radica en que permite generar direcciones y firmar transacciones, lo que otorga control absoluto sobre los fondos. Por esa raz&oacute;n, debe mantenerse en secreto absoluto: cualquier filtraci&oacute;n compromete toda la billetera y expone los activos digitales sin posibilidad de recuperaci&oacute;n. Compartir un xprv equivale a entregar la llave maestra de la cuenta, ya que habilita a terceros a mover fondos y manipular transacciones. En consecuencia, la protecci&oacute;n rigurosa del xprv es esencial para preservar la seguridad, la privacidad y la integridad del patrimonio.
+</p>
+
+<br />
+
+<h3 id="public-key-notes" data-translate="">Clave P&uacute;blica</h3>
+<p>
+La <i><b>clave p&uacute;blica</i></b> es un identificador que puede compartirse libremente y funciona como direcci&oacute;n de recepci&oacute;n para fondos, similar a una cuenta bancaria o correo electr&oacute;nico. Se genera matem&aacute;ticamente a partir de la clave privada y est&aacute; vinculada a ella, aunque resulta imposible deducir la privada desde la p&uacute;blica. Su funci&oacute;n principal es permitir que otros env&iacute;en criptomonedas a una direcci&oacute;n espec&iacute;fica, ya que solo el poseedor de la clave privada correspondiente puede desbloquear y gestionar esas transacciones. La clave p&uacute;blica es esencial en la seguridad y operatividad de las criptomonedas, pues posibilita la creaci&oacute;n de direcciones en la blockchain que pueden difundirse sin riesgo de acceso indebido. Aunque puede distribuirse ampliamente, su uso se limita a la recepci&oacute;n de activos; para gastar o transferir se requiere la clave privada, que act&uacute;a como firma digital &uacute;nica y garantiza la autenticidad de cada operaci&oacute;n. Este sistema de criptograf&iacute;a asim&eacute;trica asegura integridad y confidencialidad en la red.
+</p>
+
+<br />
+
+<h3 id="xpub-notes" data-translate="">Clave P&uacute;blica Extendida de la Cuenta</h3>
+<p>
+La <i><b>clave p&uacute;blica extendida de la cuenta</i></b> (xprv, yprv, zprv) es un elemento dentro del est&aacute;ndar BIP44 que se ubica en el nivel account’ de la jerarqu&iacute;a de una billetera HD. Su prop&oacute;sito es permitir la generaci&oacute;n de todas las direcciones p&uacute;blicas asociadas a esa cuenta sin necesidad de exponer las claves privadas, lo que garantiza seguridad y control. Gracias a esta caracter&iacute;stica, es posible importar o visualizar una cuenta completa en aplicaciones o billeteras compatibles, facilitando la gesti&oacute;n de fondos y el monitoreo de transacciones. Adem&aacute;s, al limitarse a un &uacute;nico nivel de la estructura, se evita comprometer la totalidad de la billetera, reduciendo riesgos y manteniendo la privacidad. En la pr&aacute;ctica, la clave p&uacute;blica extendida resulta muy &uacute;til para auditores, desarrolladores o usuarios que necesitan verificar movimientos o recibir pagos sin tener acceso directo a las claves privadas, ofreciendo un equilibrio entre funcionalidad, seguridad y conveniencia en el ecosistema cripto.
+</p>
+
+<br />
+
+<h3 id="xpub-bip32-notes" data-translate="">Clave P&uacute;blica Extendida BIP32</h3>
+<p>
+La <i><b>clave p&uacute;blica extendida BIP32</i></b>, conocida como xpub, es fundamental en el dise&ntilde;o de billeteras HD porque permite derivar m&uacute;ltiples claves p&uacute;blicas sin exponer las privadas. Al generarse desde la semilla maestra, incorpora datos de la ruta de derivaci&oacute;n y un c&oacute;digo de verificaci&oacute;n que aseguran coherencia y autenticidad en la estructura. Su principal ventaja es que posibilita crear todas las direcciones de recepci&oacute;n de una billetera, facilitando la gesti&oacute;n de pagos y el monitoreo de transacciones, pero sin otorgar capacidad de gasto. Esto la convierte en una herramienta ideal para auditores, contadores o usuarios que necesitan transparencia sin comprometer la seguridad. Compartir un xpub permite a terceros visualizar movimientos y generar nuevas direcciones, manteniendo intacta la protecci&oacute;n de las claves privadas. En consecuencia, el xpub equilibra funcionalidad y seguridad, ofreciendo un mecanismo confiable para administrar y supervisar activos digitales sin riesgo de p&eacute;rdida de control sobre los fondos.
+</p>
+
+<br />
+
+<h3 id="root-key-notes" data-translate="">Clave Ra&iacute;z BIP32</h3>
+<p>
+La <i><b>clave ra&iacute;z BIP32</i></b>, conocida como semilla maestra, es el punto de partida de las billeteras determin&iacute;sticas jer&aacute;rquicas (HD wallets). A partir de ella se derivan matem&aacute;ticamente todas las claves privadas y p&uacute;blicas, cada una asociada a una direcci&oacute;n &uacute;nica, lo que permite una gesti&oacute;n ordenada y segura de los fondos. Su funci&oacute;n es comparable a una “llave maestra”: quien la posea tiene control absoluto sobre todos los activos vinculados. Esta clave ra&iacute;z suele generarse desde una frase mnem&oacute;nica BIP39, que convierte la complejidad criptogr&aacute;fica en una serie de palabras f&aacute;ciles de respaldar y recordar. Gracias a este dise&ntilde;o, los usuarios pueden restaurar sus billeteras en cualquier dispositivo con solo ingresar la semilla, evitando la necesidad de guardar m&uacute;ltiples claves individuales. Adem&aacute;s, la estructura jer&aacute;rquica permite administrar diferentes cuentas y criptomonedas desde una misma ra&iacute;z, consolidando la clave BIP32 como un elemento esencial para la seguridad y eficiencia en el ecosistema digital.
 </p>
 
 <br />
 
 <h3 id="passphrase-notes" data-translate="">Contrase&ntilde;a BIP39</h3>
 <p>
-La contrase&ntilde;a BIP39, tambi&eacute;n conocida como palabra 25, frase secreta o passphrase, es una medida opcional de seguridad que se a&ntilde;ade a la frase semilla de 12, 18 o 24 palabras en una billetera criptogr&aacute;fica. Su funci&oacute;n es actuar como una segunda capa de protecci&oacute;n: incluso si alguien obtiene la semilla, sin la contrase&ntilde;a correcta no podr&aacute; acceder a los fondos. Adem&aacute;s, interviene en la derivaci&oacute;n de las claves criptogr&aacute;ficas, permitiendo crear billeteras ocultas o adicionales desde la misma semilla. Puede tener hasta 100 caracteres, incluyendo letras, n&uacute;meros y s&iacute;mbolos, lo que ofrece una amplia variedad de combinaciones. Su uso es esencial para incrementar la privacidad y seguridad en el ecosistema cripto, y se recomienda almacenarla separada de la semilla para evitar riesgos y garantizar la protecci&oacute;n de los activos digitales.
+La <i><b>contrase&ntilde;a BIP39</i></b>, tambi&eacute;n llamada palabra 25, frase secreta o passphrase, es una medida opcional de seguridad que se a&ntilde;ade a la semilla mnem&oacute;nica de 12, 18 o 24 palabras en una billetera criptogr&aacute;fica. Su funci&oacute;n es actuar como segunda capa de protecci&oacute;n: aunque alguien obtenga la semilla, sin la contrase&ntilde;a correcta no podr&aacute; acceder a los fondos. Al intervenir en la derivaci&oacute;n de las claves, permite crear carteras ocultas o adicionales desde la misma semilla, ofreciendo flexibilidad y privacidad. Cada contrase&ntilde;a distinta genera un monedero &uacute;nico, lo que refuerza la seguridad y dificulta accesos no autorizados. Puede tener hasta 100 caracteres, incluyendo letras, n&uacute;meros y s&iacute;mbolos, lo que brinda una enorme variedad de combinaciones. Sin embargo, si se olvida, los fondos asociados se pierden de forma irreversible. Por ello, se recomienda almacenarla con el mismo cuidado que la semilla, preferiblemente en lugares separados, garantizando as&iacute; la protecci&oacute;n de los activos digitales.
+</p>
+
+
+<br />
+
+<h3 id="hardened-notes" data-translate="">Derivaciones Reforzadas</h3>
+<p>
+Las <i><b>derivaciones reforzadas</i></b> (hardened derivations) son un mecanismo de seguridad clave en billeteras HD definido por BIP32. Se identifican con un ap&oacute;strofe (') en la ruta, como m/44'/0'/0'/0/0, y evitan que una clave p&uacute;blica extendida (xpub) pueda usarse para deducir claves privadas hijas. En derivaciones normales, si se expone una clave privada hija junto con el xpub madre, es posible reconstruir la clave privada superior y comprometer toda la billetera. Las hardened rompen esa cadena: requieren la clave privada madre para generar hijas, limitando el impacto de una filtraci&oacute;n. Aunque las derivaciones no endurecidas son m&aacute;s flexibles, las hardened a&ntilde;aden una capa cr&iacute;tica de protecci&oacute;n, recomendada en escenarios p&uacute;blicos o de alto riesgo.
 </p>
 
 <br />
 
 <h3 id="entropy-notes" data-translate="">Entrop&iacute;a</h3>
 <p>
-La entrop&iacute;a es el nivel de aleatoriedad o incertidumbre utilizado para generar claves privadas y frases semilla seguras. Esta aleatoriedad es esencial porque garantiza que cada clave sea &uacute;nica e impredecible, dificultando que un atacante pueda reproducirlas o adivinarlas mediante intentos de fuerza bruta. Cuanto mayor es la entrop&iacute;a, m&aacute;s amplio es el espacio de posibles combinaciones, lo que fortalece la seguridad de las billeteras digitales y protege los activos de los usuarios frente a ataques.  
-</p>
-<p>
-La entrop&iacute;a puede obtenerse de diversas fuentes, como movimientos del rat&oacute;n (mouse), pulsaciones de teclado, ruido del hardware o algoritmos especializados, que luego transforma en frases mnem&oacute;nicas de 12, 18 o 24 palabras siguiendo est&aacute;ndares como BIP39. Gracias a este proceso, los usuarios pueden respaldar y restaurar sus billeteras de manera confiable, sabiendo que la base de su seguridad est&aacute; en una semilla generada con un nivel de aleatoriedad tan alto que resulta pr&aacute;cticamente imposible de vulnerar.  
+La <i><b>entrop&iacute;a</i></b> representa el nivel de aleatoriedad o incertidumbre empleado para generar claves privadas y frases semilla seguras en sistemas criptogr&aacute;ficos. Esta aleatoriedad es fundamental porque asegura que cada clave sea &uacute;nica e impredecible, dificultando que un atacante pueda reproducirlas o adivinarlas mediante intentos de fuerza bruta. Cuanto mayor es la entrop&iacute;a, m&aacute;s amplio resulta el espacio de posibles combinaciones, lo que incrementa la robustez de las billeteras digitales y protege los activos de los usuarios frente a ataques externos. La entrop&iacute;a puede obtenerse de m&uacute;ltiples fuentes, como movimientos del rat&oacute;n, pulsaciones de teclado, ruido del hardware o algoritmos especializados, que posteriormente se transforman en frases mnem&oacute;nicas de 12, 18 o 24 palabras siguiendo est&aacute;ndares como BIP39. Gracias a este proceso, los usuarios pueden respaldar y restaurar sus billeteras de manera confiable, sabiendo que la base de su seguridad est&aacute; en una semilla generada con un nivel de aleatoriedad tan elevado que resulta pr&aacute;cticamente imposible de vulnerar. 
 </p>
 <p>
 <span style="color: red;"><i><b>ATENCI&Oacute;N:</b></i></span>
@@ -8125,83 +8147,33 @@ La entrop&iacute;a puede obtenerse de diversas fuentes, como movimientos del rat
 
 <br />
 
-<h3 id="entropy-source-notes" data-translate="">Fuente de Entrop&iacute;a</h3>
+<h3 id="mnemonic-notes" data-translate="">Frase Semilla (Mnemot&eacute;cnica)</h3>
 <p>
-Una fuente de entrop&iacute;a es el mecanismo que aporta la aleatoriedad necesaria para generar claves privadas y frases semilla seguras. Estas fuentes se nutren de eventos impredecibles como movimientos del rat&oacute;n (mouse), pulsaciones de teclado, fluctuaciones el&eacute;ctricas o algoritmos especializados, que se recolectan para garantizar claves &uacute;nicas y resistentes a ataques. La solidez de la seguridad depende directamente de la diversidad y calidad de los datos capturados, pues una fuente d&eacute;bil puede comprometer la protecci&oacute;n de los fondos.
+Una <i><b>frase semilla</i></b>, tambi&eacute;n llamada frase de recuperaci&oacute;n, seed phrase o nemot&eacute;cnica, es una secuencia de 12, 18 o 24 palabras que respalda las claves privadas de una billetera de criptomonedas. Se genera a partir de una entrop&iacute;a siguiendo el est&aacute;ndar BIP39, garantizando seguridad y compatibilidad entre plataformas. Funciona como llave maestra: permite restaurar una billetera completa en caso de p&eacute;rdida o da&ntilde;o del dispositivo, simplificando la protecci&oacute;n de activos sin memorizar largas cadenas. Su importancia es cr&iacute;tica, pues quien la posea controla los fondos. Por ello se recomienda guardarla en un medio f&iacute;sico seguro, nunca digitalizarla ni compartirla, y reforzarla con una passphrase adicional. La probabilidad de que alguien la adivine es pr&aacute;cticamente nula, lo que la convierte en un pilar esencial de la seguridad y la criptograf&iacute;a aplicada a las finanzas digitales.
+<p>
+<span style="color: red;"><i><b>ATENCI&Oacute;N: </b></i></span>
+<i>La probabilidad de adivinar correctamente una frase mnemot&eacute;nica de alguien es 1 en 2048 ^ 24 o 2.96 x 10 ^ 79 suposiciones, algo t&eacute;cnicamente imposible.</i>
 </p>
 
 <br />
 
-<h3 id="hd-wallet-notes" data-translate="">Billetera HD</h3>
+<h3 id="entropy-source-notes" data-translate="">Fuente de Entrop&iacute;a</h3>
 <p>
-Una billetera HD (Hierarchical Deterministic wallet), o billetera determin&iacute;stica jer&aacute;rquica, es un tipo de billetera criptogr&aacute;fica que revolucion&oacute; la forma de administrar claves privadas. Basada en el est&aacute;ndar BIP32, permite generar un &aacute;rbol jer&aacute;rquico de claves a partir de una &uacute;nica semilla o frase mnemot&eacute;cnica. Este dise&ntilde;o ofrece una estructura ordenada y escalable, utilizada ampliamente en criptomonedas como Bitcoin y Ethereum, garantizando que cada nueva direcci&oacute;n de recepci&oacute;n se derive de manera segura y consistente sin necesidad de crear respaldos individuales para cada clave.  
-</p>
-<p>
-La gran ventaja de las billeteras HD es que simplifican la gesti&oacute;n y aumentan la seguridad del usuario. Con solo respaldar la semilla inicial, es posible recuperar toda la billetera en caso de p&eacute;rdida o da&ntilde;o del dispositivo, evitando la complejidad de manejar m&uacute;ltiples claves privadas. Adem&aacute;s, su compatibilidad con est&aacute;ndares posteriores como BIP44 permite administrar diferentes cuentas y criptomonedas desde una misma ra&iacute;z, consolidando a las billeteras HD como una herramienta esencial para quienes buscan eficiencia, seguridad y facilidad en el manejo de activos digitales.
+Una <i><b>fuente de entrop&iacute;a</i></b> es el mecanismo que aporta la aleatoriedad necesaria para generar claves privadas y frases semilla seguras. Estas fuentes se nutren de eventos impredecibles como movimientos del rat&oacute;n (mouse), pulsaciones de teclado, fluctuaciones el&eacute;ctricas o algoritmos especializados, que se recolectan para garantizar claves &uacute;nicas y resistentes a ataques. La solidez de la seguridad depende directamente de la diversidad y calidad de los datos capturados, pues una fuente d&eacute;bil puede comprometer la protecci&oacute;n de los fondos.
 </p>
 
 <br />
 
 <h3 id="seed-bip39-notes" data-translate="">Semilla BIP39</h3>
 <p>
-La semilla BIP39 es un est&aacute;ndar que transforma claves privadas complejas en frases mnem&oacute;nicas de 12 a 24 palabras f&aacute;ciles de recordar. Estas palabras se convierten mediante un algoritmo en un n&uacute;mero criptogr&aacute;fico de 512 bits, conocido como seed, que sirve como base para generar la clave ra&iacute;z BIP32 y todas las claves privadas y p&uacute;blicas de una billetera HD. Compatible con m&uacute;ltiples clientes, permite restaurar fondos en cualquier dispositivo. Su protecci&oacute;n es esencial para la seguridad de los activos.
+La <i><b>semilla BIP39</i></b> es un est&aacute;ndar que transforma claves privadas complejas en frases mnem&oacute;nicas de 12 a 24 palabras f&aacute;ciles de recordar. Estas palabras se convierten mediante un algoritmo en un n&uacute;mero criptogr&aacute;fico de 512 bits, conocido como seed, que sirve como base para generar la clave ra&iacute;z BIP32 y todas las claves privadas y p&uacute;blicas de una billetera HD. Compatible con m&uacute;ltiples clientes, permite restaurar fondos en cualquier dispositivo. Su protecci&oacute;n es esencial para la seguridad de los activos.
 </p>
 
 <br />
 
-<h3 id="root-key-notes" data-translate="">Clave ra&iacute;z BIP32</h3>
+<h3 id="path-notes" data-translate="">Ruta de Derivaci&oacute;n</h3>
 <p>
-La clave ra&iacute;z BIP32, tambi&eacute;n llamada semilla maestra, es el origen de las billeteras determin&iacute;sticas jer&aacute;rquicas (HD wallets). A partir de ella se derivan de forma matem&aacute;tica y segura todas las claves privadas y p&uacute;blicas, cada una vinculada a una direcci&oacute;n &uacute;nica. Funciona como una &ldquo;llave maestra&rdquo;: quien la posee controla todos los fondos asociados. Generalmente se genera desde una frase mnem&oacute;nica BIP39, lo que facilita su respaldo, recuperaci&oacute;n y seguridad completa de la billetera.
-</p>
-
-<br />
-
-<h3 id="public-key-notes" data-translate="">Clave P&uacute;blica</h3>
-<p>
-Una clave p&uacute;blica es un identificador que se puede compartir libremente y que permite recibir fondos, actuando como una direcci&oacute;n de recepci&oacute;n similar a una cuenta bancaria o una direcci&oacute;n de correo electr&oacute;nico. Esta clave es generada matem&aacute;ticamente a partir de la clave privada y est&aacute; directamente vinculada a ella, aunque es imposible deducir la clave privada a partir de la p&uacute;blica. Su funci&oacute;n principal es permitir que otras personas env&iacute;en criptomonedas a una direcci&oacute;n espec&iacute;fica, ya que cualquier transacci&oacute;n dirigida a esa clave p&uacute;blica solo puede ser desbloqueada y gestionada por quien posea la clave privada correspondiente.  
-</p>
-<p>
-La clave p&uacute;blica es esencial para la seguridad y funcionalidad de las criptomonedas, ya que permite la creaci&oacute;n de direcciones de blockchain que pueden ser compartidas p&uacute;blicamente sin riesgo de que los fondos sean accedidos por terceros. Aunque se puede distribuir ampliamente, su poder de acci&oacute;n est&aacute; limitado a la recepci&oacute;n de activos; para gastar o transferir criptomonedas, se requiere la clave privada, que act&uacute;a como una firma digital &uacute;nica que verifica la autenticidad de la transacci&oacute;n. Este sistema de criptograf&iacute;a asim&eacute;trica garantiza que solo el propietario leg&iacute;timo pueda realizar movimientos de fondos, asegurando as&iacute; la integridad y confidencialidad de las transacciones en la red.
-</p>
-
-<br />
-
-<h3 id="private-key-notes" data-translate="">Clave Privada</h3>
-<p>
-Una clave privada es una cadena alfanum&eacute;rica generada de manera aleatoria que funciona como la llave maestra de una billetera digital. Es mucho m&aacute;s que una contrase&ntilde;a: representa la prueba matem&aacute;tica de propiedad sobre los activos en la blockchain y otorga control absoluto sobre ellos. Con ella, el usuario puede firmar digitalmente cada transacci&oacute;n, validando que es el leg&iacute;timo propietario de los fondos. A diferencia de una clave p&uacute;blica, nunca debe compartirse, ya que quien la posea puede transferir los activos sin restricciones y sin posibilidad de revertir la operaci&oacute;n. Su car&aacute;cter &uacute;nico y su rol en la autenticaci&oacute;n convierten a la clave privada en el n&uacute;cleo de la seguridad en el ecosistema cripto. 
-</p>
-<p>
-Esta clave est&aacute; estrechamente vinculada a la clave p&uacute;blica, que se comparte libremente para recibir fondos, pero gracias a los algoritmos criptogr&aacute;ficos es imposible deducir la privada a partir de la p&uacute;blica. Esto asegura que, aunque las direcciones de billetera sean visibles en la blockchain, los fondos permanecen inaccesibles sin la clave privada correspondiente. Por ello, se recomienda almacenarla en medios seguros como dispositivos de hardware o copias f&iacute;sicas, evitando servicios en la nube o aplicaciones no verificadas. La p&eacute;rdida de la clave privada implica la p&eacute;rdida definitiva de los activos, ya que no existe un mecanismo de recuperaci&oacute;n, lo que subraya su importancia cr&iacute;tica en la custodia de criptomonedas.
-</p>
-
-<br />
-
-<h3 id="xpub-notes" data-translate="">Clave P&uacute;blica Extendida</h3>
-<p>
-Una clave p&uacute;blica extendida (xpub, ypub, zpub) es una versi&oacute;n ampliada de la clave p&uacute;blica usada en billeteras jer&aacute;rquicas determin&iacute;sticas (HD) como Bitcoin y Litecoin. A partir de una semilla de recuperaci&oacute;n se generan m&uacute;ltiples cuentas y direcciones de recepci&oacute;n, y cada cuenta tiene su propia clave p&uacute;blica extendida. Esto permite crear un n&uacute;mero ilimitado de direcciones sin exponer las claves privadas, mejorando la privacidad al evitar la reutilizaci&oacute;n de direcciones.
-</p>
-<p>
-Compartir una clave p&uacute;blica extendida no compromete los fondos ni las claves privadas, pero s&iacute; permite a terceros ver el historial de transacciones y saldos de esa cuenta. Por ello, se utiliza principalmente en billeteras de solo lectura, integraciones contables o fiscales y plataformas externas. Aunque es seguro en t&eacute;rminos de fondos, requiere precauci&oacute;n para proteger la privacidad del usuario.
-</p>
-
-<br />
-
-<h3 id="xprv-notes" data-translate="">Clave Privada Extendida</h3>
-<p>
-La clave privada extendida (xprv) es el n&uacute;cleo de seguridad de una billetera jer&aacute;rquica determin&iacute;stica (HD). Se genera a partir de una semilla de recuperaci&oacute;n (12, 18 o 24 palabras) y combina una clave privada maestra con un chain code, lo que permite derivar de forma matem&aacute;tica un n&uacute;mero pr&aacute;cticamente ilimitado de claves privadas hijas. Cada una de estas claves genera sus correspondientes claves p&uacute;blicas y direcciones de recepci&oacute;n, simplificando la gesti&oacute;n y recuperaci&oacute;n de fondos desde una sola semilla.  
-</p>
-<p>
-Su importancia radica en que quien posea la xprv controla todas las direcciones y fondos asociados a esa billetera, no solo una cuenta espec&iacute;fica. Por ello, nunca debe compartirse y debe almacenarse en lugares seguros, como dispositivos de hardware o copias f&iacute;sicas fuera de l&iacute;nea. Si se expone, todos los activos quedan comprometidos; si se pierde, no existe forma de recuperarlos.
-</p>
-
-<br />
-
-<h3 id="derivation-path-notes" data-translate="">Ruta de Derivaci&oacute;n</h3>
-<p>
-Una ruta de derivaci&oacute;n (derivation path) es un conjunto de instrucciones matem&aacute;ticas que determina c&oacute;mo se generan m&uacute;ltiples direcciones de recepci&oacute;n a partir de una &uacute;nica frase semilla de recuperaci&oacute;n, como las 12 o 24 palabras. Esta estructura permite a las billeteras jer&aacute;rquicas determin&iacute;sticas (HD) crear un n&uacute;mero casi infinito de direcciones privadas y p&uacute;blicas desde una sola clave maestra. Cada ruta se representa como una secuencia de n&uacute;meros y s&iacute;mbolos, por ejemplo, m/44'/0'/0'/0/0, donde cada segmento define aspectos como el tipo de criptomoneda, la cuenta y la direcci&oacute;n espec&iacute;fica. La presencia de un ap&oacute;strofe (') indica una derivaci&oacute;n &quot;hardened&quot;, que mejora la seguridad al derivar claves privadas directamente de la clave privada maestra en lugar de usar la clave p&uacute;blica extendida.  
-</p>
-<p>
-Diferentes billeteras utilizan rutas distintas por defecto: Ledger Live emplea m/84' para Bitcoin Native SegWit, mientras que MetaMask usa m/44'/60'/0'/0/0 para Ethereum. Si se restaura una billetera con la frase semilla pero con una ruta de derivaci&oacute;n incorrecta, se puede ver un saldo vac&iacute;o, aunque los fondos sigan existiendo en otra parte del &aacute;rbol de direcciones. Por eso, es crucial guardar no solo la frase semilla, sino tambi&eacute;n la ruta de derivaci&oacute;n original para recuperar completamente los fondos en el futuro.
+La <i><b>ruta de derivaci&oacute;n</i></b> es la secuencia que define c&oacute;mo se generan m&uacute;ltiples direcciones a partir de una sola semilla en billeteras HD, siguiendo est&aacute;ndares como BIP32, BIP44 o BIP84. Se representa con n&uacute;meros y s&iacute;mbolos, por ejemplo m/44'/0'/0'/0/0, donde cada nivel indica la criptomoneda, la cuenta, el tipo de clave y la direcci&oacute;n. El ap&oacute;strofe se&ntilde;ala derivaciones hardened, que refuerzan la seguridad al impedir que una clave p&uacute;blica comprometida exponga otras ramas de la jerarqu&iacute;a. Cada billetera puede implementar rutas distintas: Ledger Live suele usar m/84', mientras MetaMask emplea m/44'/60'/0'/0/0 para Ethereum. Esta diversidad hace que, si al restaurar una semilla se introduce una ruta incorrecta, el saldo aparezca vac&iacute;o aunque los fondos sigan existiendo. Por ello, es crucial conservar tanto la semilla como la ruta original, ya que juntas garantizan acceso seguro y coherente a los activos digitales, evitando confusiones y asegurando la integridad de la billetera.
 </p>
 <!-- /more information -->
 
@@ -48234,7 +48206,7 @@ DOM.bip44accountXprv = $("#bip44 .account-xprv");
 DOM.bip44accountXpub = $("#bip44 .account-xpub");
 DOM.bip44change = $("#bip44 .change");
 DOM.generatedStrength = $(".generate-container .strength");
-DOM.hardenedAddresses = $(".hardened-addresses");
+DOM.hardenedDerivations = $(".hardened-derivations");
 DOM.addresses = $(".addresses");
 DOM.rowsToAdd = $(".rows-to-add");
 DOM.more = $(".more");
@@ -48269,7 +48241,7 @@ DOM.bip44coin.on("input", calcForDerivationPath);
 DOM.bip44account.on("input", calcForDerivationPath);
 DOM.bip44change.on("input", calcForDerivationPath);
 DOM.tab.on("shown.bs.tab", calcForDerivationPath);
-DOM.hardenedAddresses.on("change", calcForDerivationPath);
+DOM.hardenedDerivations.on("change", calcForDerivationPath);
 DOM.indexToggle.on("click", toggleIndexes);
 DOM.addressToggle.on("click", toggleAddresses);
 DOM.publicKeyToggle.on("click", togglePublicKeys);
@@ -48732,7 +48704,7 @@ function TableRow(index) {
 
 var self = this;
 this.shouldGenerate = true;
-var useHardenedAddresses = DOM.hardenedAddresses.prop("checked");
+var useHardenedDerivations = DOM.hardenedDerivations.prop("checked");
 
 function init() {
 calculateValues();
@@ -48744,7 +48716,7 @@ if (!self.shouldGenerate) {
 return;
 }
 var key = "";
-if (useHardenedAddresses) {
+if (useHardenedDerivations) {
 key = bip32ExtendedKey.deriveHardened(index);
 }
 else {
@@ -48757,7 +48729,7 @@ privkey = key.privKey.toWIF(network);
 }
 var pubkey = key.pubKey.toHex();
 var indexText = getDerivationPath() + "/" + index;
-if (useHardenedAddresses) {
+if (useHardenedDerivations) {
 indexText = indexText + "'";
 }
 // Ethereum values are different
@@ -49277,28 +49249,28 @@ var clients = [
 name: "Bitcoin Core",
 onSelect: function() {
 DOM.bip32path.val("m/0'/0'");
-DOM.hardenedAddresses.prop('checked', true);
+DOM.hardenedDerivations.prop('checked', true);
 },
 },
 {
 name: "Blockchain.info",
 onSelect: function() {
 DOM.bip32path.val("m/44'/0'/0'");
-DOM.hardenedAddresses.prop('checked', false);
+DOM.hardenedDerivations.prop('checked', false);
 },
 },
 {
 name: "Coinomi, Ledger",
 onSelect: function() {
 DOM.bip32path.val("m/44'/"+DOM.bip44coin.val()+"'/0'");
-DOM.hardenedAddresses.prop('checked', false);
+DOM.hardenedDerivations.prop('checked', false);
 },
 },
 {
 name: "MultiBit HD",
 onSelect: function() {
 DOM.bip32path.val("m/0'/0");
-DOM.hardenedAddresses.prop('checked', false);
+DOM.hardenedDerivations.prop('checked', false);
 },
 },
 
