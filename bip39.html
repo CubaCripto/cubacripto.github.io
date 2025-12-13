@@ -3,7 +3,7 @@
   <!-- head -->
   <head>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-R3KMMJG3C8"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -11,7 +11,7 @@
       gtag('js', new Date());
       gtag('config', 'G-R3KMMJG3C8');
     </script>
-    <!-- /Google tag (gtag.js) -->
+    <!-- /Google Analytics -->
 
     <!-- metadata -->
     <meta lang="es" />
@@ -7006,17 +7006,17 @@
     <!-- header name -->
     <div class="container">
       <h6 class="text-right"><b><i>v3.0</i></b></h6>
-      <h1 class="text-center">Convertidor Mnemot&eacute;cnico BIP39</h1>
+      <h1 class="text-center">Convertidor Mnemot&eacute;cnico BIP39</h1>	  
       <div class="row">
         <div class="col-md-12">
           <form class="form-horizontal" role="form">
             <!-- /header name -->
+			
+	  <hr />
 
             <!-- hidden entropy container -->
 			
             <div class="entropy-container hidden">
-			
-			<hr />
 			
 			<!-- Entropy note-->
               <div class="row">
@@ -7048,9 +7048,35 @@
     <button onclick="copyData1()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
       <b>Copiar</b>
     </button>
-    <button onclick="clearData1()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
+	<script>
+  function copyData1() {
+    var EntropySourceTextArea = document.getElementById("EntropySource");
+    EntropySourceTextArea.select();
+    document.execCommand("copy");
+    }
+    </script>
+    <button onclick="clearAll()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
       <b>Borrar</b>
     </button>
+	<script>
+  function clearAll() {
+    document.getElementById("Entropy").value = "";
+    document.getElementById("EntropySource").value = "";
+    document.getElementById("Phrase").value = "";
+    document.getElementById("Passphrase").value = "";
+    document.getElementById("Seed").value = "";
+    document.getElementById("root-key").value = "";
+    document.getElementById("account-xpub").value = "";
+    document.getElementById("account-xprv").value = "";
+    document.getElementById("extended-pub-key").value = "";
+    document.getElementById("extended-priv-key").value = "";
+    document.getElementById("strength-info").innerHTML = "-";
+    document.getElementById("type-info").innerHTML = "-";
+    document.getElementById("event-info").innerHTML = "0";
+    document.getElementById("bits-event-info").innerHTML = "0";
+    document.getElementById("bits-info").innerHTML = "0";
+  }
+    </script>
   </div>
 </div>
 <!-- /EntropySource -->
@@ -7070,42 +7096,20 @@
   <label class="col-sm-2 control-label"></label>
   <div class="col-sm-10">
     <div class="form-inline">
-      <button onclick="copyData4()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
+      <button onclick="copyData2()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
         <b>Copiar</b>
       </button>
-      <button onclick="clearAll()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
-        <b>Borrar</b>
-      </button>
-      <select id="mnemonic-length" class="mnemonic-length form-control" style="width: 130px;">
-        <option value="12" selected>12 Palabras</option>
-        <option value="15">15 Palabras</option>
-        <option value="18">18 Palabras</option>
-        <option value="21">21 Palabras</option>
-        <option value="24">24 Palabras</option>
-      </select>
-    </div>
-  </div>
-</div>
-
-<script>
-  // --- Botones ---
-  function copyData1() {
-    var EntropySourceTextArea = document.getElementById("EntropySource");
-    EntropySourceTextArea.select();
-    document.execCommand("copy");
-  }
-
-  function clearData1() {
-    document.getElementById("EntropySource").value = "";
-    document.getElementById("Entropy").value = "";
-  }
-
-  function copyData4() {
+    <script>
+  function copyData2() {
     var EntropyTextArea = document.getElementById("Entropy");
     EntropyTextArea.select();
     document.execCommand("copy");
   }
-
+    </script>
+      <button onclick="clearAll()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
+        <b>Borrar</b>
+      </button>
+	<script>
   function clearAll() {
     document.getElementById("Entropy").value = "";
     document.getElementById("EntropySource").value = "";
@@ -7123,7 +7127,8 @@
     document.getElementById("bits-event-info").innerHTML = "0";
     document.getElementById("bits-info").innerHTML = "0";
   }
-
+    </script>
+	<script>
   // --- Ejecutar ---
   function executeEntropy() {
     var entropyField = document.getElementById("Entropy");
@@ -7216,7 +7221,17 @@
     document.getElementById("EntropySource").addEventListener("input", convertSourceToHex);
     document.getElementById("Entropy").addEventListener("input", convertEntropyToSource);
   });
-</script>
+    </script>
+      <select id="mnemonic-length" class="mnemonic-length form-control" style="width: 130px;">
+        <option value="12" selected>12 Palabras</option>
+        <option value="15">15 Palabras</option>
+        <option value="18">18 Palabras</option>
+        <option value="21">21 Palabras</option>
+        <option value="24">24 Palabras</option>
+      </select>
+    </div>
+  </div>
+</div>
 <!-- /Entropy -->
 
       <!-- Info Entropy -->
@@ -7267,6 +7282,9 @@
                   ></div>
                 </div>
               </div>
+			  
+			  <hr />
+			  
             </div>
           </form>
         </div>
@@ -7277,8 +7295,6 @@
 	  
       <!-- mnemonic -->
 	  
-	  <hr />
-	  
 	  <!-- mnemonic info -->
       <div class="row">
         <div class="col-md-12">
@@ -7287,7 +7303,17 @@
             <div class="form-group">
               <div class="col-sm-2"></div>
               <div class="col-sm-10">
-                <p data-translate="">
+
+				<!-- /mnemonic info -->
+
+                <!-- generate button -->
+                <div class="form-group generate-container">
+                  <label class="col-sm-2 control-label"></label>
+                  <div class="col-sm-12">
+                    <div class="form-inline">
+                      <div class="input-group-inline">
+					  
+					                  <p data-translate="">
                   Puede ingresar una frase semilla / mnemot&eacute;cnica
                   <a
                     href="#bip39-notes"
@@ -7306,17 +7332,10 @@
                       >
                     </b></span
                   >
-				<!-- /mnemonic info -->
-				
-				<br>
-				<br>
-
-                <!-- generate button -->
-                <div class="form-group generate-container">
-                  <label class="col-sm-2 control-label"></label>
-                  <div class="col-sm-12">
-                    <div class="form-inline">
-                      <div class="input-group-inline">
+				  
+				  <br>
+				  <br>
+					  
                         <button
                           class="btn generate"
                           style="border: 1px solid #c0c0c0; width: 100px;"
@@ -7409,14 +7428,14 @@
                 ></textarea>
                 <br />
                 <button
-                  onclick="copyData5()"
+                  onclick="copyData3()"
                   class="btn"
                   style="border: 1px solid #c0c0c0; width: 70px;"
                 >
                   <b>Copiar</b>
                 </button>
             <script>
-              function copyData5() {
+              function copyData3() {
               var PhraseTextArea = document.getElementById("Phrase");
               PhraseTextArea.select();
               document.execCommand("copy");
@@ -7429,6 +7448,25 @@
                 >
                   <b>Borrar</b>
                 </button>
+    <script>
+  function clearAll() {
+    document.getElementById("Entropy").value = "";
+    document.getElementById("EntropySource").value = "";
+    document.getElementById("Phrase").value = "";
+    document.getElementById("Passphrase").value = "";
+    document.getElementById("Seed").value = "";
+    document.getElementById("root-key").value = "";
+    document.getElementById("account-xpub").value = "";
+    document.getElementById("account-xprv").value = "";
+    document.getElementById("extended-pub-key").value = "";
+    document.getElementById("extended-priv-key").value = "";
+    document.getElementById("strength-info").innerHTML = "-";
+    document.getElementById("type-info").innerHTML = "-";
+    document.getElementById("event-info").innerHTML = "0";
+    document.getElementById("bits-event-info").innerHTML = "0";
+    document.getElementById("bits-info").innerHTML = "0";
+  }
+    </script>
               </div>
             </div>
 			<!-- /phrase -->
@@ -7450,14 +7488,14 @@
                 ></textarea>
 				<br />
                   <button
-                    onclick="copyData3()"
+                    onclick="copyData4()"
                     class="btn"
                     style="border: 1px solid #c0c0c0; width: 70px;"
                   >
                     <b>Copiar</b>
                   </button>
               <script>
-                function copyData3() {
+                function copyData4() {
                 var EntropySourceTextArea = document.getElementById("Passphrase");
                 EntropySourceTextArea.select();
                 document.execCommand("copy");
@@ -7481,14 +7519,14 @@
                 ></textarea>
                 <br />
                 <button
-                  onclick="copyData7()"
+                  onclick="copyData5()"
                   class="btn"
                   style="border: 1px solid #c0c0c0; width: 70px;"
                 >
                   <b>Copiar</b>
                 </button>
             <script>
-              function copyData7() {
+              function copyData5() {
               var SeedTextArea = document.getElementById("Seed");
               SeedTextArea.select();
               document.execCommand("copy");
@@ -7515,14 +7553,14 @@
                 ></textarea>
                 <br />
                 <button
-                  onclick="copyData8()"
+                  onclick="copyData6()"
                   class="btn"
                   style="border: 1px solid #c0c0c0; width: 70px;"
                 >
                   <b>Copiar</b>
                 </button>
             <script>
-              function copyData8() {
+              function copyData6() {
               var rootTextArea = document.getElementById("root-key");
               rootTextArea.select();
               document.execCommand("copy");
@@ -7646,7 +7684,7 @@
                   <label class="col-sm-2 control-label"> </label>
                   <div class="col-sm-10">
                     <p data-translate>
-                      Las claves extendidas de la cuenta se pueden usar para
+                      <span style="color: red;"><b>ATENCI&Oacute;N: </b></span>Las claves extendidas de la cuenta se pueden usar para
                       importar a la mayor&iacute;a de las billeteras compatibles con
                       BIP44, como Mycelium o Electrum.
                     </p>
@@ -7668,14 +7706,14 @@
                     ></textarea>
                     <br />
                     <button
-                      onclick="copyData9()"
+                      onclick="copyData7()"
                       class="btn"
                       style="border: 1px solid #c0c0c0; width: 70px;"
                     >
                       <b>Copiar</b>
                     </button>
                 <script>
-                  function copyData9() {
+                  function copyData7() {
                   var xpubTextArea = document.getElementById("account-xpub");
                   xpubTextArea.select();
                   document.execCommand("copy");
@@ -7699,14 +7737,14 @@
                     ></textarea>
                     <br />
                     <button
-                      onclick="copyData10()"
+                      onclick="copyData8()"
                       class="btn"
                       style="border: 1px solid #c0c0c0; width: 70px;"
                     >
                       <b>Copiar</b>
                     </button>
                 <script>
-                  function copyData10() {
+                  function copyData8() {
                   var xprvTextArea = document.getElementById("account-xprv");
                   xprvTextArea.select();
                   document.execCommand("copy");
@@ -7718,7 +7756,7 @@
                   <label class="col-sm-2 control-label"> </label>
                   <div class="col-sm-10">
                     <p data-translate>
-                      La ruta de derivaci&oacute;n BIP32 y las claves extendidas son la
+                      <span style="color: red;"><b>ATENCI&Oacute;N: </b></span>La ruta de derivaci&oacute;n BIP32 y las claves extendidas son la
                       base para las direcciones derivadas.
                     </p>
                   </div>
@@ -7861,7 +7899,6 @@
                       >
                     </p>
                     <br />
-                    <br />
                     <p class="form-control no-border">
                       <span data-translate>Compatible con</span>
                       <a href="https://blockchain.info/" target="_blank"
@@ -7890,14 +7927,14 @@
                 ></textarea>
                 <br />
                 <button
-                  onclick="copyData11()"
+                  onclick="copyData9()"
                   class="btn"
                   style="border: 1px solid #c0c0c0; width: 70px;"
                 >
                   <b>Copiar</b>
                 </button>
             <script>
-              function copyData11() {
+              function copyData9() {
               var pubTextArea = document.getElementById("extended-pub-key");
               pubTextArea.select();
               document.execCommand("copy");
@@ -7921,14 +7958,14 @@
                 ></textarea>
                 <br />
                 <button
-                  onclick="copyData12()"
+                  onclick="copyData10()"
                   class="btn"
                   style="border: 1px solid #c0c0c0; width: 70px;"
                 >
                   <b>Copiar</b>
                 </button>
             <script>
-              function copyData12() {
+              function copyData10() {
               var privTextArea = document.getElementById("extended-priv-key");
               privTextArea.select();
               document.execCommand("copy");
@@ -7948,9 +7985,10 @@
         <div class="col-md-12">
           <h2>Direcciones derivadas</h2>
           <p data-translate="">
-            Tenga en cuenta que estas direcciones se derivan de la clave
+            <span style="color: red;"><b>ATENCI&Oacute;N: </b></span>Tenga en cuenta que estas direcciones se derivan de la clave
             extendida BIP32.
           </p>
+
           <select
             id="network-phrase"
             class="network form-control"
