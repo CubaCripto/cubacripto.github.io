@@ -7585,10 +7585,10 @@
           <h2>Ruta de derivaci&oacute;n</h2>
           <ul class="derivation-type nav nav-tabs" role="tablist">
             <li id="bip32-tab">
-              <a href="#bip32" role="tab" data-toggle="tab">BIP32</a>
+              <a href="#bip32" role="tab" data-toggle="tab"><b>BIP32</b></a>
             </li>
             <li id="bip44-tab" class="active">
-              <a href="#bip44" role="tab" data-toggle="tab">BIP44</a>
+              <a href="#bip44" role="tab" data-toggle="tab"><b>BIP44</b></a>
             </li>
           </ul>
           <div class="derivation-type tab-content">
@@ -7778,6 +7778,21 @@
                       value="m/44'/0'/0'/0"
                       readonly="readonly"
                     />
+                <br />
+                <button
+                  onclick="copyData9()"
+                  class="btn"
+                  style="border: 1px solid #c0c0c0; width: 70px;"
+                >
+                  <b>Copiar</b>
+                </button>
+            <script>
+              function copyData9() {
+              var pathTextArea = document.getElementById("bip44-path");
+              pathTextArea.select();
+              document.execCommand("copy");
+              }
+            </script>
                   </div>
                 </div>
               </form>
@@ -7806,7 +7821,7 @@
                     <select
                       id="bip32-client"
                       class="client form-control"
-                      style="width: 280px;"
+                      style="width: 270px;"
                     >
                       <option value="custom">
                         Ruta de derivaci&oacute;n personalizada
@@ -7829,85 +7844,31 @@
                       style="width: 125px;"
                       value="m/0"
                     />
+                <br />
+                <button
+                  onclick="copyData10()"
+                  class="btn"
+                  style="border: 1px solid #c0c0c0; width: 70px;"
+                >
+                  <b>Copiar</b>
+                </button>
+            <script>
+              function copyData10() {
+              var pathTextArea = document.getElementById("bip32-path");
+              pathTextArea.select();
+              document.execCommand("copy");
+              }
+            </script>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label
-                    for="core-path"
-                    class="col-sm-2 control-label"
-                    data-translate
-                    >Bitcoin Core</label
-                  >
-                  <div class="col-sm-10">
-                    <p class="form-control no-border" data-translate-html>
-                      Usar ruta <code><b>m/0'/0'</b></code> con direcciones
-                      reforzadas.
-                    </p>
-                    <p class="form-control no-border" data-translate-html>
-                      Para m&aacute;s informaci&oacute;n ver la implementaci&oacute;n
-                      <a
-                        href="https://github.com/bitcoin/bitcoin/pull/8035"
-                        target="_blank"
-                        ><b>Bitcoin Core BIP32</b>.</a
-                      >
-                    </p>
-                  </div>
+
+				<div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                <span style="color: red;"><b>ATENCI&Oacute;N: </b></span>Solo ingrese la <a href="#public-key-notes" data-translate><b>clave p&uacute;blica extendida </b></a><code><b>xpub</b></code> en los campos de b&uacute;squeda del <a href="https://www.blockchain.com/explorer/" target="_blank"><b>explorador de bloques</b></a>, <b>NUNCA </b>la <a href="#private-key-notes" data-translate><b>clave privada extendida </b></a><code><b>xprv</b></code>.
                 </div>
-                <div class="form-group">
-                  <label
-                    for="core-path"
-                    class="col-sm-2 control-label"
-                    data-translate
-                    >Multibit</label
-                  >
-                  <div class="col-sm-10">
-                    <p class="form-control no-border">
-                      <span data-translate-html
-                        >Usar ruta <code><b>m/0'/0</b></code
-                        >.</span
-                      >
-                    </p>
-                    <p class="form-control no-border">
-                      <span data-translate>Para m&aacute;s informaci&oacute;n ver</span>
-                      <a href="https://multibit.org/" target="_blank"
-                        ><b>Multibit HD</b></a
-                      >.
-                    </p>
-                  </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" data-translate
-                    >Explorador de bloques</label
-                  >
-                  <div class="col-sm-10">
-                    <p class="form-control no-border">
-                      <span data-translate-html
-                        >Usar ruta <code><b>m/44'/0'/0'</b></code
-                        >.</span
-                      >
-                      <span data-translate-html
-                        >Solo ingrese la
-                        <a href="#public-key-notes" data-translate
-                          ><b>clave p&uacute;blica</b></a
-                        >
-                        extendida <code><b>xpub</b></code> en los campos de
-                        b&uacute;squeda del explorador de bloques, <b>NUNCA</b> la
-                        <a href="#private-key-notes" data-translate
-                          ><b>clave privada</b></a
-                        >
-                        extendida <code><b>xprv</b></code
-                        >.</span
-                      >
-                    </p>
-                    <br />
-                    <p class="form-control no-border">
-                      <span data-translate>Compatible con</span>
-                      <a href="https://blockchain.info/" target="_blank"
-                        ><b>blockchain.info</b></a
-                      >
-                    </p>
-                  </div>
-                </div>
+				
               </form>
             </div>
           </div>
@@ -7928,14 +7889,14 @@
                 ></textarea>
                 <br />
                 <button
-                  onclick="copyData9()"
+                  onclick="copyData11()"
                   class="btn"
                   style="border: 1px solid #c0c0c0; width: 70px;"
                 >
                   <b>Copiar</b>
                 </button>
             <script>
-              function copyData9() {
+              function copyData11() {
               var pubTextArea = document.getElementById("extended-pub-key");
               pubTextArea.select();
               document.execCommand("copy");
@@ -7959,14 +7920,14 @@
                 ></textarea>
                 <br />
                 <button
-                  onclick="copyData10()"
+                  onclick="copyData12()"
                   class="btn"
                   style="border: 1px solid #c0c0c0; width: 70px;"
                 >
                   <b>Copiar</b>
                 </button>
             <script>
-              function copyData10() {
+              function copyData12() {
               var privTextArea = document.getElementById("extended-priv-key");
               privTextArea.select();
               document.execCommand("copy");
