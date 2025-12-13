@@ -1,3 +1,4 @@
+
 <html>
 
   <!-- head -->
@@ -7777,21 +7778,6 @@
                       value="m/44'/0'/0'/0"
                       readonly="readonly"
                     />
-                    <br />
-                    <button
-                      onclick="copyData9()"
-                      class="btn"
-                      style="border: 1px solid #c0c0c0; width: 70px;"
-                    >
-                      <b>Copiar</b>
-                    </button>
-                <script>
-                  function copyData9() {
-                  var pathTextArea = document.getElementById("bip44-path");
-                  pathTextArea.select();
-                  document.execCommand("copy");
-                  }
-                </script>
                   </div>
                 </div>
               </form>
@@ -7914,7 +7900,6 @@
                       >
                     </p>
                     <br />
-					<br />
                     <p class="form-control no-border">
                       <span data-translate>Compatible con</span>
                       <a href="https://blockchain.info/" target="_blank"
@@ -7943,14 +7928,14 @@
                 ></textarea>
                 <br />
                 <button
-                  onclick="copyData10()"
+                  onclick="copyData9()"
                   class="btn"
                   style="border: 1px solid #c0c0c0; width: 70px;"
                 >
                   <b>Copiar</b>
                 </button>
             <script>
-              function copyData10() {
+              function copyData9() {
               var pubTextArea = document.getElementById("extended-pub-key");
               pubTextArea.select();
               document.execCommand("copy");
@@ -7974,14 +7959,14 @@
                 ></textarea>
                 <br />
                 <button
-                  onclick="copyData11()"
+                  onclick="copyData10()"
                   class="btn"
                   style="border: 1px solid #c0c0c0; width: 70px;"
                 >
                   <b>Copiar</b>
                 </button>
             <script>
-              function copyData11() {
+              function copyData10() {
               var privTextArea = document.getElementById("extended-priv-key");
               privTextArea.select();
               document.execCommand("copy");
