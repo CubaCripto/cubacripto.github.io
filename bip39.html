@@ -6998,8 +6998,8 @@
     <!-- /dialog message -->
 
     <!-- visible code -->
-
     <div class="container">
+	
       <!-- header name -->
       <h6 class="text-right">
         <b><i>v3.0</i></b>
@@ -7072,23 +7072,34 @@
                 <b>Borrar</b>
               </button>
               <script>
-                function clearAll() {
-                document.getElementById("entropy").value = "";
-                document.getElementById("entropy-source").value = "";
-                document.getElementById("phrase").value = "";
-                document.getElementById("passphrase").value = "";
-                document.getElementById("seed").value = "";
-                document.getElementById("root-key").value = "";
-                document.getElementById("account-xpub").value = "";
-                document.getElementById("account-xprv").value = "";
-                document.getElementById("extended-pub-key").value = "";
-                document.getElementById("extended-priv-key").value = "";
-                document.getElementById("strength-info").innerHTML = "-";
-                document.getElementById("type-info").innerHTML = "-";
-                document.getElementById("event-info").innerHTML = "0";
-                document.getElementById("bits-event-info").innerHTML = "0";
-                document.getElementById("bits-info").innerHTML = "0";
-                }
+                        function handleCheckboxChange(checkbox) {
+                        if (checkbox.checked) {
+                        clearAll();
+                        }
+                        }
+
+                        function clearAll() {
+                        document.getElementById("entropy").value = "";
+                        document.getElementById("entropy-source").value = "";
+                        document.getElementById("phrase").value = "";
+                        document.getElementById("passphrase").value = "";
+                        document.getElementById("seed").value = "";
+                        document.getElementById("root-key").value = "";
+                        document.getElementById("account-xpub").value = "";
+                        document.getElementById("account-xprv").value = "";
+                        document.getElementById("extended-pub-key").value = "";
+                        document.getElementById("extended-priv-key").value = "";
+                        document.getElementById("strength-info").innerHTML = "-";
+                        document.getElementById("type-info").innerHTML = "-";
+                        document.getElementById("event-info").innerHTML = "0";
+                        document.getElementById("bits-event-info").innerHTML = "0";
+                        document.getElementById("bits-info").innerHTML = "0";
+                        var table = document.getElementById('address-table');
+                        var rows = table.getElementsByTagName('tr');
+                        for (var i = rows.length - 1; i > 0; i--) {
+                        table.deleteRow(i);
+                        }
+                        }
               </script>
             </div>
           </div>
@@ -7135,23 +7146,34 @@
                   <b>Borrar</b>
                 </button>
                 <script>
-                  function clearAll() {
-                  document.getElementById("entropy").value = "";
-                  document.getElementById("entropy-source").value = "";
-                  document.getElementById("phrase").value = "";
-                  document.getElementById("passphrase").value = "";
-                  document.getElementById("seed").value = "";
-                  document.getElementById("root-key").value = "";
-                  document.getElementById("account-xpub").value = "";
-                  document.getElementById("account-xprv").value = "";
-                  document.getElementById("extended-pub-key").value = "";
-                  document.getElementById("extended-priv-key").value = "";
-                  document.getElementById("strength-info").innerHTML = "-";
-                  document.getElementById("type-info").innerHTML = "-";
-                  document.getElementById("event-info").innerHTML = "0";
-                  document.getElementById("bits-event-info").innerHTML = "0";
-                  document.getElementById("bits-info").innerHTML = "0";
-                  }
+                        function handleCheckboxChange(checkbox) {
+                        if (checkbox.checked) {
+                        clearAll();
+                        }
+                        }
+
+                        function clearAll() {
+                        document.getElementById("entropy").value = "";
+                        document.getElementById("entropy-source").value = "";
+                        document.getElementById("phrase").value = "";
+                        document.getElementById("passphrase").value = "";
+                        document.getElementById("seed").value = "";
+                        document.getElementById("root-key").value = "";
+                        document.getElementById("account-xpub").value = "";
+                        document.getElementById("account-xprv").value = "";
+                        document.getElementById("extended-pub-key").value = "";
+                        document.getElementById("extended-priv-key").value = "";
+                        document.getElementById("strength-info").innerHTML = "-";
+                        document.getElementById("type-info").innerHTML = "-";
+                        document.getElementById("event-info").innerHTML = "0";
+                        document.getElementById("bits-event-info").innerHTML = "0";
+                        document.getElementById("bits-info").innerHTML = "0";
+                        var table = document.getElementById('address-table');
+                        var rows = table.getElementsByTagName('tr');
+                        for (var i = rows.length - 1; i > 0; i--) {
+                        table.deleteRow(i);
+                        }
+                        }
                 </script>
                 <script>
                   // --- Ejecutar ---
@@ -7472,23 +7494,34 @@
                   <b>Borrar</b>
                 </button>
                 <script>
-                  function clearAll() {
-                  document.getElementById("entropy").value = "";
-                  document.getElementById("entropy-source").value = "";
-                  document.getElementById("phrase").value = "";
-                  document.getElementById("passphrase").value = "";
-                  document.getElementById("seed").value = "";
-                  document.getElementById("root-key").value = "";
-                  document.getElementById("account-xpub").value = "";
-                  document.getElementById("account-xprv").value = "";
-                  document.getElementById("extended-pub-key").value = "";
-                  document.getElementById("extended-priv-key").value = "";
-                  document.getElementById("strength-info").innerHTML = "-";
-                  document.getElementById("type-info").innerHTML = "-";
-                  document.getElementById("event-info").innerHTML = "0";
-                  document.getElementById("bits-event-info").innerHTML = "0";
-                  document.getElementById("bits-info").innerHTML = "0";
-                  }
+                        function handleCheckboxChange(checkbox) {
+                        if (checkbox.checked) {
+                        clearAll();
+                        }
+                        }
+
+                        function clearAll() {
+                        document.getElementById("entropy").value = "";
+                        document.getElementById("entropy-source").value = "";
+                        document.getElementById("phrase").value = "";
+                        document.getElementById("passphrase").value = "";
+                        document.getElementById("seed").value = "";
+                        document.getElementById("root-key").value = "";
+                        document.getElementById("account-xpub").value = "";
+                        document.getElementById("account-xprv").value = "";
+                        document.getElementById("extended-pub-key").value = "";
+                        document.getElementById("extended-priv-key").value = "";
+                        document.getElementById("strength-info").innerHTML = "-";
+                        document.getElementById("type-info").innerHTML = "-";
+                        document.getElementById("event-info").innerHTML = "0";
+                        document.getElementById("bits-event-info").innerHTML = "0";
+                        document.getElementById("bits-info").innerHTML = "0";
+                        var table = document.getElementById('address-table');
+                        var rows = table.getElementsByTagName('tr');
+                        for (var i = rows.length - 1; i > 0; i--) {
+                        table.deleteRow(i);
+                        }
+                        }
                 </script>
               </div>
             </div>
@@ -7525,6 +7558,26 @@
                   var passphraseTextArea = document.getElementById("passphrase");
                   passphraseTextArea.select();
                   document.execCommand("copy");
+                  }
+                </script>
+                <button
+                  onclick="clear22()"
+                  class="btn"
+                  style="border: 1px solid #c0c0c0; width: 70px;"
+                >
+                  <b>Borrar</b>
+                </button>
+				<script>
+                  function clear22() {
+                  var el = document.getElementById("passphrase");
+                  if (!el) return;
+                  el.value = "";
+                  el.selectionStart = 0;
+                  el.selectionEnd = 0;
+                  el.dispatchEvent(new Event("input",  { bubbles: true, cancelable: false }));
+                  el.dispatchEvent(new Event("change", { bubbles: true, cancelable: false }));
+                  el.focus();
+                  el.blur();
                   }
                 </script>
               </div>
@@ -8159,7 +8212,7 @@
             </tbody>
           </table>
 
-          <script type="text/template" id="address-row-template">
+          <script type="text/x-template" id="address-row-template">
             <tr>
             <td class="index"><span></span></td>
             <td class="address"><span data-show-qr></span></td>
@@ -8822,6 +8875,7 @@
         </div>
       </div>
       <!-- /show-hide QR -->
+	  
     </div>
     <!-- /visible code -->
 
