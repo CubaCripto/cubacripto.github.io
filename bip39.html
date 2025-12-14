@@ -20,15 +20,9 @@ gtag('config', 'G-R3KMMJG3C8');
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!-- /metadata -->
 
-<!-- VISUAL CODE -->
-
 <!-- title bar -->
 <title>BIP39 - CUBACRIPTO</title>
-<link
-rel="icon"
-href="rs/cc11.png"
-type="image/png"
-/>
+<link rel="icon" href="rs/cc11.png" type="image/png"/>
 <!-- /tittle bar -->
 
 <!-- go to top when refresh -->
@@ -7003,33 +6997,33 @@ background-color: #D0D3D4;
 </div>
 <!-- /dialog message -->
 
-<!-- header name -->
+<!-- visible code -->
+
 <div class="container">
+
+<!-- header name -->
 <h6 class="text-right"><b><i>v3.0</i></b></h6>
 <h1 class="text-center">Convertidor Mnemot&eacute;cnico BIP39</h1>	  
-<div class="row">
-<div class="col-md-12">
-<form class="form-horizontal" role="form">
 <!-- /header name -->
 
 <hr />
 
 <!-- hidden-entropy-container -->
-
 <div class="entropy-container hidden">
+<form class="form-horizontal" role="form">
 
 <!-- entropy-note-->
 <div class="row">
 <div class="col-md-12">
 <h2>Entrop&iacute;a</h2>
-</div>
-</div>
 <div class="form-group">
 <div class="col-sm-2"></div>
 <div class="col-sm-10">
 <span style="color: red;"><i><b>ATENCI&Oacute;N: </b></i></span>
 <i>La entrop&iacute;a es una funci&oacute;n avanzada. Tenga en cuenta que este m&eacute;todo puede ser inseguro si se usa de una manera incorrecta.</i>
 <a href="#entropy-notes" data-translate=""><b>M&aacute;s informaci&oacute;n</b></a>
+</div>
+</div>
 </div>
 </div>
 <!-- /entropy-note-->
@@ -7282,15 +7276,12 @@ class="bits col-sm-5 form-control-static"
 ></div>
 </div>
 </div>
+<!-- /entropy-data -->
 
 <hr />
 
-</div>
 </form>
 </div>
-</div>
-<!-- /entropy-data -->
-
 <!-- /hidden-entropy-container -->
 
 <!-- mnemonic -->
@@ -7347,11 +7338,7 @@ style="border: 1px solid #c0c0c0; width: 100px;"
 <div class="col-sm-2"></div>
 <div class="col-sm-12 checkbox">
 <label class="col-sm-10">
-<input
-type="checkbox"
-class="use-entropy"
-onchange="handleCheckboxChange(this)"
-/>
+<input type="checkbox" class="use-entropy" onchange="handleCheckboxChange(this)"/>
 <script>
 function handleCheckboxChange(checkbox) {
 if (checkbox.checked) {
@@ -7394,25 +7381,11 @@ table.deleteRow(i);
 
 <!-- phrase -->
 <div class="form-group">
-<label
-for="phrase"
-class="col-sm-2 control-label"
-data-translate=""
-><a href="#mnemonic-notes" data-translate="">Frase semilla</a></label
->
+<label for="phrase" class="col-sm-2 control-label" data-translate=""><a href="#mnemonic-notes" data-translate="">Frase semilla</a></label>
 <div class="col-sm-10">
-<textarea
-id="phrase"
-class="phrase form-control"
-placeholder="Ingrese la frase semilla / mnemot&eacute;cnica (generalmente 12, 18 o 24 palabras)"
-data-show-qr=""
-></textarea>
+<textarea id="phrase" class="phrase form-control" placeholder="Ingrese la frase semilla / mnemot&eacute;cnica (generalmente 12, 18 o 24 palabras)" data-show-qr=""></textarea>
 <br />
-<button
-onclick="copyData3()"
-class="btn"
-style="border: 1px solid #c0c0c0; width: 70px;"
->
+<button onclick="copyData3()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
 <b>Copiar</b>
 </button>
 <script>
@@ -7422,11 +7395,7 @@ phraseTextArea.select();
 document.execCommand("copy");
 }
 </script>
-<button
-onclick="clearAll()"
-class="btn"
-style="border: 1px solid #c0c0c0; width: 70px;"
->
+<button onclick="clearAll()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
 <b>Borrar</b>
 </button>
 <script>
@@ -7454,25 +7423,11 @@ document.getElementById("bits-info").innerHTML = "0";
 
 <!-- passphrase -->
 <div class="form-group">
-<label for="passphrase" class="col-sm-2 control-label"
-><a href="#passphrase-notes" data-translate="">Contrase&ntilde;a BIP39</a> (opcional)</label
->
+<label for="passphrase" class="col-sm-2 control-label"><a href="#passphrase-notes" data-translate="">Contrase&ntilde;a BIP39</a> (opcional)</label>
 <div class="col-sm-10">
-<textarea
-id="passphrase"
-class="passphrase private-data form-control"
-placeholder="Ingrese o cree una contraseña / passphrase"
-autocomplete="off"
-autocorrect="off"
-autocapitalize="off"
-spellcheck="false"
-></textarea>
+<textarea id="passphrase" class="passphrase private-data form-control" placeholder="Ingrese o cree una contraseña / passphrase" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
 <br />
-<button
-onclick="copyData4()"
-class="btn"
-style="border: 1px solid #c0c0c0; width: 70px;"
->
+<button onclick="copyData4()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
 <b>Copiar</b>
 </button>
 <script>
@@ -7488,22 +7443,11 @@ document.execCommand("copy");
 
 <!-- seed -->
 <div class="form-group">
-<label for="seed" class="col-sm-2 control-label" data-translate=""
-><a href="#seed-bip39-notes" data-translate="">Semilla BIP39</a></label
->
+<label for="seed" class="col-sm-2 control-label" data-translate=""><a href="#seed-bip39-notes" data-translate="">Semilla BIP39</a></label>
 <div class="col-sm-10">
-<textarea
-id="seed"
-class="seed form-control"
-readonly="readonly"
-data-show-qr=""
-></textarea>
+<textarea id="seed" class="seed form-control" readonly="readonly" data-show-qr=""></textarea>
 <br />
-<button
-onclick="copyData5()"
-class="btn"
-style="border: 1px solid #c0c0c0; width: 70px;"
->
+<button onclick="copyData5()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
 <b>Copiar</b>
 </button>
 <script>
@@ -7519,25 +7463,11 @@ document.execCommand("copy");
 
 <!-- root-key -->
 <div class="form-group">
-<label
-for="root-key"
-class="col-sm-2 control-label"
-data-translate=""
-><a href="#root-key-notes" data-translate="">Clave ra&iacute;z BIP32</a></label
->
+<label for="root-key" class="col-sm-2 control-label" data-translate=""><a href="#root-key-notes" data-translate="">Clave ra&iacute;z BIP32</a></label>
 <div class="col-sm-10">
-<textarea
-id="root-key"
-class="root-key form-control"
-readonly="readonly"
-data-show-qr=""
-></textarea>
+<textarea id="root-key" class="root-key form-control" readonly="readonly" data-show-qr="" ></textarea>
 <br />
-<button
-onclick="copyData6()"
-class="btn"
-style="border: 1px solid #c0c0c0; width: 70px;"
->
+<button onclick="copyData6()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
 <b>Copiar</b>
 </button>
 <script>
@@ -7554,7 +7484,6 @@ document.execCommand("copy");
 </form>
 </div>
 </div>
-
 <!-- /mnemonic -->
 
 <hr />
@@ -7562,7 +7491,9 @@ document.execCommand("copy");
 <!-- derivation route -->
 <div class="row">
 <div class="col-md-12">
+
 <h2>Ruta de derivaci&oacute;n</h2>
+
 <ul class="derivation-type nav nav-tabs" role="tablist">
 <li id="bip32-tab">
 <a href="#bip32" role="tab" data-toggle="tab"><b>BIP32</b></a>
@@ -7571,95 +7502,58 @@ document.execCommand("copy");
 <a href="#bip44" role="tab" data-toggle="tab"><b>BIP44</b></a>
 </li>
 </ul>
+
 <div class="derivation-type tab-content">
 <div id="bip44" class="tab-pane active">
 <form class="form-horizontal" role="form">
+
 <br />
+
 <div class="form-group">
 <label class="col-sm-2 control-label"> </label>
 <div class="col-sm-10">
 <p data-translate>
-<a href="#bip44-notes" data-translate><b>M&aacute;s informaci&oacute;n sobre BIP44</b></a
->
+<a href="#bip44-notes" data-translate><b>M&aacute;s informaci&oacute;n sobre BIP44</b></a>
 </p>
 </div>
 </div>
+
 <div class="form-group">
 <label for="purpose" class="col-sm-2 control-label">
-<a
-href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#purpose"
-target="_blank"
-data-translate
->Prop&oacute;sito</a
->
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#purpose" target="_blank" data-translate >Prop&oacute;sito</a>
 </label>
 <div class="col-sm-10">
-<input
-id="purpose"
-type="text"
-class="purpose form-control"
-style="width: 80px;"
-value="44"
-/>
+<input id="purpose" type="text" class="purpose form-control" style="width: 80px;" value="44"/>
 </div>
 </div>
+
 <div class="form-group">
 <label for="coin" class="col-sm-2 control-label">
-<a
-href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#coin-type"
-target="_blank"
-data-translate
->Tipo de moneda</a
->
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#coin-type" target="_blank" data-translate>Tipo de moneda</a>
 </label>
 <div class="col-sm-10">
-<input
-id="coin"
-type="text"
-class="coin form-control"
-style="width: 80px;"
-value="0"
-/>
+<input id="coin" type="text" class="coin form-control" style="width: 80px;" value="0"/>
 </div>
 </div>
+
 <div class="form-group">
 <label for="account" class="col-sm-2 control-label">
-<a
-href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#account"
-target="_blank"
-data-translate
->Cuenta</a
->
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#account" target="_blank" data-translate>Cuenta</a>
 </label>
 <div class="col-sm-10">
-<input
-id="account"
-type="text"
-class="account form-control"
-style="width: 80px;"
-value="0"
-/>
+<input id="account" type="text" class="account form-control" style="width: 80px;" value="0"/>
 </div>
 </div>
+
 <div class="form-group">
 <label for="change" class="col-sm-2 control-label">
-<a
-href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#change"
-target="_blank"
-data-translate
->Externa / Interna</a
->
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#change" target="_blank" data-translate>Externa / Interna</a>
 </label>
 <div class="col-sm-10">
-<input
-id="change"
-type="text"
-class="change form-control"
-style="width: 80px;"
-value="0"
-/>
+<input id="change" type="text" class="change form-control" style="width: 80px;" value="0"/>
 </div>
 </div>
+
 <div class="form-group">
 <label class="col-sm-2 control-label"> </label>
 <div class="col-sm-10">
@@ -7670,28 +7564,18 @@ BIP44, como Mycelium o Electrum.</i>
 </p>
 </div>
 </div>
+
 <div class="form-group">
 <label for="account-xpub" class="col-sm-2 control-label">
-<span data-translate
-><a href="#xpub-notes" data-translate><b>Clave p&uacute;blica extendida de la cuenta</b></a></span
->
+<span data-translate><a href="#xpub-notes" data-translate><b>Clave p&uacute;blica extendida de la cuenta</b></a></span>
 </label>
 <div class="col-sm-10">
-<textarea
-id="account-xpub"
-type="text"
-class="account-xpub form-control"
-readonly
-data-show-qr
-></textarea>
+<textarea id="account-xpub" type="text" class="account-xpub form-control" readonly data-show-qr></textarea>
 <br />
-<button
-onclick="copyData7()"
-class="btn"
-style="border: 1px solid #c0c0c0; width: 70px;"
->
+<button onclick="copyData7()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
 <b>Copiar</b>
 </button>
+
 <script>
 function copyData7() {
 var xpubTextArea = document.getElementById("account-xpub");
@@ -7699,30 +7583,22 @@ xpubTextArea.select();
 document.execCommand("copy");
 }
 </script>
+
 </div>
 </div>
+
 <div class="form-group">
 <label for="account-xprv" class="col-sm-2 control-label">
-<span data-translate
-><a href="#xprv-notes" data-translate><b>Clave privada extendida de la cuenta</b></a></span
->
+<span data-translate><a href="#xprv-notes" data-translate><b>Clave privada extendida de la cuenta</b></a></span>
 </label>
+
 <div class="col-sm-10">
-<textarea
-id="account-xprv"
-type="text"
-class="account-xprv form-control"
-readonly
-data-show-qr
-></textarea>
+<textarea id="account-xprv" type="text" class="account-xprv form-control" readonly data-show-qr></textarea>
 <br />
-<button
-onclick="copyData8()"
-class="btn"
-style="border: 1px solid #c0c0c0; width: 70px;"
->
+<button onclick="copyData8()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
 <b>Copiar</b>
 </button>
+
 <script>
 function copyData8() {
 var xprvTextArea = document.getElementById("account-xprv");
@@ -7730,8 +7606,10 @@ xprvTextArea.select();
 document.execCommand("copy");
 }
 </script>
+
 </div>
 </div>
+
 <div class="form-group">
 <label class="col-sm-2 control-label"> </label>
 <div class="col-sm-10">
@@ -7741,30 +7619,18 @@ document.execCommand("copy");
 </p>
 </div>
 </div>
+
 <div class="form-group">
-<label
-for="bip44-path"
-class="col-sm-2 control-label"
-data-translate
-><a href="#path-notes" data-translate><b>Ruta de derivaci&oacute;n BIP32</b></a></label
->
+<label for="bip44-path" class="col-sm-2 control-label" data-translate><a href="#path-notes" data-translate><b>Ruta de derivaci&oacute;n BIP32</b></a></label>
 <div class="col-sm-10">
-<input
-id="bip44-path"
-type="text"
-class="path form-control"
-style="width: 125px;"
-value="m/44'/0'/0'/0"
-readonly="readonly"
-/>
+<input id="bip44-path" type="text" class="path form-control" style="width: 125px;" value="m/44'/0'/0'/0" readonly="readonly"/>
 <br />
+
 <button
-onclick="copyData9()"
-class="btn"
-style="border: 1px solid #c0c0c0; width: 70px;"
->
+onclick="copyData9()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
 <b>Copiar</b>
 </button>
+
 <script>
 function copyData9() {
 var pathTextArea = document.getElementById("bip44-path");
@@ -7772,69 +7638,46 @@ pathTextArea.select();
 document.execCommand("copy");
 }
 </script>
+
 </div>
 </div>
+
 </form>
 </div>
+
 <div id="bip32" class="tab-pane">
 <form class="form-horizontal" role="form">
 <br />
 <div class="form-group">
-<label class="col-sm-2 control-label"> </label>
+<label class="col-sm-2 control-label"></label>
 <div class="col-sm-10">
 <p data-translate>
-<a href="#bip32-notes" data-translate><b>M&aacute;s informaci&oacute;n sobre BIP32</b></a
->
+<a href="#bip32-notes" data-translate><b>M&aacute;s informaci&oacute;n sobre BIP32</b></a>
 </p>
 </div>
 </div>
+
 <div class="form-group">
-<label
-for="bip32-client"
-class="col-sm-2 control-label"
-data-translate
-><a
-href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#account"
-target="_blank"
-data-translate
->Cliente</a
-></label
->
+<label for="bip32-client" class="col-sm-2 control-label" data-translate>
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#account" target="_blank" data-translate>Cliente</a></label>
 <div class="col-sm-10">
-<select
-id="bip32-client"
-class="client form-control"
-style="width: 260px;"
->
+<select id="bip32-client" class="client form-control" style="width: 260px;">
 <option value="custom">
 Ruta de derivaci&oacute;n personalizada
 </option>
 </select>
 </div>
 </div>
+
 <div class="form-group">
-<label
-for="bip32-path"
-class="col-sm-2 control-label"
-data-translate
-><a href="#path-notes" data-translate><b>Ruta de derivaci&oacute;n</b></a></label
->
+<label for="bip32-path" class="col-sm-2 control-label" data-translate><a href="#path-notes" data-translate><b>Ruta de derivaci&oacute;n</b></a></label>
 <div class="col-sm-10">
-<input
-id="bip32-path"
-type="text"
-class="path form-control"
-style="width: 125px;"
-value="m/0"
-/>
+<input id="bip32-path" type="text" class="path form-control" style="width: 125px;" value="m/0"/>
 <br />
-<button
-onclick="copyData10()"
-class="btn"
-style="border: 1px solid #c0c0c0; width: 70px;"
->
+<button onclick="copyData10()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
 <b>Copiar</b>
 </button>
+
 <script>
 function copyData10() {
 var pathTextArea = document.getElementById("bip32-path");
@@ -7842,6 +7685,7 @@ pathTextArea.select();
 document.execCommand("copy");
 }
 </script>
+
 </div>
 </div>
 
@@ -7852,33 +7696,23 @@ document.execCommand("copy");
 <i>Solo ingrese la <a href="#xpub-bip32-notes" data-translate><b>clave p&uacute;blica extendida </b></a><code><b>xpub</b></code> en los campos de b&uacute;squeda del <a href="https://www.blockchain.com/explorer/" target="_blank"><b>explorador de bloques</b></a>, <b>NUNCA </b>la <a href="#xprv-bip32-notes" data-translate><b>clave privada extendida </b></a><code><b>xprv</b></code>.</i>
 </div>
 </div>
+
 </form>
 </div>
+
 </div>
 
 <form class="form-horizontal" role="form">
 <div class="form-group">
-<label
-for="extended-pub-key"
-class="col-sm-2 control-label"
-data-translate
-><a href="#xpub-bip32-notes" data-translate><b>Clave p&uacute;blica extendida BIP32</b></a></label
->
+<label for="extended-pub-key" class="col-sm-2 control-label" data-translate><a href="#xpub-bip32-notes" data-translate><b>Clave p&uacute;blica extendida BIP32</b></a></label>
 <div class="col-sm-10">
-<textarea
-id="extended-pub-key"
-class="extended-pub-key form-control"
-readonly="readonly"
-data-show-qr
-></textarea>
+<textarea id="extended-pub-key" class="extended-pub-key form-control" readonly="readonly" data-show-qr></textarea>
 <br />
-<button
-onclick="copyData11()"
-class="btn"
-style="border: 1px solid #c0c0c0; width: 70px;"
->
+
+<button onclick="copyData11()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
 <b>Copiar</b>
 </button>
+
 <script>
 function copyData11() {
 var pubTextArea = document.getElementById("extended-pub-key");
@@ -7886,30 +7720,20 @@ pubTextArea.select();
 document.execCommand("copy");
 }
 </script>
+
 </div>
 </div>
+
 <div class="form-group">
-<label
-for="extended-priv-key"
-class="col-sm-2 control-label"
-data-translate
-><a href="#xprv-bip32-notes" data-translate><b>Clave privada extendida BIP32</b></a></label
->
+<label for="extended-priv-key" class="col-sm-2 control-label" data-translate><a href="#xprv-bip32-notes" data-translate><b>Clave privada extendida BIP32</b></a></label>
+
 <div class="col-sm-10">
-<textarea
-id="extended-priv-key"
-class="extended-priv-key form-control"
-readonly="readonly"
-data-show-qr
-></textarea>
+<textarea id="extended-priv-key" class="extended-priv-key form-control" readonly="readonly" data-show-qr></textarea>
 <br />
-<button
-onclick="copyData12()"
-class="btn"
-style="border: 1px solid #c0c0c0; width: 70px;"
->
+<button onclick="copyData12()" class="btn" style="border: 1px solid #c0c0c0; width: 70px;">
 <b>Copiar</b>
 </button>
+
 <script>
 function copyData12() {
 var privTextArea = document.getElementById("extended-priv-key");
@@ -7919,7 +7743,9 @@ document.execCommand("copy");
 </script>
 </div>
 </div>
+
 </form>
+
 </div>
 </div>
 <!-- /derivation route -->
@@ -7929,63 +7755,60 @@ document.execCommand("copy");
 <!-- derived addresses -->
 <div class="row">
 <div class="col-md-12">
+
 <h2>Direcciones derivadas</h2>
 <p data-translate="">
 <span style="color: red;"><i><b>ATENCI&Oacute;N: </b></i></span>
 <i>Tenga en cuenta que estas direcciones se derivan de la clave extendida BIP32.</i>
 </p>
 
-<select
-id="network-phrase"
-class="network form-control"
-style="width: 350px;"
-></select>
+<select id="network-phrase" class="network form-control" style="width: 350px;"></select>
 
 <div class="col-md-12">
 <div class="checkbox">
 <label>
-<input class="hardened-derivations" type="checkbox" />
+<input class="hardened-derivations" type="checkbox"/>
 <span>Usar derivaciones reforzadas. <a href="#hardened-notes" data-translate><b>M&aacute; informaci&oacute;n</b></a></span>
 </label>
 </div>
 </div>
+
 <table class="table table-striped" id="address-table">
+
 <thead>
+
 <tr>
 <th>
 <div class="input-group">
-<button
-class="index-toggle"
-style="border: 1px solid #c0c0c0; width: 80px;"
->
-Ruta
-</button>
+<button class="index-toggle" style="border: 1px solid #c0c0c0; width: 80px;">Ruta</button>
 </div>
 </th>
+
 <th>
 <div class="input-group">
-<button
-class="address-toggle"
-style="border: 1px solid #c0c0c0; width: 110px;"
->
-Direcci&oacute;n
-</button>
+<button class="address-toggle" style="border: 1px solid #c0c0c0; width: 110px;">Direcci&oacute;n</button>
 </div>
 </th>
+
 <th>
 <div class="input-group">
-<button
-class="private-key-toggle"
-style="border: 1px solid #c0c0c0; width: 140px;"
->
-Clave privada
-</button>
+<button class="public-key-toggle" style="border: 1px solid #c0c0c0; width: 140px;">Clave p&uacute;blica</button>
+</div>
+</th>
+
+<th>
+<div class="input-group">
+<button class="private-key-toggle" style="border: 1px solid #c0c0c0; width: 140px;">Clave privada</button>
 </div>
 </th>
 </tr>
+
 </thead>
+
 <tbody class="addresses monospace">
+
 <tr>
+<td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -7994,45 +7817,49 @@ Clave privada
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
+<td>&nbsp;</td>
 </tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
 </tbody>
+
 </table>
-</div>
-</div>
+
 <script type="text/template" id="address-row-template">
-<tr>
-<td class="index"><span></span></td>
-<td class="address"><span data-show-qr></span></td>
-<td class="privkey"><span data-show-qr></span></td>
-</tr>
+  <tr>
+  <td class="index"><span></span></td>
+  <td class="address"><span data-show-qr></span></td>
+  <td class="pubkey"><span data-show-qr></span></td>
+  <td class="privkey"><span data-show-qr></span></td>
+  </tr>
 </script>
+
 <span data-translate="">Mostrar m&aacute;s filas</span>:
-<input
-type="number"
-class="rows-to-add"
-value="10"
-style="border: 1px solid #c0c0c0; width: 80px;"
-/>
+<input type="number" class="rows-to-add" value="10" style="border: 1px solid #c0c0c0; width: 80px;"/>
+
 <button class="more" style="border: 1px solid #c0c0c0; width: 80px;">
 <b>Mostrar</b>
 </button>
-<br />
-<br />
+
+</div>
+</div>
 <!-- /derived addresses -->
 
 <hr />
@@ -8042,142 +7869,441 @@ style="border: 1px solid #c0c0c0; width: 80px;"
 <div class="col-md-12">
 <h2 data-translate="">M&aacute;s informaci&oacute;n</h2>
 
-<br />
+    <br />
 
-<h3 id="hd-wallet-notes" data-translate="">Billetera HD</h3>
-<p>
-Una <b><i>billetera HD</i></b> (Hierarchical Deterministic wallet), o billetera determin&iacute;stica jer&aacute;rquica, es un tipo de billetera criptogr&aacute;fica que transform&oacute; la administraci&oacute;n de claves privadas. Basada en el est&aacute;ndar BIP32, permite generar un &aacute;rbol jer&aacute;rquico de claves a partir de una &uacute;nica semilla o frase mnemot&eacute;cnica. Este dise&ntilde;o ofrece una estructura ordenada y escalable, ampliamente usada en criptomonedas como Bitcoin y Ethereum, garantizando que cada direcci&oacute;n de recepci&oacute;n se derive de forma segura y consistente sin necesidad de respaldos individuales. La gran ventaja de las billeteras HD es que simplifican la gesti&oacute;n y refuerzan la seguridad del usuario: con solo respaldar la semilla inicial, es posible recuperar toda la billetera en caso de p&eacute;rdida o da&ntilde;o del dispositivo, evitando la complejidad de manejar m&uacute;ltiples claves privadas. Adem&aacute;s, su compatibilidad con est&aacute;ndares como BIP44 permite administrar distintas cuentas y criptomonedas desde una misma ra&iacute;z, consolid&aacute;ndolas como una herramienta esencial para quienes buscan eficiencia, seguridad y facilidad en el manejo de activos digitales.
-</p>
+    <h3 id="hd-wallet-notes" data-translate="">Billetera HD</h3>
+    <p>
+      Una <b><i>billetera HD</i></b> (Hierarchical Deterministic wallet), o
+      billetera determin&iacute;stica jer&aacute;rquica, es un tipo de billetera
+      criptogr&aacute;fica que transform&oacute; la administraci&oacute;n de
+      claves privadas. Basada en el est&aacute;ndar BIP32, permite generar un
+      &aacute;rbol jer&aacute;rquico de claves a partir de una &uacute;nica
+      semilla o frase mnemot&eacute;cnica. Este dise&ntilde;o ofrece una
+      estructura ordenada y escalable, ampliamente usada en criptomonedas como
+      Bitcoin y Ethereum, garantizando que cada direcci&oacute;n de
+      recepci&oacute;n se derive de forma segura y consistente sin necesidad de
+      respaldos individuales. La gran ventaja de las billeteras HD es que
+      simplifican la gesti&oacute;n y refuerzan la seguridad del usuario: con
+      solo respaldar la semilla inicial, es posible recuperar toda la billetera
+      en caso de p&eacute;rdida o da&ntilde;o del dispositivo, evitando la
+      complejidad de manejar m&uacute;ltiples claves privadas. Adem&aacute;s, su
+      compatibilidad con est&aacute;ndares como BIP44 permite administrar
+      distintas cuentas y criptomonedas desde una misma ra&iacute;z,
+      consolid&aacute;ndolas como una herramienta esencial para quienes buscan
+      eficiencia, seguridad y facilidad en el manejo de activos digitales.
+    </p>
 
-<br />
+    <br />
 
-<h3 id="bip32-notes" data-translate="">BIP32</h3>
-<p>
-<i><b>BIP32</i></b> (<a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki" target="_blank"><b>Bitcoin Improvement Proposal 32</b></a>) es el est&aacute;ndar que introdujo las billeteras determin&iacute;sticas jer&aacute;rquicas (HD wallets) en Bitcoin. Antes, cada direcci&oacute;n requer&iacute;a una clave privada independiente, lo que dificultaba respaldo y gesti&oacute;n. Con BIP32, todas las claves privadas y p&uacute;blicas se derivan de una &uacute;nica semilla maestra organizada en un &aacute;rbol jer&aacute;rquico, permitiendo generar infinitas claves hijas desde una sola ra&iacute;z. Esto simplifica la administraci&oacute;n, mejora la seguridad y facilita manejar m&uacute;ltiples cuentas y direcciones sin guardar cada clave privada. Adem&aacute;s, posibilita derivar claves p&uacute;blicas sin exponer las privadas, &uacute;til para auditor&iacute;as y verificaciones seguras. BIP32 se convirti&oacute; en la base de est&aacute;ndares posteriores como BIP44, BIP49, BIP84 y BIP86, que definen rutas espec&iacute;ficas de derivaci&oacute;n para distintos tipos de direcciones, consolid&aacute;ndolo como un pilar esencial en la infraestructura de las criptomonedas.
-</p>
+    <h3 id="bip32-notes" data-translate="">BIP32</h3>
+    <p>
+      <b><i>BIP32</i></b> (<a
+        href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki"
+        target="_blank"
+        ><b>Bitcoin Improvement Proposal 32</b></a
+      >) es el est&aacute;ndar que introdujo las billeteras
+      determin&iacute;sticas jer&aacute;rquicas (HD wallets) en Bitcoin. Antes,
+      cada direcci&oacute;n requer&iacute;a una clave privada independiente, lo
+      que dificultaba respaldo y gesti&oacute;n. Con BIP32, todas las claves
+      privadas y p&uacute;blicas se derivan de una &uacute;nica semilla maestra
+      organizada en un &aacute;rbol jer&aacute;rquico, permitiendo generar
+      infinitas claves hijas desde una sola ra&iacute;z. Esto simplifica la
+      administraci&oacute;n, mejora la seguridad y facilita manejar
+      m&uacute;ltiples cuentas y direcciones sin guardar cada clave privada.
+      Adem&aacute;s, posibilita derivar claves p&uacute;blicas sin exponer las
+      privadas, &uacute;til para auditor&iacute;as y verificaciones seguras.
+      BIP32 se convirti&oacute; en la base de est&aacute;ndares posteriores como
+      BIP44, BIP49, BIP84 y BIP86, que definen rutas espec&iacute;ficas de
+      derivaci&oacute;n para distintos tipos de direcciones,
+      consolid&aacute;ndolo como un pilar esencial en la infraestructura de las
+      criptomonedas.
+    </p>
 
-<br />
+    <br />
 
-<h3 id="bip39-notes" data-translate="">BIP39</h3>
-<p>
-<i><b>BIP39</i></b> (<a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki" target="_blank"><b>Bitcoin Improvement Proposal 39</b></a>) es un est&aacute;ndar que convierte n&uacute;meros aleatorios, llamados entrop&iacute;a, en frases mnemot&eacute;cnicas f&aacute;ciles de recordar, normalmente de 12, 18 o 24 palabras tomadas de un <a href="https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt" target="_blank"><b>diccionario</b></a> de 2048 t&eacute;rminos en ingl&eacute;s. Estas frases representan una semilla criptogr&aacute;fica desde la cual, mediante otros est&aacute;ndares como BIP32, se derivan claves privadas y p&uacute;blicas para crear billeteras HD seguras y determin&iacute;sticas. Su relevancia radica en simplificar la gesti&oacute;n de claves: en vez de largas cadenas alfanum&eacute;ricas, basta con conservar la frase semilla para respaldar y restaurar fondos en cualquier billetera compatible. Adem&aacute;s, permite a&ntilde;adir una passphrase extra para reforzar la seguridad. Gracias a este equilibrio entre solidez criptogr&aacute;fica y facilidad de uso, BIP39 se ha consolidado como un pilar esencial de la seguridad y la interoperabilidad en el ecosistema de las criptomonedas.
-</p>
+    <h3 id="bip39-notes" data-translate="">BIP39</h3>
+    <p>
+      <b><i>BIP39</i></b> (<a
+        href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki"
+        target="_blank"
+        ><b>Bitcoin Improvement Proposal 39</b></a
+      >) es un est&aacute;ndar que convierte n&uacute;meros aleatorios, llamados
+      entrop&iacute;a, en frases mnemot&eacute;cnicas f&aacute;ciles de
+      recordar, normalmente de 12, 18 o 24 palabras tomadas de un
+      <a
+        href="https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt"
+        target="_blank"
+        ><b>diccionario</b></a
+      >
+      de 2048 t&eacute;rminos en ingl&eacute;s. Estas frases representan una
+      semilla criptogr&aacute;fica desde la cual, mediante otros
+      est&aacute;ndares como BIP32, se derivan claves privadas y p&uacute;blicas
+      para crear billeteras HD seguras y determin&iacute;sticas. Su relevancia
+      radica en simplificar la gesti&oacute;n de claves: en vez de largas
+      cadenas alfanum&eacute;ricas, basta con conservar la frase semilla para
+      respaldar y restaurar fondos en cualquier billetera compatible.
+      Adem&aacute;s, permite a&ntilde;adir una passphrase extra para reforzar la
+      seguridad. Gracias a este equilibrio entre solidez criptogr&aacute;fica y
+      facilidad de uso, BIP39 se ha consolidado como un pilar esencial de la
+      seguridad y la interoperabilidad en el ecosistema de las criptomonedas.
+    </p>
 
-<br />
+    <br />
 
-<h3 id="bip44-notes" data-translate="">BIP44</h3>
-<p>
-<i><b>BIP44</i></b> (<a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki" target="_blank"><b>Bitcoin Improvement Proposal 44</b></a>) es un est&aacute;ndar que organiza la derivaci&oacute;n de claves en billeteras HD basadas en BIP32. Define una estructura jer&aacute;rquica de cinco niveles: prop&oacute;sito, tipo de moneda, cuenta, cambio y direcci&oacute;n. Gracias a esta organizaci&oacute;n, una sola semilla puede generar de forma consistente todas las claves necesarias para m&uacute;ltiples criptomonedas y cuentas, manteniendo orden y compatibilidad entre billeteras. En la pr&aacute;ctica, rutas como m/44'/0'/0'/0/0 permiten crear direcciones para Bitcoin, mientras que otros valores identifican distintas monedas como Ethereum. El nivel de cuenta facilita manejar varias cuentas dentro de la misma billetera, el nivel de cambio distingue entre direcciones externas e internas, y el &iacute;ndice de direcci&oacute;n se&ntilde;ala cada direcci&oacute;n espec&iacute;fica. Esta estructura asegura interoperabilidad, simplifica la gesti&oacute;n de fondos y permite que el usuario solo deba respaldar su semilla inicial para recuperar todas sus direcciones y activos asociados.
-</p>
+    <h3 id="bip44-notes" data-translate="">BIP44</h3>
+    <p>
+      <b><i>BIP44</i></b> (<a
+        href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki"
+        target="_blank"
+        ><b>Bitcoin Improvement Proposal 44</b></a
+      >) es un est&aacute;ndar que organiza la derivaci&oacute;n de claves en
+      billeteras HD basadas en BIP32. Define una estructura jer&aacute;rquica de
+      cinco niveles: prop&oacute;sito, tipo de moneda, cuenta, cambio y
+      direcci&oacute;n. Gracias a esta organizaci&oacute;n, una sola semilla
+      puede generar de forma consistente todas las claves necesarias para
+      m&uacute;ltiples criptomonedas y cuentas, manteniendo orden y
+      compatibilidad entre billeteras. En la pr&aacute;ctica, rutas como
+      m/44'/0'/0'/0/0 permiten crear direcciones para Bitcoin, mientras que
+      otros valores identifican distintas monedas como Ethereum. El nivel de
+      cuenta facilita manejar varias cuentas dentro de la misma billetera, el
+      nivel de cambio distingue entre direcciones externas e internas, y el
+      &iacute;ndice de direcci&oacute;n se&ntilde;ala cada direcci&oacute;n
+      espec&iacute;fica. Esta estructura asegura interoperabilidad, simplifica
+      la gesti&oacute;n de fondos y permite que el usuario solo deba respaldar
+      su semilla inicial para recuperar todas sus direcciones y activos
+      asociados.
+    </p>
 
-<br />
+    <br />
 
-<h3 id="private-key-notes" data-translate="">Clave Privada</h3>
-<p>
-La <i><b>clave privada</i></b> es una cadena alfanum&eacute;rica generada aleatoriamente que act&uacute;a como llave maestra de una billetera digital. M&aacute;s que una contrase&ntilde;a, constituye la prueba matem&aacute;tica de propiedad sobre los activos en la blockchain y otorga control absoluto sobre ellos. Permite firmar digitalmente cada transacci&oacute;n, validando la legitimidad del propietario. A diferencia de la clave p&uacute;blica, nunca debe compartirse, pues quien la posea puede transferir fondos sin restricciones ni posibilidad de revertir la operaci&oacute;n. Su car&aacute;cter &uacute;nico y su rol en la autenticaci&oacute;n la convierten en el n&uacute;cleo de la seguridad cripto. Est&aacute; vinculada a la clave p&uacute;blica, que se usa para recibir fondos, pero los algoritmos impiden deducir la privada a partir de ella. As&iacute;, aunque las direcciones sean visibles en la blockchain, los activos permanecen protegidos. Se recomienda almacenarla en medios seguros como hardware wallets o copias f&iacute;sicas, ya que su p&eacute;rdida implica la p&eacute;rdida definitiva de los fondos.
-</p>
+    <h3 id="private-key-notes" data-translate="">Clave Privada</h3>
+    <p>
+      La <b><i>clave privada</i></b> es una cadena alfanum&eacute;rica generada
+      aleatoriamente que act&uacute;a como llave maestra de una billetera
+      digital. M&aacute;s que una contrase&ntilde;a, constituye la prueba
+      matem&aacute;tica de propiedad sobre los activos en la blockchain y otorga
+      control absoluto sobre ellos. Permite firmar digitalmente cada
+      transacci&oacute;n, validando la legitimidad del propietario. A diferencia
+      de la clave p&uacute;blica, nunca debe compartirse, pues quien la posea
+      puede transferir fondos sin restricciones ni posibilidad de revertir la
+      operaci&oacute;n. Su car&aacute;cter &uacute;nico y su rol en la
+      autenticaci&oacute;n la convierten en el n&uacute;cleo de la seguridad
+      cripto. Est&aacute; vinculada a la clave p&uacute;blica, que se usa para
+      recibir fondos, pero los algoritmos impiden deducir la privada a partir de
+      ella. As&iacute;, aunque las direcciones sean visibles en la blockchain,
+      los activos permanecen protegidos. Se recomienda almacenarla en medios
+      seguros como hardware wallets o copias f&iacute;sicas, ya que su
+      p&eacute;rdida implica la p&eacute;rdida definitiva de los fondos.
+    </p>
 
-<br />
+    <br />
 
-<h3 id="xprv-notes" data-translate="">Clave Privada Extendida de la Cuenta</h3>
-<p>
-La <i><b>clave privada extendida de la cuenta</i></b> (xprv, yprv, zprv) es una derivaci&oacute;n en el nivel account’ del est&aacute;ndar BIP44 dentro de una billetera HD, y constituye el n&uacute;cleo de seguridad de esa cuenta espec&iacute;fica. A partir de ella se generan todas las claves privadas y p&uacute;blicas, lo que significa que quien la posea tiene acceso completo a los fondos y transacciones. Adem&aacute;s de las claves, contiene informaci&oacute;n de derivaci&oacute;n y un c&oacute;digo de verificaci&oacute;n que garantizan la coherencia en la estructura jer&aacute;rquica de la billetera. Su importancia es cr&iacute;tica: compartirla equivale a entregar el control absoluto de los activos digitales, ya que permite firmar operaciones y mover fondos sin restricciones. Por ello debe mantenerse en secreto absoluto y nunca almacenarse en lugares inseguros o compartidos. La clave privada extendida es, en esencia, la llave maestra de la cuenta, y su protecci&oacute;n adecuada asegura la integridad, privacidad y resguardo de todos los fondos asociados.
-</p>
+    <h3 id="xprv-notes" data-translate="">
+      Clave Privada Extendida de la Cuenta
+    </h3>
+    <p>
+      La <b><i>clave privada extendida de la cuenta</i></b> (xprv, yprv, zprv)
+      es una derivaci&oacute;n en el nivel account’ del est&aacute;ndar BIP44
+      dentro de una billetera HD, y constituye el n&uacute;cleo de seguridad de
+      esa cuenta espec&iacute;fica. A partir de ella se generan todas las claves
+      privadas y p&uacute;blicas, lo que significa que quien la posea tiene
+      acceso completo a los fondos y transacciones. Adem&aacute;s de las claves,
+      contiene informaci&oacute;n de derivaci&oacute;n y un c&oacute;digo de
+      verificaci&oacute;n que garantizan la coherencia en la estructura
+      jer&aacute;rquica de la billetera. Su importancia es cr&iacute;tica:
+      compartirla equivale a entregar el control absoluto de los activos
+      digitales, ya que permite firmar operaciones y mover fondos sin
+      restricciones. Por ello debe mantenerse en secreto absoluto y nunca
+      almacenarse en lugares inseguros o compartidos. La clave privada extendida
+      es, en esencia, la llave maestra de la cuenta, y su protecci&oacute;n
+      adecuada asegura la integridad, privacidad y resguardo de todos los fondos
+      asociados.
+    </p>
 
-<br />
+    <br />
 
-<h3 id="xprv-bip32-notes" data-translate="">Clave Privada Extendida BIP32</h3>
-<p>
-La <i><b>clave privada extendida BIP32</i></b>, conocida como xprv, es el coraz&oacute;n de una billetera HD, pues a partir de ella se derivan de manera jer&aacute;rquica y segura todas las claves privadas y p&uacute;blicas necesarias para operar. Este mecanismo incluye la propia clave privada, datos de la ruta de derivaci&oacute;n y un c&oacute;digo de verificaci&oacute;n que garantizan consistencia en la estructura. Su poder radica en que permite generar direcciones y firmar transacciones, lo que otorga control absoluto sobre los fondos. Por esa raz&oacute;n, debe mantenerse en secreto absoluto: cualquier filtraci&oacute;n compromete toda la billetera y expone los activos digitales sin posibilidad de recuperaci&oacute;n. Compartir un xprv equivale a entregar la llave maestra de la cuenta, ya que habilita a terceros a mover fondos y manipular transacciones. En consecuencia, la protecci&oacute;n rigurosa del xprv es esencial para preservar la seguridad, la privacidad y la integridad del patrimonio.
-</p>
+    <h3 id="xprv-bip32-notes" data-translate="">
+      Clave Privada Extendida BIP32
+    </h3>
+    <p>
+      La <b><i>clave privada extendida BIP32</i></b
+      >, conocida como xprv, es el coraz&oacute;n de una billetera HD, pues a
+      partir de ella se derivan de manera jer&aacute;rquica y segura todas las
+      claves privadas y p&uacute;blicas necesarias para operar. Este mecanismo
+      incluye la propia clave privada, datos de la ruta de derivaci&oacute;n y
+      un c&oacute;digo de verificaci&oacute;n que garantizan consistencia en la
+      estructura. Su poder radica en que permite generar direcciones y firmar
+      transacciones, lo que otorga control absoluto sobre los fondos. Por esa
+      raz&oacute;n, debe mantenerse en secreto absoluto: cualquier
+      filtraci&oacute;n compromete toda la billetera y expone los activos
+      digitales sin posibilidad de recuperaci&oacute;n. Compartir un xprv
+      equivale a entregar la llave maestra de la cuenta, ya que habilita a
+      terceros a mover fondos y manipular transacciones. En consecuencia, la
+      protecci&oacute;n rigurosa del xprv es esencial para preservar la
+      seguridad, la privacidad y la integridad del patrimonio.
+    </p>
 
-<br />
+    <br />
 
-<h3 id="public-key-notes" data-translate="">Clave P&uacute;blica</h3>
-<p>
-La <i><b>clave p&uacute;blica</i></b> es un identificador que puede compartirse libremente y funciona como direcci&oacute;n de recepci&oacute;n para fondos, similar a una cuenta bancaria o correo electr&oacute;nico. Se genera matem&aacute;ticamente a partir de la clave privada y est&aacute; vinculada a ella, aunque resulta imposible deducir la privada desde la p&uacute;blica. Su funci&oacute;n principal es permitir que otros env&iacute;en criptomonedas a una direcci&oacute;n espec&iacute;fica, ya que solo el poseedor de la clave privada correspondiente puede desbloquear y gestionar esas transacciones. La clave p&uacute;blica es esencial en la seguridad y operatividad de las criptomonedas, pues posibilita la creaci&oacute;n de direcciones en la blockchain que pueden difundirse sin riesgo de acceso indebido. Aunque puede distribuirse ampliamente, su uso se limita a la recepci&oacute;n de activos; para gastar o transferir se requiere la clave privada, que act&uacute;a como firma digital &uacute;nica y garantiza la autenticidad de cada operaci&oacute;n. Este sistema de criptograf&iacute;a asim&eacute;trica asegura integridad y confidencialidad en la red.
-</p>
+    <h3 id="public-key-notes" data-translate="">Clave P&uacute;blica</h3>
+    <p>
+      La <b><i>clave p&uacute;blica</i></b> es un identificador que puede
+      compartirse libremente y funciona como direcci&oacute;n de
+      recepci&oacute;n para fondos, similar a una cuenta bancaria o correo
+      electr&oacute;nico. Se genera matem&aacute;ticamente a partir de la clave
+      privada y est&aacute; vinculada a ella, aunque resulta imposible deducir
+      la privada desde la p&uacute;blica. Su funci&oacute;n principal es
+      permitir que otros env&iacute;en criptomonedas a una direcci&oacute;n
+      espec&iacute;fica, ya que solo el poseedor de la clave privada
+      correspondiente puede desbloquear y gestionar esas transacciones. La clave
+      p&uacute;blica es esencial en la seguridad y operatividad de las
+      criptomonedas, pues posibilita la creaci&oacute;n de direcciones en la
+      blockchain que pueden difundirse sin riesgo de acceso indebido. Aunque
+      puede distribuirse ampliamente, su uso se limita a la recepci&oacute;n de
+      activos; para gastar o transferir se requiere la clave privada, que
+      act&uacute;a como firma digital &uacute;nica y garantiza la autenticidad
+      de cada operaci&oacute;n. Este sistema de criptograf&iacute;a
+      asim&eacute;trica asegura integridad y confidencialidad en la red.
+    </p>
 
-<br />
+    <br />
 
-<h3 id="xpub-notes" data-translate="">Clave P&uacute;blica Extendida de la Cuenta</h3>
-<p>
-La <i><b>clave p&uacute;blica extendida de la cuenta</i></b> (xprv, yprv, zprv) es un elemento dentro del est&aacute;ndar BIP44 que se ubica en el nivel account’ de la jerarqu&iacute;a de una billetera HD. Su prop&oacute;sito es permitir la generaci&oacute;n de todas las direcciones p&uacute;blicas asociadas a esa cuenta sin necesidad de exponer las claves privadas, lo que garantiza seguridad y control. Gracias a esta caracter&iacute;stica, es posible importar o visualizar una cuenta completa en aplicaciones o billeteras compatibles, facilitando la gesti&oacute;n de fondos y el monitoreo de transacciones. Adem&aacute;s, al limitarse a un &uacute;nico nivel de la estructura, se evita comprometer la totalidad de la billetera, reduciendo riesgos y manteniendo la privacidad. En la pr&aacute;ctica, la clave p&uacute;blica extendida resulta muy &uacute;til para auditores, desarrolladores o usuarios que necesitan verificar movimientos o recibir pagos sin tener acceso directo a las claves privadas, ofreciendo un equilibrio entre funcionalidad, seguridad y conveniencia en el ecosistema cripto.
-</p>
+    <h3 id="xpub-notes" data-translate="">
+      Clave P&uacute;blica Extendida de la Cuenta
+    </h3>
+    <p>
+      La <b><i>clave p&uacute;blica extendida de la cuenta</i></b> (xprv, yprv,
+      zprv) es un elemento dentro del est&aacute;ndar BIP44 que se ubica en el
+      nivel account’ de la jerarqu&iacute;a de una billetera HD. Su
+      prop&oacute;sito es permitir la generaci&oacute;n de todas las direcciones
+      p&uacute;blicas asociadas a esa cuenta sin necesidad de exponer las claves
+      privadas, lo que garantiza seguridad y control. Gracias a esta
+      caracter&iacute;stica, es posible importar o visualizar una cuenta
+      completa en aplicaciones o billeteras compatibles, facilitando la
+      gesti&oacute;n de fondos y el monitoreo de transacciones. Adem&aacute;s,
+      al limitarse a un &uacute;nico nivel de la estructura, se evita
+      comprometer la totalidad de la billetera, reduciendo riesgos y manteniendo
+      la privacidad. En la pr&aacute;ctica, la clave p&uacute;blica extendida
+      resulta muy &uacute;til para auditores, desarrolladores o usuarios que
+      necesitan verificar movimientos o recibir pagos sin tener acceso directo a
+      las claves privadas, ofreciendo un equilibrio entre funcionalidad,
+      seguridad y conveniencia en el ecosistema cripto.
+    </p>
 
-<br />
+    <br />
 
-<h3 id="xpub-bip32-notes" data-translate="">Clave P&uacute;blica Extendida BIP32</h3>
-<p>
-La <i><b>clave p&uacute;blica extendida BIP32</i></b>, conocida como xpub, es fundamental en el dise&ntilde;o de billeteras HD porque permite derivar m&uacute;ltiples claves p&uacute;blicas sin exponer las privadas. Al generarse desde la semilla maestra, incorpora datos de la ruta de derivaci&oacute;n y un c&oacute;digo de verificaci&oacute;n que aseguran coherencia y autenticidad en la estructura. Su principal ventaja es que posibilita crear todas las direcciones de recepci&oacute;n de una billetera, facilitando la gesti&oacute;n de pagos y el monitoreo de transacciones, pero sin otorgar capacidad de gasto. Esto la convierte en una herramienta ideal para auditores, contadores o usuarios que necesitan transparencia sin comprometer la seguridad. Compartir un xpub permite a terceros visualizar movimientos y generar nuevas direcciones, manteniendo intacta la protecci&oacute;n de las claves privadas. En consecuencia, el xpub equilibra funcionalidad y seguridad, ofreciendo un mecanismo confiable para administrar y supervisar activos digitales sin riesgo de p&eacute;rdida de control sobre los fondos.
-</p>
+    <h3 id="xpub-bip32-notes" data-translate="">
+      Clave P&uacute;blica Extendida BIP32
+    </h3>
+    <p>
+      La <b><i>clave p&uacute;blica extendida BIP32</i></b
+      >, conocida como xpub, es fundamental en el dise&ntilde;o de billeteras HD
+      porque permite derivar m&uacute;ltiples claves p&uacute;blicas sin exponer
+      las privadas. Al generarse desde la semilla maestra, incorpora datos de la
+      ruta de derivaci&oacute;n y un c&oacute;digo de verificaci&oacute;n que
+      aseguran coherencia y autenticidad en la estructura. Su principal ventaja
+      es que posibilita crear todas las direcciones de recepci&oacute;n de una
+      billetera, facilitando la gesti&oacute;n de pagos y el monitoreo de
+      transacciones, pero sin otorgar capacidad de gasto. Esto la convierte en
+      una herramienta ideal para auditores, contadores o usuarios que necesitan
+      transparencia sin comprometer la seguridad. Compartir un xpub permite a
+      terceros visualizar movimientos y generar nuevas direcciones, manteniendo
+      intacta la protecci&oacute;n de las claves privadas. En consecuencia, el
+      xpub equilibra funcionalidad y seguridad, ofreciendo un mecanismo
+      confiable para administrar y supervisar activos digitales sin riesgo de
+      p&eacute;rdida de control sobre los fondos.
+    </p>
 
-<br />
+    <br />
 
-<h3 id="root-key-notes" data-translate="">Clave Ra&iacute;z BIP32</h3>
-<p>
-La <i><b>clave ra&iacute;z BIP32</i></b>, conocida como semilla maestra, es el punto de partida de las billeteras determin&iacute;sticas jer&aacute;rquicas (HD wallets). A partir de ella se derivan matem&aacute;ticamente todas las claves privadas y p&uacute;blicas, cada una asociada a una direcci&oacute;n &uacute;nica, lo que permite una gesti&oacute;n ordenada y segura de los fondos. Su funci&oacute;n es comparable a una “llave maestra”: quien la posea tiene control absoluto sobre todos los activos vinculados. Esta clave ra&iacute;z suele generarse desde una frase mnem&oacute;nica BIP39, que convierte la complejidad criptogr&aacute;fica en una serie de palabras f&aacute;ciles de respaldar y recordar. Gracias a este dise&ntilde;o, los usuarios pueden restaurar sus billeteras en cualquier dispositivo con solo ingresar la semilla, evitando la necesidad de guardar m&uacute;ltiples claves individuales. Adem&aacute;s, la estructura jer&aacute;rquica permite administrar diferentes cuentas y criptomonedas desde una misma ra&iacute;z, consolidando la clave BIP32 como un elemento esencial para la seguridad y eficiencia en el ecosistema digital.
-</p>
+    <h3 id="root-key-notes" data-translate="">Clave Ra&iacute;z BIP32</h3>
+    <p>
+      La <b><i>clave ra&iacute;z BIP32</i></b
+      >, conocida como semilla maestra, es el punto de partida de las billeteras
+      determin&iacute;sticas jer&aacute;rquicas (HD wallets). A partir de ella
+      se derivan matem&aacute;ticamente todas las claves privadas y
+      p&uacute;blicas, cada una asociada a una direcci&oacute;n &uacute;nica, lo
+      que permite una gesti&oacute;n ordenada y segura de los fondos. Su
+      funci&oacute;n es comparable a una “llave maestra”: quien la posea tiene
+      control absoluto sobre todos los activos vinculados. Esta clave
+      ra&iacute;z suele generarse desde una frase mnem&oacute;nica BIP39, que
+      convierte la complejidad criptogr&aacute;fica en una serie de palabras
+      f&aacute;ciles de respaldar y recordar. Gracias a este dise&ntilde;o, los
+      usuarios pueden restaurar sus billeteras en cualquier dispositivo con solo
+      ingresar la semilla, evitando la necesidad de guardar m&uacute;ltiples
+      claves individuales. Adem&aacute;s, la estructura jer&aacute;rquica
+      permite administrar diferentes cuentas y criptomonedas desde una misma
+      ra&iacute;z, consolidando la clave BIP32 como un elemento esencial para la
+      seguridad y eficiencia en el ecosistema digital.
+    </p>
 
-<br />
+    <br />
 
-<h3 id="passphrase-notes" data-translate="">Contrase&ntilde;a BIP39</h3>
-<p>
-La <i><b>contrase&ntilde;a BIP39</i></b>, tambi&eacute;n llamada palabra 25, frase secreta o passphrase, es una medida opcional de seguridad que se a&ntilde;ade a la semilla mnem&oacute;nica de 12, 18 o 24 palabras en una billetera criptogr&aacute;fica. Su funci&oacute;n es actuar como segunda capa de protecci&oacute;n: aunque alguien obtenga la semilla, sin la contrase&ntilde;a correcta no podr&aacute; acceder a los fondos. Al intervenir en la derivaci&oacute;n de las claves, permite crear carteras ocultas o adicionales desde la misma semilla, ofreciendo flexibilidad y privacidad. Cada contrase&ntilde;a distinta genera un monedero &uacute;nico, lo que refuerza la seguridad y dificulta accesos no autorizados. Puede tener hasta 100 caracteres, incluyendo letras, n&uacute;meros y s&iacute;mbolos, lo que brinda una enorme variedad de combinaciones. Sin embargo, si se olvida, los fondos asociados se pierden de forma irreversible. Por ello, se recomienda almacenarla con el mismo cuidado que la semilla, preferiblemente en lugares separados, garantizando as&iacute; la protecci&oacute;n de los activos digitales.
-</p>
+    <h3 id="passphrase-notes" data-translate="">Contrase&ntilde;a BIP39</h3>
+    <p>
+      La <b><i>contrase&ntilde;a BIP39</i></b
+      >, tambi&eacute;n llamada palabra 25, frase secreta o passphrase, es una
+      medida opcional de seguridad que se a&ntilde;ade a la semilla
+      mnem&oacute;nica de 12, 18 o 24 palabras en una billetera
+      criptogr&aacute;fica. Su funci&oacute;n es actuar como segunda capa de
+      protecci&oacute;n: aunque alguien obtenga la semilla, sin la
+      contrase&ntilde;a correcta no podr&aacute; acceder a los fondos. Al
+      intervenir en la derivaci&oacute;n de las claves, permite crear carteras
+      ocultas o adicionales desde la misma semilla, ofreciendo flexibilidad y
+      privacidad. Cada contrase&ntilde;a distinta genera un monedero
+      &uacute;nico, lo que refuerza la seguridad y dificulta accesos no
+      autorizados. Puede tener hasta 100 caracteres, incluyendo letras,
+      n&uacute;meros y s&iacute;mbolos, lo que brinda una enorme variedad de
+      combinaciones. Sin embargo, si se olvida, los fondos asociados se pierden
+      de forma irreversible. Por ello, se recomienda almacenarla con el mismo
+      cuidado que la semilla, preferiblemente en lugares separados, garantizando
+      as&iacute; la protecci&oacute;n de los activos digitales.
+    </p>
 
+    <br />
 
-<br />
+    <h3 id="hardened-notes" data-translate="">Derivaciones Reforzadas</h3>
+    <p>
+      Las <b><i>derivaciones reforzadas</i></b> (hardened derivations) son un
+      mecanismo de seguridad clave en billeteras HD definido por BIP32. Se
+      identifican con un ap&oacute;strofe (') en la ruta, como m/44'/0'/0'/0/0,
+      y evitan que una clave p&uacute;blica extendida (xpub) pueda usarse para
+      deducir claves privadas hijas. En derivaciones normales, si se expone una
+      clave privada hija junto con el xpub madre, es posible reconstruir la
+      clave privada superior y comprometer toda la billetera. Las hardened
+      rompen esa cadena: requieren la clave privada madre para generar hijas,
+      limitando el impacto de una filtraci&oacute;n. Aunque las derivaciones no
+      endurecidas son m&aacute;s flexibles, las hardened a&ntilde;aden una capa
+      cr&iacute;tica de protecci&oacute;n, recomendada en escenarios
+      p&uacute;blicos o de alto riesgo.
+    </p>
 
-<h3 id="hardened-notes" data-translate="">Derivaciones Reforzadas</h3>
-<p>
-Las <i><b>derivaciones reforzadas</i></b> (hardened derivations) son un mecanismo de seguridad clave en billeteras HD definido por BIP32. Se identifican con un ap&oacute;strofe (') en la ruta, como m/44'/0'/0'/0/0, y evitan que una clave p&uacute;blica extendida (xpub) pueda usarse para deducir claves privadas hijas. En derivaciones normales, si se expone una clave privada hija junto con el xpub madre, es posible reconstruir la clave privada superior y comprometer toda la billetera. Las hardened rompen esa cadena: requieren la clave privada madre para generar hijas, limitando el impacto de una filtraci&oacute;n. Aunque las derivaciones no endurecidas son m&aacute;s flexibles, las hardened a&ntilde;aden una capa cr&iacute;tica de protecci&oacute;n, recomendada en escenarios p&uacute;blicos o de alto riesgo.
-</p>
+    <br />
 
-<br />
+    <h3 id="entropy-notes" data-translate="">Entrop&iacute;a</h3>
+    <p>
+      La <b><i>entrop&iacute;a</i></b> representa el nivel de aleatoriedad o
+      incertidumbre empleado para generar claves privadas y frases semilla
+      seguras en sistemas criptogr&aacute;ficos. Esta aleatoriedad es
+      fundamental porque asegura que cada clave sea &uacute;nica e impredecible,
+      dificultando que un atacante pueda reproducirlas o adivinarlas mediante
+      intentos de fuerza bruta. Cuanto mayor es la entrop&iacute;a, m&aacute;s
+      amplio resulta el espacio de posibles combinaciones, lo que incrementa la
+      robustez de las billeteras digitales y protege los activos de los usuarios
+      frente a ataques externos. La entrop&iacute;a puede obtenerse de
+      m&uacute;ltiples fuentes, como movimientos del rat&oacute;n, pulsaciones
+      de teclado, ruido del hardware o algoritmos especializados, que
+      posteriormente se transforman en frases mnem&oacute;nicas de 12, 18 o 24
+      palabras siguiendo est&aacute;ndares como BIP39. Gracias a este proceso,
+      los usuarios pueden respaldar y restaurar sus billeteras de manera
+      confiable, sabiendo que la base de su seguridad est&aacute; en una semilla
+      generada con un nivel de aleatoriedad tan elevado que resulta
+      pr&aacute;cticamente imposible de vulnerar.
+    </p>
+    <p>
+      <span style="color: red;"
+        ><i><b>ATENCI&Oacute;N:</b></i></span
+      >
+      <i
+        >Los valores de entrop&iacute;a deben obtenerse de una fuerte fuente de
+        aleatoriedad. NO use frases de libros, letras de canciones, su nombre,
+        su fecha de nacimiento, la direcci&oacute;n de su domicilio,
+        combinaci&oacute;n de teclado o cualquier cosa que crea que es
+        aleatoria, porque las posibilidades de que no lo sea son abrumadoras.</i
+      >
+    </p>
 
-<h3 id="entropy-notes" data-translate="">Entrop&iacute;a</h3>
-<p>
-La <i><b>entrop&iacute;a</i></b> representa el nivel de aleatoriedad o incertidumbre empleado para generar claves privadas y frases semilla seguras en sistemas criptogr&aacute;ficos. Esta aleatoriedad es fundamental porque asegura que cada clave sea &uacute;nica e impredecible, dificultando que un atacante pueda reproducirlas o adivinarlas mediante intentos de fuerza bruta. Cuanto mayor es la entrop&iacute;a, m&aacute;s amplio resulta el espacio de posibles combinaciones, lo que incrementa la robustez de las billeteras digitales y protege los activos de los usuarios frente a ataques externos. La entrop&iacute;a puede obtenerse de m&uacute;ltiples fuentes, como movimientos del rat&oacute;n, pulsaciones de teclado, ruido del hardware o algoritmos especializados, que posteriormente se transforman en frases mnem&oacute;nicas de 12, 18 o 24 palabras siguiendo est&aacute;ndares como BIP39. Gracias a este proceso, los usuarios pueden respaldar y restaurar sus billeteras de manera confiable, sabiendo que la base de su seguridad est&aacute; en una semilla generada con un nivel de aleatoriedad tan elevado que resulta pr&aacute;cticamente imposible de vulnerar. 
-</p>
-<p>
-<span style="color: red;"><i><b>ATENCI&Oacute;N:</b></i></span>
-<i>Los valores de entrop&iacute;a deben obtenerse de una fuerte fuente de aleatoriedad. NO use frases de libros, letras de canciones, su nombre, su fecha de nacimiento, la direcci&oacute;n de su domicilio, combinaci&oacute;n de teclado o cualquier cosa que crea que es aleatoria, porque las posibilidades de que no lo sea son abrumadoras.</i>
-</p>
+    <br />
 
-<br />
+    <h3 id="mnemonic-notes" data-translate="">
+      Frase Semilla (Mnemot&eacute;cnica)
+    </h3>
+    <p>
+      Una <b><i>frase semilla</i></b
+      >, tambi&eacute;n llamada frase de recuperaci&oacute;n, seed phrase o
+      nemot&eacute;cnica, es una secuencia de 12, 18 o 24 palabras que respalda
+      las claves privadas de una billetera de criptomonedas. Se genera a partir
+      de una entrop&iacute;a siguiendo el est&aacute;ndar BIP39, garantizando
+      seguridad y compatibilidad entre plataformas. Funciona como llave maestra:
+      permite restaurar una billetera completa en caso de p&eacute;rdida o
+      da&ntilde;o del dispositivo, simplificando la protecci&oacute;n de activos
+      sin memorizar largas cadenas. Su importancia es cr&iacute;tica, pues quien
+      la posea controla los fondos. Por ello se recomienda guardarla en un medio
+      f&iacute;sico seguro, nunca digitalizarla ni compartirla, y reforzarla con
+      una passphrase adicional. La probabilidad de que alguien la adivine es
+      pr&aacute;cticamente nula, lo que la convierte en un pilar esencial de la
+      seguridad y la criptograf&iacute;a aplicada a las finanzas digitales.
+    </p>
 
-<h3 id="mnemonic-notes" data-translate="">Frase Semilla (Mnemot&eacute;cnica)</h3>
-<p>
-Una <i><b>frase semilla</i></b>, tambi&eacute;n llamada frase de recuperaci&oacute;n, seed phrase o nemot&eacute;cnica, es una secuencia de 12, 18 o 24 palabras que respalda las claves privadas de una billetera de criptomonedas. Se genera a partir de una entrop&iacute;a siguiendo el est&aacute;ndar BIP39, garantizando seguridad y compatibilidad entre plataformas. Funciona como llave maestra: permite restaurar una billetera completa en caso de p&eacute;rdida o da&ntilde;o del dispositivo, simplificando la protecci&oacute;n de activos sin memorizar largas cadenas. Su importancia es cr&iacute;tica, pues quien la posea controla los fondos. Por ello se recomienda guardarla en un medio f&iacute;sico seguro, nunca digitalizarla ni compartirla, y reforzarla con una passphrase adicional. La probabilidad de que alguien la adivine es pr&aacute;cticamente nula, lo que la convierte en un pilar esencial de la seguridad y la criptograf&iacute;a aplicada a las finanzas digitales.
-<p>
-<span style="color: red;"><i><b>ATENCI&Oacute;N: </b></i></span>
-<i>La probabilidad de adivinar correctamente una frase mnemot&eacute;nica de alguien es 1 en 2048 ^ 24 o 2.96 x 10 ^ 79 suposiciones, algo t&eacute;cnicamente imposible.</i>
-</p>
+    <p>
+      <span style="color: red;"
+        ><i><b>ATENCI&Oacute;N: </b></i></span
+      >
+      <i
+        >La probabilidad de adivinar correctamente una frase mnemot&eacute;nica
+        de alguien es 1 en 2048 ^ 24 o 2.96 x 10 ^ 79 suposiciones, algo
+        t&eacute;cnicamente imposible.</i
+      >
+    </p>
 
-<br />
+    <br />
 
-<h3 id="entropy-source-notes" data-translate="">Fuente de Entrop&iacute;a</h3>
-<p>
-Una <i><b>fuente de entrop&iacute;a</i></b> es el mecanismo que aporta la aleatoriedad necesaria para generar claves privadas y frases semilla seguras. Estas fuentes se nutren de eventos impredecibles como movimientos del rat&oacute;n (mouse), pulsaciones de teclado, fluctuaciones el&eacute;ctricas o algoritmos especializados, que se recolectan para garantizar claves &uacute;nicas y resistentes a ataques. La solidez de la seguridad depende directamente de la diversidad y calidad de los datos capturados, pues una fuente d&eacute;bil puede comprometer la protecci&oacute;n de los fondos.
-</p>
+    <h3 id="entropy-source-notes" data-translate="">
+      Fuente de Entrop&iacute;a
+    </h3>
+    <p>
+      Una <b><i>fuente de entrop&iacute;a</i></b> es el mecanismo que aporta la
+      aleatoriedad necesaria para generar claves privadas y frases semilla
+      seguras. Estas fuentes se nutren de eventos impredecibles como movimientos
+      del rat&oacute;n (mouse), pulsaciones de teclado, fluctuaciones
+      el&eacute;ctricas o algoritmos especializados, que se recolectan para
+      garantizar claves &uacute;nicas y resistentes a ataques. La solidez de la
+      seguridad depende directamente de la diversidad y calidad de los datos
+      capturados, pues una fuente d&eacute;bil puede comprometer la
+      protecci&oacute;n de los fondos.
+    </p>
 
-<br />
+    <br />
 
-<h3 id="seed-bip39-notes" data-translate="">Semilla BIP39</h3>
-<p>
-La <i><b>semilla BIP39</i></b> es un est&aacute;ndar que transforma claves privadas complejas en frases mnem&oacute;nicas de 12 a 24 palabras f&aacute;ciles de recordar. Estas palabras se convierten mediante un algoritmo en un n&uacute;mero criptogr&aacute;fico de 512 bits, conocido como seed, que sirve como base para generar la clave ra&iacute;z BIP32 y todas las claves privadas y p&uacute;blicas de una billetera HD. Compatible con m&uacute;ltiples clientes, permite restaurar fondos en cualquier dispositivo. Su protecci&oacute;n es esencial para la seguridad de los activos.
-</p>
+    <h3 id="seed-bip39-notes" data-translate="">Semilla BIP39</h3>
+    <p>
+      La <b><i>semilla BIP39</i></b> es un est&aacute;ndar que transforma claves
+      privadas complejas en frases mnem&oacute;nicas de 12 a 24 palabras
+      f&aacute;ciles de recordar. Estas palabras se convierten mediante un
+      algoritmo en un n&uacute;mero criptogr&aacute;fico de 512 bits, conocido
+      como seed, que sirve como base para generar la clave ra&iacute;z BIP32 y
+      todas las claves privadas y p&uacute;blicas de una billetera HD.
+      Compatible con m&uacute;ltiples clientes, permite restaurar fondos en
+      cualquier dispositivo. Su protecci&oacute;n es esencial para la seguridad
+      de los activos.
+    </p>
 
-<br />
+    <br />
 
-<h3 id="path-notes" data-translate="">Ruta de Derivaci&oacute;n</h3>
-<p>
-La <i><b>ruta de derivaci&oacute;n</i></b> es la secuencia que define c&oacute;mo se generan m&uacute;ltiples direcciones a partir de una sola semilla en billeteras HD, siguiendo est&aacute;ndares como BIP32, BIP44 o BIP84. Se representa con n&uacute;meros y s&iacute;mbolos, por ejemplo m/44'/0'/0'/0/0, donde cada nivel indica la criptomoneda, la cuenta, el tipo de clave y la direcci&oacute;n. El ap&oacute;strofe se&ntilde;ala derivaciones hardened, que refuerzan la seguridad al impedir que una clave p&uacute;blica comprometida exponga otras ramas de la jerarqu&iacute;a. Cada billetera puede implementar rutas distintas: Ledger Live suele usar m/84', mientras MetaMask emplea m/44'/60'/0'/0/0 para Ethereum. Esta diversidad hace que, si al restaurar una semilla se introduce una ruta incorrecta, el saldo aparezca vac&iacute;o aunque los fondos sigan existiendo. Por ello, es crucial conservar tanto la semilla como la ruta original, ya que juntas garantizan acceso seguro y coherente a los activos digitales, evitando confusiones y asegurando la integridad de la billetera.
-</p>
+    <h3 id="path-notes" data-translate="">Ruta de Derivaci&oacute;n</h3>
+    <p>
+      La <b><i>ruta de derivaci&oacute;n</i></b> es la secuencia que define
+      c&oacute;mo se generan m&uacute;ltiples direcciones a partir de una sola
+      semilla en billeteras HD, siguiendo est&aacute;ndares como BIP32, BIP44 o
+      BIP84. Se representa con n&uacute;meros y s&iacute;mbolos, por ejemplo
+      m/44'/0'/0'/0/0, donde cada nivel indica la criptomoneda, la cuenta, el
+      tipo de clave y la direcci&oacute;n. El ap&oacute;strofe se&ntilde;ala
+      derivaciones hardened, que refuerzan la seguridad al impedir que una clave
+      p&uacute;blica comprometida exponga otras ramas de la jerarqu&iacute;a.
+      Cada billetera puede implementar rutas distintas: Ledger Live suele usar
+      m/84', mientras MetaMask emplea m/44'/60'/0'/0/0 para Ethereum. Esta
+      diversidad hace que, si al restaurar una semilla se introduce una ruta
+      incorrecta, el saldo aparezca vac&iacute;o aunque los fondos sigan
+      existiendo. Por ello, es crucial conservar tanto la semilla como la ruta
+      original, ya que juntas garantizan acceso seguro y coherente a los activos
+      digitales, evitando confusiones y asegurando la integridad de la
+      billetera.
+    </p>
+</div>
+</div>
 <!-- /more information -->
 
-<hr />
+    <hr />
 
 <!-- library -->
 <div class="row">
@@ -8230,6 +8356,8 @@ target="_blank"
 >https://getbootstrap.com/</a
 >
 </p>
+</div>
+</div>
 <!-- /library -->
 
 <hr />
@@ -8250,12 +8378,9 @@ transition: transform 0.3s;
 transform: scale(1.1);
 }
 </style>
-
 <center>
 <div class="logo2">
-<a href="rs/index.html">
-<img src="rs/cc23.png" />
-</a>
+<a href="rs/index.html"><img src="rs/cc23.png"/></a>
 </div>
 </center>
 <!-- /logo2 -->
@@ -8263,6 +8388,9 @@ transform: scale(1.1);
 <br />
 
 <!-- social -->
+<div class="social">
+<div class="social-container">
+
 <style>
 .social-container {
 display: flex;
@@ -8285,61 +8413,30 @@ transform: scale(1.2);
 }
 </style>
 
-<div class="social"></div>
-
-<div class="social-container">
 <div class="social-wrapper">
-<a href="https://t.me/cubacripto" target="_blank">
-<img
-class="social-image"
-src="rs/tg2.png"
-/>
-</a>
+<a href="https://t.me/cubacripto" target="_blank"><img class="social-image" src="rs/tg2.png"/></a>
 </div>
 
 <div class="social-wrapper">
-<a href="https://x.com/cubacripto" target="_blank">
-<img
-class="social-image"
-src="rs/x2.png"
-/>
-</a>
+<a href="https://x.com/cubacripto" target="_blank"><img class="social-image" src="rs/x2.png"/></a>
 </div>
 
 <div class="social-wrapper">
-<a href="https://facebook.com/cubacripto" target="_blank">
-<img
-class="social-image"
-src="rs/fb2.png"
-/>
-</a>
+<a href="https://facebook.com/cubacripto" target="_blank"><img class="social-image" src="rs/fb2.png"/></a>
 </div>
 
 <div class="social-wrapper">
-<a href="https://instagram.com/cubacripto" target="_blank">
-<img
-class="social-image"
-src="rs/ig2.png"
-/>
-</a>
+<a href="https://instagram.com/cubacripto" target="_blank"><img class="social-image" src="rs/ig2.png"/></a>
 </div>
 
 <div class="social-wrapper">
-<a href="https://www.youtube.com/@cubacripto" target="_blank">
-<img
-class="social-image"
-src="rs/yt2.png"
-/>
-</a>
+<a href="https://www.youtube.com/@cubacripto" target="_blank"><img class="social-image" src="rs/yt2.png"/></a>
 </div>
 
 <div class="social-wrapper">
-<a href="mailto:cubacripto@gmail.com" target="_blank">
-<img
-class="social-image"
-src="rs/em2.png"
-/>
-</a>
+<a href="mailto:cubacripto@gmail.com" target="_blank"><img class="social-image" src="rs/em2.png"/></a>
+</div>
+
 </div>
 </div>
 <!-- /social -->
@@ -8353,7 +8450,6 @@ src="rs/em2.png"
 <center>
 <font size="1"><i><b>Update: 2512132111</b></i></font>
 </center>
-    
 <!-- /copyright -->
 
 <!-- show-hide QR -->
@@ -8365,15 +8461,16 @@ Haga clic en el campo para ocultar el QR
 Haga clic en el campo para mostrar el QR
 </div>
 <div class="qr-hider hidden">
-<div class="qr-image"></div>
+<div class="qr-image">
+</div>
 </div>
 </div>
 <!-- /show-hide QR -->
 
-<!-- /VISUAL CODE -->
+</div>
+<!-- /visible code -->
 
-<!-- FUNTION CODE -->
-
+<!-- funtion code -->
 <script>
 // From
 // https://raw.githubusercontent.com/inexorabletash/polyfill/a6bc6ced78160c994f76a909b6ff6bbbab3d43de/es6.js
@@ -49283,13 +49380,7 @@ init();
 
 })();
 </script>
-
-<!-- /FUNTION CODE -->
-
-</div>
-</div>
-</div>
-</div>
+<!-- /funtion code -->
 
 </body>
 <!-- /body -->
