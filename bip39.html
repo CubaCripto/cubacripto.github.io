@@ -7012,169 +7012,7 @@
       <!-- hidden-entropy-container -->
       <div class="entropy-container hidden">
         <form class="form-horizontal" role="form">
-          <!-- entropy-note-->
-          <div class="row">
-            <div class="col-md-12">
-              <h2>Entrop&iacute;a</h2>
-              <div class="form-group">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-10">
-                  <span style="color: red;"
-                    ><i><b>ATENCI&Oacute;N: </b></i></span
-                  >
-                  <i
-                    >La entrop&iacute;a es una funci&oacute;n avanzada. Tenga en
-                    cuenta que este m&eacute;todo puede ser inseguro si se usa
-                    de una manera incorrecta.</i
-                  >
-                  <a href="#entropy-notes" data-translate=""
-                    ><b>M&aacute;s informaci&oacute;n</b></a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- /entropy-note-->
-
-          <!-- entropy-source -->
-          <div class="form-group">
-            <label for="entropy-source" class="col-sm-2 control-label"
-              ><a href="#entropy-source-notes" data-translate
-                ><b>Fuente de entrop&iacute;a</b></a
-              ></label
-            >
-            <div class="col-sm-10">
-              <textarea
-                id="entropy-source"
-                class="entropy-source form-control"
-                placeholder="Ingrese la fuente de entrop&iacute;a (acepta letras, n&uacute;meros, s&iacute;mbolos...)"
-              ></textarea>
-              <br />
-              <button
-                onclick="copyData1()"
-                class="btn"
-                style="border: 1px solid #c0c0c0; width: 70px;"
-              >
-                <b>Copiar</b>
-              </button>
-              <script>
-                function copyData1() {
-                var entropyTextArea = document.getElementById("entropy-source");
-                entropyTextArea.select();
-                document.execCommand("copy");
-                }
-              </script>
-              <button
-                onclick="clearAll()"
-                class="btn"
-                style="border: 1px solid #c0c0c0; width: 70px;"
-              >
-                <b>Borrar</b>
-              </button>
-              <script>
-                        function handleCheckboxChange(checkbox) {
-                        if (checkbox.checked) {
-                        clearAll();
-                        }
-                        }
-
-                        function clearAll() {
-                        document.getElementById("entropy").value = "";
-                        document.getElementById("entropy-source").value = "";
-                        document.getElementById("phrase").value = "";
-                        document.getElementById("passphrase").value = "";
-                        document.getElementById("seed").value = "";
-                        document.getElementById("root-key").value = "";
-                        document.getElementById("account-xpub").value = "";
-                        document.getElementById("account-xprv").value = "";
-                        document.getElementById("extended-pub-key").value = "";
-                        document.getElementById("extended-priv-key").value = "";
-                        document.getElementById("strength-info").innerHTML = "-";
-                        document.getElementById("type-info").innerHTML = "-";
-                        document.getElementById("event-info").innerHTML = "0";
-                        document.getElementById("bits-event-info").innerHTML = "0";
-                        document.getElementById("bits-info").innerHTML = "0";
-                        var table = document.getElementById('address-table');
-                        var rows = table.getElementsByTagName('tr');
-                        for (var i = rows.length - 1; i > 0; i--) {
-                        table.deleteRow(i);
-                        }
-                        }
-              </script>
-            </div>
-          </div>
-          <!-- /entropy-source -->
-
-          <!-- entropy -->
-          <div class="form-group">
-            <label for="entropy" class="col-sm-2 control-label"
-              ><a href="#entropy-notes" data-translate
-                ><b>Entrop&iacute;a</b></a
-              ></label
-            >
-            <div class="col-sm-10">
-              <textarea
-                id="entropy"
-                class="entropy form-control"
-                placeholder="Ingrese la entrop&iacute;a (acepta solo hexadecimal o binario)"
-              ></textarea>
-            </div>
-          </div>
-          <div class="form-group length">
-            <label class="col-sm-2 control-label"></label>
-            <div class="col-sm-10">
-              <div class="form-inline">
-                <button
-                  onclick="copyData2()"
-                  class="btn"
-                  style="border: 1px solid #c0c0c0; width: 70px;"
-                >
-                  <b>Copiar</b>
-                </button>
-                <script>
-                  function copyData2() {
-                  var entropyTextArea = document.getElementById("entropy");
-                  entropyTextArea.select();
-                  document.execCommand("copy");
-                  }
-                </script>
-                <button
-                  onclick="clearAll()"
-                  class="btn"
-                  style="border: 1px solid #c0c0c0; width: 70px;"
-                >
-                  <b>Borrar</b>
-                </button>
-                <script>
-                        function handleCheckboxChange(checkbox) {
-                        if (checkbox.checked) {
-                        clearAll();
-                        }
-                        }
-
-                        function clearAll() {
-                        document.getElementById("entropy").value = "";
-                        document.getElementById("entropy-source").value = "";
-                        document.getElementById("phrase").value = "";
-                        document.getElementById("passphrase").value = "";
-                        document.getElementById("seed").value = "";
-                        document.getElementById("root-key").value = "";
-                        document.getElementById("account-xpub").value = "";
-                        document.getElementById("account-xprv").value = "";
-                        document.getElementById("extended-pub-key").value = "";
-                        document.getElementById("extended-priv-key").value = "";
-                        document.getElementById("strength-info").innerHTML = "-";
-                        document.getElementById("type-info").innerHTML = "-";
-                        document.getElementById("event-info").innerHTML = "0";
-                        document.getElementById("bits-event-info").innerHTML = "0";
-                        document.getElementById("bits-info").innerHTML = "0";
-                        var table = document.getElementById('address-table');
-                        var rows = table.getElementsByTagName('tr');
-                        for (var i = rows.length - 1; i > 0; i--) {
-                        table.deleteRow(i);
-                        }
-                        }
-                </script>
+		
                 <script>
                   // --- Ejecutar ---
                   function executeentropy() {
@@ -7270,22 +7108,171 @@
                   document.getElementById("entropy").addEventListener("input", convertEntropyToSource);
                   });
                 </script>
-                <select
-                  id="mnemonic-length"
-                  class="mnemonic-length form-control"
-                  style="width: 130px;"
-                >
-                  <option value="12" selected>12 Palabras</option>
-                  <option value="15">15 Palabras</option>
-                  <option value="18">18 Palabras</option>
-                  <option value="21">21 Palabras</option>
-                  <option value="24">24 Palabras</option>
-                </select>
+
+          <!-- entropy-note-->
+          <div class="row">
+            <div class="col-md-12">
+              <h2>Entrop&iacute;a</h2>
+              <div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                  <span style="color: red;"
+                    ><i><b>ATENCI&Oacute;N: </b></i></span
+                  >
+                  <i
+                    >La entrop&iacute;a es una funci&oacute;n avanzada. Tenga en
+                    cuenta que este m&eacute;todo puede ser inseguro si se usa
+                    de una manera incorrecta.</i
+                  >
+                  <a href="#entropy-notes" data-translate=""
+                    ><b>M&aacute;s informaci&oacute;n</b></a
+                  >
+                </div>
               </div>
             </div>
           </div>
-          <!-- /entropy -->
+          <!-- /entropy-note-->
 
+          <!-- entropy-source -->
+          <div class="form-group">
+            <label for="entropy-source" class="col-sm-2 control-label"
+              ><a href="#entropy-source-notes" data-translate
+                ><b>Fuente de entrop&iacute;a</b></a
+              ></label
+            >
+            <div class="col-sm-10">
+              <textarea
+                id="entropy-source"
+                class="entropy-source form-control"
+                placeholder="Ingrese la fuente de entrop&iacute;a (acepta letras, n&uacute;meros, s&iacute;mbolos...)"
+              ></textarea>
+              <br />
+              <button
+                onclick="copyEntropySource()"
+                class="btn"
+                style="border: 1px solid #c0c0c0; width: 70px;"
+              >
+                <b>Copiar</b>
+              </button>
+              <script>
+                function copyEntropySource() {
+                var entropyTextArea = document.getElementById("entropy-source");
+                entropyTextArea.select();
+                document.execCommand("copy");
+                }
+              </script>
+              <button
+                onclick="clearAll()"
+                class="btn"
+                style="border: 1px solid #c0c0c0; width: 70px;"
+              >
+                <b>Borrar</b>
+              </button>
+              <script>
+                        function handleCheckboxChange(checkbox) {
+                        if (checkbox.checked) {
+                        clearAll();
+                        }
+                        }
+
+                        function clearAll() {
+                        document.getElementById("entropy-source").value = "";
+                        document.getElementById("entropy").value = "";
+                        document.getElementById("phrase").value = "";
+                        document.getElementById("passphrase").value = "";
+                        document.getElementById("seed").value = "";
+                        document.getElementById("root-key").value = "";
+                        document.getElementById("account-xpub").value = "";
+                        document.getElementById("account-xprv").value = "";
+                        document.getElementById("extended-pub-key").value = "";
+                        document.getElementById("extended-priv-key").value = "";
+                        document.getElementById("strength-info").innerHTML = "-";
+                        document.getElementById("type-info").innerHTML = "-";
+                        document.getElementById("event-info").innerHTML = "0";
+                        document.getElementById("bits-event-info").innerHTML = "0";
+                        document.getElementById("bits-info").innerHTML = "0";
+                        var table = document.getElementById('address-table');
+                        var rows = table.getElementsByTagName('tr');
+                        for (var i = rows.length - 1; i > 0; i--) {
+                        table.deleteRow(i);
+                        }
+                        }
+              </script>
+            </div>
+          </div>
+          <!-- /entropy-source -->
+		  
+		  
+		  
+          <!-- entropy -->
+          <div class="form-group">
+            <label for="entropy" class="col-sm-2 control-label"
+              ><a href="#entropy-notes" data-translate
+                ><b>Entrop&iacute;a</b></a
+              ></label
+            >
+            <div class="col-sm-10">
+              <textarea
+                id="entropy"
+                class="entropy form-control"
+                placeholder="Ingrese la entrop&iacute;a (acepta solo hexadecimal o binario)"
+              ></textarea>
+              <br />
+              <button
+                onclick="copyEntropy()"
+                class="btn"
+                style="border: 1px solid #c0c0c0; width: 70px;"
+              >
+                <b>Copiar</b>
+              </button>
+              <script>
+                function copyEntropy() {
+                var entropyTextArea = document.getElementById("entropy");
+                entropyTextArea.select();
+                document.execCommand("copy");
+                }
+              </script>
+              <button
+                onclick="clearAll()"
+                class="btn"
+                style="border: 1px solid #c0c0c0; width: 70px;"
+              >
+                <b>Borrar</b>
+              </button>
+              <script>
+                        function handleCheckboxChange(checkbox) {
+                        if (checkbox.checked) {
+                        clearAll();
+                        }
+                        }
+
+                        function clearAll() {
+                        document.getElementById("entropy-source").value = "";
+                        document.getElementById("entropy").value = "";
+                        document.getElementById("phrase").value = "";
+                        document.getElementById("passphrase").value = "";
+                        document.getElementById("seed").value = "";
+                        document.getElementById("root-key").value = "";
+                        document.getElementById("account-xpub").value = "";
+                        document.getElementById("account-xprv").value = "";
+                        document.getElementById("extended-pub-key").value = "";
+                        document.getElementById("extended-priv-key").value = "";
+                        document.getElementById("strength-info").innerHTML = "-";
+                        document.getElementById("type-info").innerHTML = "-";
+                        document.getElementById("event-info").innerHTML = "0";
+                        document.getElementById("bits-event-info").innerHTML = "0";
+                        document.getElementById("bits-info").innerHTML = "0";
+                        var table = document.getElementById('address-table');
+                        var rows = table.getElementsByTagName('tr');
+                        for (var i = rows.length - 1; i > 0; i--) {
+                        table.deleteRow(i);
+                        }
+                        }
+              </script>
+            </div>
+          </div>
+          <!-- /entropy -->
+		  
           <!-- entropy-data-->
           <div class="form-group">
             <div class="col-sm-10">
@@ -7419,8 +7406,8 @@
                         }
 
                         function clearAll() {
-                        document.getElementById("entropy").value = "";
                         document.getElementById("entropy-source").value = "";
+                        document.getElementById("entropy").value = "";
                         document.getElementById("phrase").value = "";
                         document.getElementById("passphrase").value = "";
                         document.getElementById("seed").value = "";
@@ -7473,14 +7460,14 @@
                 ></textarea>
                 <br />
                 <button
-                  onclick="copyData3()"
+                  onclick="copyPhrase()"
                   class="btn"
                   style="border: 1px solid #c0c0c0; width: 70px;"
                 >
                   <b>Copiar</b>
                 </button>
                 <script>
-                  function copyData3() {
+                  function copyPhrase() {
                   var phraseTextArea = document.getElementById("phrase");
                   phraseTextArea.select();
                   document.execCommand("copy");
@@ -7501,8 +7488,8 @@
                         }
 
                         function clearAll() {
-                        document.getElementById("entropy").value = "";
                         document.getElementById("entropy-source").value = "";
+                        document.getElementById("entropy").value = "";
                         document.getElementById("phrase").value = "";
                         document.getElementById("passphrase").value = "";
                         document.getElementById("seed").value = "";
@@ -7547,28 +7534,28 @@
                 ></textarea>
                 <br />
                 <button
-                  onclick="copyData4()"
+                  onclick="copyPassphrase()"
                   class="btn"
                   style="border: 1px solid #c0c0c0; width: 70px;"
                 >
                   <b>Copiar</b>
                 </button>
                 <script>
-                  function copyData4() {
+                  function copyPassphrase() {
                   var passphraseTextArea = document.getElementById("passphrase");
                   passphraseTextArea.select();
                   document.execCommand("copy");
                   }
                 </script>
                 <button
-                  onclick="clear22()"
+                  onclick="clearPassphrase()"
                   class="btn"
                   style="border: 1px solid #c0c0c0; width: 70px;"
                 >
                   <b>Borrar</b>
                 </button>
 				<script>
-                  function clear22() {
+                  function clearPassphrase() {
                   var el = document.getElementById("passphrase");
                   if (!el) return;
                   el.value = "";
@@ -7600,14 +7587,14 @@
                 ></textarea>
                 <br />
                 <button
-                  onclick="copyData5()"
+                  onclick="copySeed()"
                   class="btn"
                   style="border: 1px solid #c0c0c0; width: 70px;"
                 >
                   <b>Copiar</b>
                 </button>
                 <script>
-                  function copyData5() {
+                  function copySeed() {
                   var seedTextArea = document.getElementById("seed");
                   seedTextArea.select();
                   document.execCommand("copy");
@@ -7636,14 +7623,14 @@
                 ></textarea>
                 <br />
                 <button
-                  onclick="copyData6()"
+                  onclick="copyRootKey()"
                   class="btn"
                   style="border: 1px solid #c0c0c0; width: 70px;"
                 >
                   <b>Copiar</b>
                 </button>
                 <script>
-                  function copyData6() {
+                  function copyRootKey() {
                   var rootTextArea = document.getElementById("root-key");
                   rootTextArea.select();
                   document.execCommand("copy");
@@ -7803,7 +7790,7 @@
                     ></textarea>
                     <br />
                     <button
-                      onclick="copyData7()"
+                      onclick="copyAccountXpud()"
                       class="btn"
                       style="border: 1px solid #c0c0c0; width: 70px;"
                     >
@@ -7811,7 +7798,7 @@
                     </button>
 
                     <script>
-                      function copyData7() {
+                      function copyAccountXpud() {
                       var xpubTextArea = document.getElementById("account-xpub");
                       xpubTextArea.select();
                       document.execCommand("copy");
@@ -7839,7 +7826,7 @@
                     ></textarea>
                     <br />
                     <button
-                      onclick="copyData8()"
+                      onclick="copyAccountXprv()"
                       class="btn"
                       style="border: 1px solid #c0c0c0; width: 70px;"
                     >
@@ -7847,7 +7834,7 @@
                     </button>
 
                     <script>
-                      function copyData8() {
+                      function copyAccountXprv() {
                       var xprvTextArea = document.getElementById("account-xprv");
                       xprvTextArea.select();
                       document.execCommand("copy");
@@ -7893,7 +7880,7 @@
                     <br />
 
                     <button
-                      onclick="copyData9()"
+                      onclick="copyBip44Path()"
                       class="btn"
                       style="border: 1px solid #c0c0c0; width: 70px;"
                     >
@@ -7901,7 +7888,7 @@
                     </button>
 
                     <script>
-                      function copyData9() {
+                      function copyBip44Path() {
                       var pathTextArea = document.getElementById("bip44-path");
                       pathTextArea.select();
                       document.execCommand("copy");
@@ -7971,7 +7958,7 @@
                     />
                     <br />
                     <button
-                      onclick="copyData10()"
+                      onclick="copyBip32Path()"
                       class="btn"
                       style="border: 1px solid #c0c0c0; width: 70px;"
                     >
@@ -7979,7 +7966,7 @@
                     </button>
 
                     <script>
-                      function copyData10() {
+                      function copyBip32Path() {
                       var pathTextArea = document.getElementById("bip32-path");
                       pathTextArea.select();
                       document.execCommand("copy");
@@ -8036,7 +8023,7 @@
                 <br />
 
                 <button
-                  onclick="copyData11()"
+                  onclick="copyExtendedPubKey()"
                   class="btn"
                   style="border: 1px solid #c0c0c0; width: 70px;"
                 >
@@ -8044,7 +8031,7 @@
                 </button>
 
                 <script>
-                  function copyData11() {
+                  function copyExtendedPubKey() {
                   var pubTextArea = document.getElementById("extended-pub-key");
                   pubTextArea.select();
                   document.execCommand("copy");
@@ -8072,7 +8059,7 @@
                 ></textarea>
                 <br />
                 <button
-                  onclick="copyData12()"
+                  onclick="copyExtendedPrivKey()"
                   class="btn"
                   style="border: 1px solid #c0c0c0; width: 70px;"
                 >
@@ -8080,7 +8067,7 @@
                 </button>
 
                 <script>
-                  function copyData12() {
+                  function copyExtendedPrivKey() {
                   var privTextArea = document.getElementById("extended-priv-key");
                   privTextArea.select();
                   document.execCommand("copy");
@@ -8112,7 +8099,7 @@
           <select
             id="network-phrase"
             class="network form-control"
-            style="width: 350px;"
+            style="width: 150px;"
           ></select>
 
           <div class="col-md-12">
@@ -8136,7 +8123,7 @@
                   <div class="input-group">
                     <button
                       class="index-toggle"
-                      style="border: 1px solid #c0c0c0; width: 80px;"
+                      style="border: 1px solid #c0c0c0; width: 60px;"
                     >
                       Ruta
                     </button>
@@ -8147,7 +8134,7 @@
                   <div class="input-group">
                     <button
                       class="address-toggle"
-                      style="border: 1px solid #c0c0c0; width: 110px;"
+                      style="border: 1px solid #c0c0c0; width: 90px;"
                     >
                       Direcci&oacute;n
                     </button>
@@ -8158,7 +8145,7 @@
                   <div class="input-group">
                     <button
                       class="public-key-toggle"
-                      style="border: 1px solid #c0c0c0; width: 140px;"
+                      style="border: 1px solid #c0c0c0; width: 110px;"
                     >
                       Clave p&uacute;blica
                     </button>
@@ -8169,7 +8156,7 @@
                   <div class="input-group">
                     <button
                       class="private-key-toggle"
-                      style="border: 1px solid #c0c0c0; width: 140px;"
+                      style="border: 1px solid #c0c0c0; width: 110px;"
                     >
                       Clave privada
                     </button>
