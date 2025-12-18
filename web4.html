@@ -27,11 +27,7 @@
 
     .logo img { height: 30px; width: auto; object-fit: contain; }
 
-    .menu {
-      position: relative;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; height: 100%;
-    }
+    .menu { position: relative; display: flex; align-items: center; height: 100%; }
 
     .menu-button {
       background: none; border: none; cursor: pointer;
@@ -57,19 +53,16 @@
       .menu:hover .dropdown { display: block; }
     }
 
-    /* ===== Ajustes para móvil ===== */
+    /* ===== Select nativo oculto (solo para disparar el popup en móvil) ===== */
+    .mobile-select {
+      position: fixed; top: 0; left: 0;
+      width: 1px; height: 1px;
+      opacity: 0; pointer-events: none; /* totalmente invisible y no interactivo */
+    }
+
     @media (max-width: 600px) {
-      .navbar { flex-direction: row; justify-content: space-between; align-items: center; }
-
-      .dropdown {
-        position: static;   /* ya no absoluto */
-        width: 100%;        /* ocupa todo el ancho */
-        border-radius: 0;
-        box-shadow: none;
-        background: #1f1f2e;
-      }
-
-      .dropdown a { border-top: 1px solid #2a2a3e; }
+      /* En móvil no usamos el dropdown visual */
+      .dropdown { display: none !important; }
     }
   </style>
 </head>
@@ -82,35 +75,75 @@
       </a>
     </div>
     <div class="menu">
-      <span class="menu-button">☰</span>
+      <span class="menu-button" aria-expanded="false">☰</span>
       <div class="dropdown">
         <a href="#opt1">Option 1</a>
         <a href="#opt2">Option 2</a>
         <a href="#opt3">Option 3</a>
       </div>
+      <!-- Select nativo invisible: se usa solo para abrir el popup del sistema en móvil -->
+      <select class="mobile-select" aria-hidden="true">
+        <option value="">Selecciona una opción</option>
+        <option value="#opt1">Option 1</option>
+        <option value="#opt2">Option 2</option>
+        <option value="#opt3">Option 3</option>
+      </select>
     </div>
   </div>
 
   <script>
+    const menu = document.querySelector('.menu');
     const menuButton = document.querySelector('.menu-button');
     const dropdown = document.querySelector('.dropdown');
+    const mobileSelect = document.querySelector('.mobile-select');
 
     menuButton.addEventListener('click', () => {
-      // En móvil y escritorio: alterna el mismo dropdown
-      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+      if (window.innerWidth <= 600) {
+        // Móvil: abrir el popup nativo del select
+        try {
+          // showPicker es soportado en navegadores modernos (Chromium)
+          if (typeof mobileSelect.showPicker === 'function') {
+            mobileSelect.showPicker();
+          } else {
+            // Fallback para iOS/Safari: habilitar temporalmente interacción y disparar click
+            mobileSelect.style.pointerEvents = 'auto';
+            mobileSelect.click();
+            // volver a deshabilitar interacción tras breve tiempo
+            setTimeout(() => { mobileSelect.style.pointerEvents = 'none'; }, 300);
+          }
+        } catch (e) {
+          // Último recurso
+          mobileSelect.style.pointerEvents = 'auto';
+          mobileSelect.focus();
+          setTimeout(() => { mobileSelect.style.pointerEvents = 'none'; }, 300);
+        }
+      } else {
+        // Escritorio: alterna el mismo dropdown clásico
+        const open = dropdown.style.display === 'block';
+        dropdown.style.display = open ? 'none' : 'block';
+        menuButton.setAttribute('aria-expanded', String(!open));
+      }
     });
 
-    // Cerrar al hacer clic fuera
+    // Navegar al seleccionar opción en móvil
+    mobileSelect.addEventListener('change', function () {
+      if (this.value) location.href = this.value;
+    });
+
+    // Cerrar dropdown en escritorio al hacer clic fuera
     document.addEventListener('click', (e) => {
-      const menu = document.querySelector('.menu');
       if (!menu.contains(e.target)) {
         dropdown.style.display = 'none';
+        menuButton.setAttribute('aria-expanded', 'false');
       }
     });
 
     // Cerrar con Escape
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') dropdown.style.display = 'none';
+      if (e.key === 'Escape') {
+        dropdown.style.display = 'none';
+        menuButton.setAttribute('aria-expanded', 'false');
+      }
     });
   </script>
 
