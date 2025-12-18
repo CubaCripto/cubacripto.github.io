@@ -30,7 +30,7 @@
     .menu {
       position: relative;
       display: flex; align-items: center; justify-content: center;
-      text-align: center; height: 100%; margin-right: 0; top: 0;
+      text-align: center; height: 100%;
     }
 
     .menu-button {
@@ -61,19 +61,15 @@
     @media (max-width: 600px) {
       .navbar { flex-direction: row; justify-content: space-between; align-items: center; }
 
-      /* Ocultamos dropdown en móvil para usar select clásico */
-      .dropdown { display: none !important; }
-
-      /* Select clásico móvil (aparece al pulsar ☰) */
-      .mobile-select {
-        display: none;
-        position: absolute; top: 100%; right: 0;
-        width: 220px; /* ajusta si necesitas más ancho */
-        background: #1f1f2e; color: #fff;
-        border: 1px solid #444; border-radius: 5px;
-        padding: 8px; font-size: 16px; z-index: 1001;
+      .dropdown {
+        position: static;   /* ya no absoluto */
+        width: 100%;        /* ocupa todo el ancho */
+        border-radius: 0;
+        box-shadow: none;
+        background: #1f1f2e;
       }
-      .mobile-select option { background: #1f1f2e; color: #fff; }
+
+      .dropdown a { border-top: 1px solid #2a2a3e; }
     }
   </style>
 </head>
@@ -86,64 +82,35 @@
       </a>
     </div>
     <div class="menu">
-      <span class="menu-button" aria-expanded="false" aria-controls="menu-mobile">☰</span>
+      <span class="menu-button">☰</span>
       <div class="dropdown">
         <a href="#opt1">Option 1</a>
         <a href="#opt2">Option 2</a>
         <a href="#opt3">Option 3</a>
       </div>
-      <!-- Select clásico para móvil -->
-      <select class="mobile-select" id="menu-mobile">
-        <option value="">Selecciona una opción</option>
-        <option value="#opt1">Option 1</option>
-        <option value="#opt2">Option 2</option>
-        <option value="#opt3">Option 3</option>
-      </select>
     </div>
   </div>
 
   <script>
     const menuButton = document.querySelector('.menu-button');
-    const mobileSelect = document.querySelector('.mobile-select');
     const dropdown = document.querySelector('.dropdown');
 
-    // En móvil: al pulsar ☰, mostrar/ocultar el select clásico
     menuButton.addEventListener('click', () => {
-      if (window.innerWidth <= 600) {
-        mobileSelect.style.display = mobileSelect.style.display === 'block' ? 'none' : 'block';
-        menuButton.setAttribute('aria-expanded', String(mobileSelect.style.display === 'block'));
-      } else {
-        // En escritorio: alterna dropdown por clic (además del hover, útil en táctiles grandes)
-        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-      }
+      // En móvil y escritorio: alterna el mismo dropdown
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
     });
 
-    // Navegar al seleccionar opción en móvil
-    mobileSelect.addEventListener('change', function() {
-      if (this.value) location.href = this.value;
-    });
-
-    // Cerrar select/dropdown al hacer clic fuera
+    // Cerrar al hacer clic fuera
     document.addEventListener('click', (e) => {
       const menu = document.querySelector('.menu');
       if (!menu.contains(e.target)) {
-        if (window.innerWidth <= 600) {
-          mobileSelect.style.display = 'none';
-          menuButton.setAttribute('aria-expanded', 'false');
-        } else {
-          dropdown.style.display = 'none';
-          menuButton.setAttribute('aria-expanded', 'false');
-        }
+        dropdown.style.display = 'none';
       }
     });
 
     // Cerrar con Escape
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        mobileSelect.style.display = 'none';
-        dropdown.style.display = 'none';
-        menuButton.setAttribute('aria-expanded', 'false');
-      }
+      if (e.key === 'Escape') dropdown.style.display = 'none';
     });
   </script>
 
