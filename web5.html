@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Wallet validator</title>
+<link rel="icon" href="https://cubacripto.com/rs/cc11.png" type="image/png">
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(135deg, #1f1f2e, #2a2a3e);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  margin: 0;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.card {
+  background: #2a2a3e;
+  border-radius: 12px;
+  padding: 30px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease;
+}
+
+h2 {
+  font-size: 22px;
+  font-family: monospace;
+  margin-bottom: 0px;
+  color: #ffffff;
+  padding-bottom: 6px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-family: monospace;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  color: #ddd;
+}
+
+input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid #444;
+  background: #1f1f2e;
+  color: #fff;
+  font-size: 15px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input.empty:focus {
+  border-color: #fff;
+  box-shadow: 0 0 6px rgba(255,255,255,0.6);
+}
+
+input.valid {
+  border-color: #1ABC9C;
+}
+
+input.valid:focus {
+  box-shadow: 0 0 6px rgba(26,188,156,0.6);
+}
+
+input.invalid {
+  border-color: #ff4d4d;
+}
+
+input.invalid:focus {
+  box-shadow: 0 0 6px rgba(255,77,77,0.6);
+}
+
+select {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none;
+  text-align: center;
+  text-align-last: center;
+}
+
+select option {
+  background: #2a2a3e;
+  color: #fff;
+  padding: 10px;
+  font-family: monospace;
+  text-align: none;
+}
+
+select:hover:not(:disabled) {
+  border-color: #fff;
+  box-shadow: 0 0 6px rgba(1,118,208,0.6);
+}
+
+select:focus {
+  border-color: #fff;
+  box-shadow: none;
+}
+
+select.valid {
+  border: 2px solid #0176D0;
+}
+
+select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #0176D0;
+  box-shadow: none;
+}
+
+.helper {
+  font-family: Arial, sans-serif;
+  font-weight: none;
+  font-size: 10px;
+  color: #999999;
+  margin-top: 10px;
+  display: block;
+}
+
+.msg {
+  font-family: Arial, sans-serif;
+  font-weight: none;
+  font-size: 12px;
+  color: #999999;
+  margin-top: 6px;
+  display: block;
+}
+
+.msg.error { color: #ff4d4d; }
+.msg.ok { color: #1ABC9C; }
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: monospace;
+  transition: 0.2s;
+  width: 200px;
+}
+
+button.primary {
+  background: linear-gradient(135deg, #0176D0, #4091EA);
+  color: #fff;
+}
+
+button.primary:hover {
+  background: linear-gradient(135deg, #4091EA, #0176D0);
+  transform: scale(1.01);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.progress-container {
+  width: 100%;
+  background: #222233;
+  border-radius: 8px;
+  height: 40px;
+  margin-top: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #1ABC9C;
+  transition: width 0.3s ease;
+}
+
+#progressPercent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: none;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #fff;
+}
+
+.scan-area {
+  margin-top: 20px;
+  padding: 15px;
+  background: #111111;
+  border-radius: 8px;
+  text-align: center;
+  font-family: monospace;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #1ABC9C;
+}
+
+.scanning {
+  animation: scan 1s infinite alternate;
+}
+
+@keyframes scan {
+  from { background-color: #111111; }
+  to { background-color: #222222; }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card">
+    <center><h2>Wallet validator</h2></center>
+	
+    <br/>
+	
+    <label for="targetWallet">Address (wallet):</label>
+<input type="text" id="targetWallet" placeholder="Enter the wallet address" disabled />
+    <div id="formatHint" class="helper">Select a network to see the expected format.</div>
+    <div id="errorMessage" class="msg error"></div>
+    <div id="okMessage" class="msg ok"></div>
+	
+    <label for="networkSelect">Network:</label>
+    <select id="networkSelect">
+	<option value="" disabled selected>— Select network —</option>
+      <option value="BTC">BTC - Bitcoin</option>
+      <option value="ETH">ETH / ERC20 - Ethereum</option>
+      <option value="BNB">BNB / BEP20 - BNB Smart Chain</option>
+      <option value="TRX">TRX / TRC20 - Tron</option>
+      <option value="SOL">SOL - Solana</option>
+      <option value="POLYGON">POL - Polygon POS (MATIC)</option>
+      <option value="ARBITRUM">ARBITRUM - Arbitrum One</option>
+      <option value="AVAXC">AVAXC - AVAX C-Chain</option>
+    </select>
+	
+    <div class="button-container">
+      <button id="start" class="primary" disabled>Start Scan</button>
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+      <div id="progressPercent">0%</div>
+    </div>
+
+    <div class="scan-area" id="scanArea">Select a network and enter a valid address to verify.</div>
+  </div>
+</div>
+
+<script>
+const targetInput = document.getElementById('targetWallet');
+const networkSelect = document.getElementById('networkSelect');
+const startBtn = document.getElementById('start');
+const progressBar = document.getElementById('progressBar');
+const progressPercent = document.getElementById('progressPercent');
+const scanArea = document.getElementById('scanArea');
+const formatHint = document.getElementById('formatHint');
+const errorMessage = document.getElementById('errorMessage');
+const okMessage = document.getElementById('okMessage');
+
+let progressTimer = null;
+let scanning = false;
+let paused = false;
+let elapsedBeforePause = 0;
+let netGlobal = '';
+let addrGlobal = '';
+
+const SIMULATION_TIME_SECONDS = 10;
+
+const formatExamples = {
+  BTC: 'Format: 1.., 3.. (Base58, 26–35) or bc1q.., bc1p.. (Bech32, 42–62)',
+  ETH: 'Format: 0x.. + 40 hex (Base16, 44)',
+  BNB: 'Format: 0x.. + 40 hex (same as ETH)',
+  TRX: 'Format: T.. (Base58, ~34)',
+  SOL:'Format: 4.., 7.., H.., etc. (Base58, 44)',
+  POLYGON: 'Format: 0x.. + 40 hex (same as ETH)',
+  ARBITRUM: 'Format: 0x.. + 40 hex (same as ETH)',
+  AVAXC: 'Format: 0x.. + 40 hex (same as ETH)'
+};
+
+function validateWallet(address, network) {
+  if (!address) return false;
+  switch (network) {
+    case 'BTC':
+      return /^(?:[13][a-km-zA-HJ-NP-Z1-9]{25,34}|bc1[0-9a-z]{11,71})$/.test(address);
+    case 'ETH':
+    case 'BNB':
+    case 'POLYGON':
+    case 'ARBITRUM':
+    case 'AVAXC':
+      return /^0x[a-fA-F0-9]{40}$/.test(address);
+    case 'TRX':
+      return /^T[1-9A-HJ-NP-Za-km-z]{33}$/.test(address);
+    case 'SOL':
+      return /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(address);
+    default:
+      return false;
+  }
+}
+
+function clearMessages() {
+  errorMessage.style.display = 'none';
+  okMessage.style.display = 'none';
+  errorMessage.textContent = '';
+  okMessage.textContent = '';
+}
+
+function updateValidationState() {
+  const address = targetInput.value.trim();
+  const net = networkSelect.value;
+  const valid = validateWallet(address, net);
+
+  if (!address) {
+    clearMessages();
+    targetInput.classList.remove('invalid', 'valid');
+	targetInput.classList.add('empty');
+    startBtn.disabled = true;
+    if (!scanning && !paused) startBtn.textContent = 'Start Scan';
+    return;
+  }
+
+  if (valid) {
+    errorMessage.style.display = 'none';
+    okMessage.textContent = 'Address compatible with ' + net + ' network.';
+    okMessage.style.display = 'block';
+    targetInput.classList.remove('empty');
+    targetInput.classList.add('valid');
+    targetInput.classList.remove('invalid');
+
+    if (!scanning && !paused) {
+      startBtn.disabled = false;
+      startBtn.textContent = 'Start Scan';
+    }
+  } else {
+    okMessage.style.display = 'none';
+    errorMessage.textContent = 'Address not compatible with ' + net + ' network.';
+	errorMessage.style.display = 'block';
+	targetInput.classList.remove('empty');
+    targetInput.classList.add('invalid');
+    targetInput.classList.remove('valid');
+
+    if (!scanning && !paused) {
+      startBtn.disabled = true;
+      startBtn.textContent = 'Start Scan';
+    }
+  }
+}
+
+targetInput.addEventListener('input', updateValidationState);
+networkSelect.addEventListener('change', () => {
+  formatHint.textContent = formatExamples[networkSelect.value] || '';
+  updateValidationState();
+});
+
+// 🔹 Marca como empty al enfocar si está vacío
+targetInput.addEventListener('focus', () => {
+  if (!targetInput.value.trim()) {
+    targetInput.classList.add('empty');
+    targetInput.classList.remove('valid', 'invalid');
+  }
+});
+
+// 🔹 Al salir del campo (blur), si sigue vacío, quita el borde blanco
+targetInput.addEventListener('blur', () => {
+  if (!targetInput.value.trim()) {
+    targetInput.classList.remove('empty', 'valid', 'invalid');
+  }
+});
+
+// Al cambiar de opción → habilita el campo Address si hay red seleccionada
+networkSelect.addEventListener('change', () => {
+  formatHint.textContent = formatExamples[networkSelect.value] || '';
+
+  if (networkSelect.value) {
+    targetInput.disabled = false;   // ✅ habilita el campo
+  } else {
+    targetInput.disabled = true;    // ✅ sigue bloqueado si no hay red
+    targetInput.value = '';         // opcional: limpia el campo
+  }
+
+  updateValidationState();
+});
+
+
+// 🔹 Marca como empty al enfocar si no hay opción seleccionada
+networkSelect.addEventListener('focus', () => {
+  if (!networkSelect.value.trim()) {
+    networkSelect.classList.add('empty');
+    networkSelect.classList.remove('valid');
+  }
+});
+
+// 🔹 Al cambiar de opción → se marca como válida (borde blanco permanente)
+networkSelect.addEventListener('change', () => {
+  if (networkSelect.value.trim()) {
+    networkSelect.classList.remove('empty');
+    networkSelect.classList.add('valid');
+  } else {
+    networkSelect.classList.add('empty');
+    networkSelect.classList.remove('valid');
+  }
+});
+
+// 🔹 Al salir del campo (blur), si está vacío, quita el glow
+networkSelect.addEventListener('blur', () => {
+  if (!networkSelect.value.trim()) {
+    networkSelect.classList.remove('empty', 'valid');
+  }
+});
+
+
+
+formatHint.textContent = formatExamples[networkSelect.value];
+
+let started = false;
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    startBtn.click();
+    started = true;
+  }
+});
+
+document.addEventListener("keydown", function(event) {
+  if (event.code === "Space" && started) {
+    event.preventDefault();
+    startBtn.click();
+  }
+});
+
+startBtn.addEventListener("click", () => {
+  if (!started) {
+    started = true;
+  }
+});
+
+startBtn.addEventListener('click', () => {
+  const address = targetInput.value.trim();
+  const net = networkSelect.value;
+
+  if (!scanning && !paused) {
+    if (!validateWallet(address, net)) {
+      updateValidationState();
+      return;
+    }
+    start(net, address);
+    return;
+  }
+
+  if (scanning && !paused) {
+    pauseScan();
+    return;
+  }
+
+  if (paused) {
+    continueScan();
+    return;
+  }
+});
+
+function start(net, address) {
+  scanning = true;
+  paused = false;
+  netGlobal = net;
+  addrGlobal = address;
+
+  targetInput.disabled = true;
+  networkSelect.disabled = true;
+
+  startBtn.textContent = 'Stop';
+  startBtn.disabled = false;
+  progressBar.style.width = '0%';
+  progressPercent.textContent = '0%';
+  progressPercent.style.display = 'block';
+  scanArea.textContent = 'Scanning wallet...';
+  scanArea.classList.add('scanning');
+
+  const totalMs = SIMULATION_TIME_SECONDS * 1000;
+  const startTime = Date.now() - elapsedBeforePause;
+
+  progressTimer = setInterval(() => {
+    const elapsed = Date.now() - startTime;
+    elapsedBeforePause = elapsed;
+    const progress = Math.min((elapsed / totalMs) * 100, 100);
+    progressBar.style.width = progress + '%';
+    progressPercent.textContent = Math.floor(progress) + '%';
+
+    if (elapsed >= totalMs) {
+      clearInterval(progressTimer);
+      progressTimer = null;
+      finishSimulation();
+    }
+  }, 100);
+}
+
+function pauseScan() {
+  paused = true;
+  scanning = false;
+  startBtn.textContent = 'Continue';
+  scanArea.classList.remove('scanning');
+  scanArea.textContent = 'Scan paused';
+
+  if (progressTimer) {
+    clearInterval(progressTimer);
+    progressTimer = null;
+  }
+}
+
+function continueScan() {
+  paused = false;
+  scanning = true;
+  startBtn.textContent = 'Stop';
+  scanArea.classList.add('scanning');
+scanArea.textContent = 'Scanning wallet...';
+
+  const totalMs = SIMULATION_TIME_SECONDS * 1000;
+  const resumeStart = Date.now() - elapsedBeforePause;
+
+  progressTimer = setInterval(() => {
+    const elapsed = Date.now() - resumeStart;
+    elapsedBeforePause = elapsed;
+    const progress = Math.min((elapsed / totalMs) * 100, 100);
+    progressBar.style.width = progress + '%';
+    progressPercent.textContent = Math.floor(progress) + '%';
+
+    if (elapsed >= totalMs) {
+      clearInterval(progressTimer);
+      progressTimer = null;
+      finishSimulation();
+    }
+  }, 100);
+}
+
+const whitelistVerified   = [ 
+"0x0000000000000000000000000000000000000001"
+ ];
+const whitelistSupervised  = [ 
+"0x0000000000000000000000000000000000000002"
+ ];
+const blacklistSuspicious   = [ 
+"0x0000000000000000000000000000000000000003"
+ ];
+const blacklistCompromised = [ 
+"0x0000000000000000000000000000000000000004"
+ ];
+
+function finishSimulation() {
+  scanning = false;
+  paused = false;
+  elapsedBeforePause = 0;
+  scanArea.classList.remove('scanning');
+
+  progressBar.style.width = '100%';
+  progressPercent.textContent = '100%';
+  progressPercent.style.display = 'block';
+
+  if (whitelistVerified.includes(addrGlobal)) {
+    scanArea.innerHTML = '<span style="color: #0176D0; font-weight:bold;">Verified wallet.</span>';
+  } else if (whitelistSupervised.includes(addrGlobal)) {
+    scanArea.innerHTML = '<span style="color: #FFF888; font-weight:bold;">Supervised wallet.</span>';
+  } else if (blacklistSuspicious.includes(addrGlobal)) {
+    scanArea.innerHTML = '<span style="color: #FF8800; font-weight:bold;">WARNING! Suspicious wallet.</span>';
+  } else if (blacklistCompromised.includes(addrGlobal)) {
+    scanArea.innerHTML = '<span style="color: #FF4D4D; font-weight:bold;">ALERT! Compromised wallet.</span>';
+  } else {
+    scanArea.innerHTML = '<span style="color: #FFFFFF; font-weight:bold;">Clean wallet.</span>';
+  }
+
+  targetInput.disabled = false;
+  networkSelect.disabled = false;
+
+  startBtn.textContent = 'Start Scan';
+  updateValidationState();
+}
+</script>
+
+<br/>
+
+  <div class="container">
+    <div class="card">
+      <h2>Title</h2>
+      <p>Content...</p>
+    </div>
+  </div>
+
+</body>
+
+</html>
