@@ -142,8 +142,8 @@ label {
 }
 
 input:disabled {
-  opacity: 0.5;              /* opcional: se ve apagado */
-  cursor: not-allowed;       /* ✅ el mouse se pone bloqueado */
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 input[type=text], select {
@@ -180,52 +180,61 @@ input.invalid:focus {
   box-shadow: 0 0 6px rgba(255,77,77,0.6);
 }
 
-
-
-/* Estilo exclusivo del select */
 select {
+  cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-
-  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 20px center; /* aquí sí puedes moverla */
-  background-size: 16px;
-  padding-right: 50px; /* espacio para que no se solape con el texto */
+  background-image: none;
+  text-align: center;
+  text-align-last: center;
 }
 
-
-/* Hover y focus solo para el select */
-select:hover {
-  border-color: #0176D0;
-  box-shadow: 0 0 6px rgba(1,118,208,0.6);
-}
-
-select:focus {
-  border-color: #fff;
-  box-shadow: 0 0 6px rgba(255,255,255,0.6);
-}
-
-/* Opciones dentro del desplegable */
 select option {
   background: #2a2a3e;
   color: #fff;
   padding: 10px;
   font-family: monospace;
+  text-align: none;
 }
 
+select:hover:not(:disabled) {
+  border-color: #fff;
+  box-shadow: 0 0 6px rgba(1,118,208,0.6);
+}
+
+select:focus {
+  border-color: #fff;
+  box-shadow: none;
+}
+
+select.valid {
+  border: 2px solid #0176D0;
+}
+
+select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #0176D0;
+  box-shadow: none;
+}
 
 .helper {
-  font-size: 12px;
+  font-family: Arial, sans-serif;
+  font-weight: none;
+  font-size: 10px;
   color: #999999;
-  margin-top: 6px;
+  margin-top: 10px;
+  display: block;
 }
 
 .msg {
-  font-size: 13px;
+  font-family: Arial, sans-serif;
+  font-weight: none;
+  font-size: 12px;
+  color: #999999;
   margin-top: 6px;
-  display: none;
+  display: block;
 }
 
 .msg.error { color: #ff4d4d; }
@@ -242,7 +251,9 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: monospace;
   transition: 0.2s;
   width: 200px;
 }
@@ -264,7 +275,7 @@ button:disabled {
 
 .progress-container {
   width: 100%;
-  background: #333;
+  background: #222233;
   border-radius: 8px;
   height: 40px;
   margin-top: 20px;
@@ -284,8 +295,8 @@ button:disabled {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-weight: bold;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: none;
+  font-family: Arial, sans-serif;
   font-size: 14px;
   color: #fff;
 }
@@ -381,14 +392,14 @@ button:disabled {
     <label for="networkSelect">Network:</label>
     <select id="networkSelect">
 	<option value="" disabled selected>— Select network —</option>
-      <option value="BTC">Bitcoin - BTC</option>
-      <option value="ETH">Ethereum - ETH (ERC20)</option>
-      <option value="BNB">Binance Smart Chain - BNB/BSC (BEP20)</option>
-      <option value="TRX">Tron - TRX (TRC20)</option>
-      <option value="SOL">Solana - SOL</option>
-      <option value="POL">Polygon - POL/MATIC</option>
-      <option value="ARB">Arbitrum - ARB</option>
-      <option value="AVAX">Avalanche - AVAX</option>
+      <option value="BTC">BTC - Bitcoin</option>
+      <option value="ETH">ETH / ERC20 - Ethereum</option>
+      <option value="BNB">BNB / BEP20 - BNB Smart Chain</option>
+      <option value="TRX">TRX / TRC20 - Tron</option>
+      <option value="SOL">SOL - Solana</option>
+      <option value="POLYGON">POL - Polygon POS (MATIC)</option>
+      <option value="ARBITRUM">ARBITRUM - Arbitrum One</option>
+      <option value="AVAXC">AVAXC - AVAX C-Chain</option>
     </select>
 	
     <div class="button-container">
@@ -400,7 +411,7 @@ button:disabled {
       <div id="progressPercent">0%</div>
     </div>
 
-    <div class="scan-area" id="scanArea">Enter an address and select the network to validate automatically.</div>
+    <div class="scan-area" id="scanArea">Select a network and enter a valid address to verify.</div>
   </div>
 </div>
 
@@ -429,10 +440,10 @@ const formatExamples = {
   ETH: 'Format: 0x.. + 40 hex (Base16, 44)',
   BNB: 'Format: 0x.. + 40 hex (same as ETH)',
   TRX: 'Format: T.. (Base58, ~34)',
-  SOL: 'Format: 4.., 7.., H.., etc. (Base58, 44)',
-  POL: 'Format: 0x.. + 40 hex (same as ETH)',
-  ARB: 'Format: 0x.. + 40 hex (same as ETH)',
-  AVAX: 'Format: 0x.. + 40 hex (same as ETH)'
+  SOL:'Format: 4.., 7.., H.., etc. (Base58, 44)',
+  POLYGON: 'Format: 0x.. + 40 hex (same as ETH)',
+  ARBITRUM: 'Format: 0x.. + 40 hex (same as ETH)',
+  AVAXC: 'Format: 0x.. + 40 hex (same as ETH)'
 };
 
 function validateWallet(address, network) {
@@ -442,9 +453,9 @@ function validateWallet(address, network) {
       return /^(?:[13][a-km-zA-HJ-NP-Z1-9]{25,34}|bc1[0-9a-z]{11,71})$/.test(address);
     case 'ETH':
     case 'BNB':
-    case 'POL':
-    case 'ARB':
-    case 'AVAX':
+    case 'POLYGON':
+    case 'ARBITRUM':
+    case 'AVAXC':
       return /^0x[a-fA-F0-9]{40}$/.test(address);
     case 'TRX':
       return /^T[1-9A-HJ-NP-Za-km-z]{33}$/.test(address);
@@ -478,7 +489,7 @@ function updateValidationState() {
 
   if (valid) {
     errorMessage.style.display = 'none';
-    okMessage.textContent = 'Address compatible with network ' + net + '.';
+    okMessage.textContent = 'Address compatible with ' + net + ' network.';
     okMessage.style.display = 'block';
     targetInput.classList.remove('empty');
     targetInput.classList.add('valid');
@@ -490,7 +501,7 @@ function updateValidationState() {
     }
   } else {
     okMessage.style.display = 'none';
-    errorMessage.textContent = 'The address is not compatible with network ' + net + '.';
+    errorMessage.textContent = 'Address not compatible with ' + net + ' network.';
 	errorMessage.style.display = 'block';
 	targetInput.classList.remove('empty');
     targetInput.classList.add('invalid');
