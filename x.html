@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tagboard - Lista y paneles</title>
+  <style>
+    :root{
+      --bg: #071026;
+      --post-bg: rgba(255,255,255,0.02);
+      --text: #e6eef6;
+      --muted: #9aa6b2;
+      --divider: rgba(255,255,255,0.03);
+      --max-width: 980px;
+      --container-hpad: 14px;
+      --search-height: 40px;
+      --posts-height: 420px;
+      --gap: 8px;
+      --inner-hpad: 12px;
+      --inner-lpad: 32px;
+      --side-pad: calc(var(--inner-lpad));
+      --header-font-size: 0.82rem;
+      --meta-font-size: 0.82rem;
+      --body-font-size: 0.96rem;
+
+      --icon-size: 1.05rem;
+      --icon-gap: -10px;
+      --icon-vertical-size: 1.05em;
+      --icon-width: 1.05em;
+
+      --form-bg: rgba(255,255,255,0.02);
+      --form-radius: 8px;
+      --form-gap: 10px;
+
+      --primary-blue: #0a84ff;
+      --white: #ffffff;
+
+      --page-top-gap: 20px;
+
+      --scroll-thumb: rgba(255,255,255,0.06);
+      --scroll-thumb-hover: rgba(255,255,255,0.12);
+      --scroll-track: transparent;
+    }
+
+    *{box-sizing:border-box}
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; width: 0; height: 0; }
+
+    body{ display:flex; flex-direction:column; align-items:center; padding:var(--page-top-gap) }
+
+    .stage{
+      width:100%;
+      max-width:var(--max-width);
+      padding:0 var(--container-hpad);
+    }
+
+    /* Panels: no visible white border */
+    .panel {
+      width:100%;
+      background: var(--form-bg);
+      border-radius: var(--form-radius);
+      padding: 14px 0;
+      display:block;
+      overflow: hidden;
+      transition: max-height 220ms ease;
+      margin-bottom: 12px;
+      border: none;
+      box-shadow: none;
+    }
+    .panel.collapsed { padding-top: 12px; padding-bottom: 12px; max-height: 64px; }
+
+    .panel-content { padding: 0 var(--side-pad); }
+
+    .panel-toggle-row {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding: 0;
+      user-select:none;
+      width:100%;
+    }
+
+    .panel-toggle-left {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      justify-content:flex-start;
+      width:100%;
+    }
+
+    /* Default panel title color is muted; we'll override specific titles below */
+    .panel-title {
+      color:var(--muted);
+      font-weight:600;
+      font-size:0.95rem;
+      margin:0;
+      cursor: pointer;
+      padding: 12px 6px 12px 0;
+      line-height:1;
+      text-align:left;
+    }
+
+    /* Make only the two panel toggle arrows white (override default) */
+    .panel-triangle {
+      color: var(--muted);
+      font-size: 1.6rem;
+      line-height: 1;
+      width: 1.6em;
+      text-align: center;
+      transition: color 120ms ease;
+      cursor: pointer;
+      user-select: none;
+      padding: 6px 6px;
+      margin-left: 0;
+      margin-right: 0;
+      position: static;
+      align-self: center;
+      flex: 0 0 auto;
+    }
+
+    /* We'll set the two specific triangle controls to white by ID */
+    #topTriangle,
+    #formTriangle {
+      color: var(--white);
+    }
+
+    .panel-inner {
+      transition: max-height 220ms ease, opacity 180ms ease, padding 180ms ease;
+      max-height: 1000px;
+      opacity: 1;
+      padding-top: 12px;
+    }
+    .panel.collapsed .panel-inner {
+      max-height: 0;
+      opacity: 0;
+      padding-top: 0;
+      pointer-events: none;
+    }
+
+    .search-bar {
+      position: relative;
+      width:100%;
+      height:var(--search-height);
+      margin-bottom:8px;
+    }
+
+    .search-icon {
+      position:absolute;
+      left: calc(var(--side-pad) - 24px);
+      top:50%;
+      transform:translateY(-50%);
+      width:18px;
+      height:18px;
+      pointer-events:none;
+      color:var(--muted);
+    }
+
+    .search-input {
+      width:100%;
+      height:100%;
+      background: var(--post-bg);
+      color: var(--text);
+      border: none;
+      padding: calc(var(--inner-hpad)) calc(var(--side-pad)) calc(var(--inner-hpad)) calc(var(--side-pad));
+      border-radius:8px;
+      font-size:0.94rem;
+      outline:none;
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      appearance:none;
+      font-family: Inter, system-ui, Arial, sans-serif;
+      display:flex;
+      align-items:center;
+    }
+    .search-input::placeholder{ color: var(--muted); opacity:1; }
+
+    /* Header bar: remove border so it doesn't show a white frame */
+    .header-bar {
+      width:100%;
+      background: var(--post-bg);
+      border-radius:6px;
+      padding: 8px var(--side-pad) 8px var(--side-pad);
+      margin-bottom:8px;
+      display:grid;
+      grid-template-columns: 1fr auto;
+      align-items:center;
+      color:var(--muted);
+      font-size:var(--header-font-size);
+      line-height:1;
+      border: none;
+      box-shadow: none;
+    }
+    .header-left, .header-right {
+      user-select:none;
+      cursor:default;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      min-width:0;
+      overflow:hidden;
+    }
+
+    .label { display:inline-block; white-space:nowrap; color:var(--muted); cursor:pointer; }
+
+    /* Sort icons: tamaño y proximidad ajustados */
+    .sort-icons{
+      display:inline-flex;
+      flex-direction:column;
+      gap:var(--icon-gap);
+      align-items:center;
+      justify-content:center;
+      width:var(--icon-width);
+      height:var(--icon-vertical-size);
+      color:var(--muted);
+      font-size:var(--icon-size);
+      line-height:1;
+      cursor:pointer;
+      user-select:none;
+      padding:0;
+      margin:0;
+    }
+    .sort-icons .up, .sort-icons .down{
+      display:inline-block;
+      width:100%;
+      text-align:center;
+      line-height:1;
+      margin:0;
+      padding:0;
+      font-weight:700;
+      transform-origin: center;
+    }
+    .sort-icons .up{ transform: translateY(4px); }   /* baja el triángulo superior */
+    .sort-icons .down{ transform: translateY(-4px); }/* sube el triángulo inferior */
+    .sort-icons .up.active, .sort-icons .down.active { color: #ffffff; }
+
+    .posts-wrap{ width:100%; height:var(--posts-height); position:relative; margin-top:0; }
+
+    .posts{
+      width:100%;
+      height:100%;
+      overflow:auto;
+      -webkit-overflow-scrolling:touch;
+      display:flex;
+      flex-direction:column-reverse;
+      gap:var(--gap);
+      margin:0;
+      padding:0;
+      background: transparent;
+      border: none;
+    }
+    .posts::-webkit-scrollbar{ width:8px; height:8px; }
+    .posts::-webkit-scrollbar-track{ background: var(--scroll-track); }
+    .posts::-webkit-scrollbar-thumb{ background: var(--scroll-thumb); border-radius:8px; }
+    .posts::-webkit-scrollbar-thumb:hover{ background: var(--scroll-thumb-hover); }
+    .posts { scrollbar-width: thin; scrollbar-color: var(--scroll-thumb) var(--scroll-track); }
+
+    .post{ width:100%; padding:0; background: transparent; display:block; }
+
+    .post-inner{
+      margin:0;
+      padding: calc(var(--inner-hpad)) var(--side-pad) calc(var(--inner-hpad)) var(--side-pad);
+      border-radius:6px;
+      background: var(--post-bg);
+      color:var(--text);
+      line-height:1.35;
+      border-bottom: 1px solid var(--divider);
+      display:grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto 1fr;
+      gap:6px 12px;
+      align-items:start;
+    }
+    .post-inner:first-child{ border-bottom: none; }
+
+    .meta{ grid-column: 1 / -1; display:contents; font-size:var(--meta-font-size); color:var(--muted); margin-bottom:0; }
+    .meta-left{ grid-column: 1 / 2; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--muted); align-self:center; }
+    .meta-date{ grid-column: 2 / 3; justify-self:end; color:var(--muted); font-size:var(--meta-font-size); white-space:nowrap; align-self:center; }
+
+    .body{ grid-column: 1 / -1; font-size:var(--body-font-size); color:#dfefff; white-space:pre-wrap; word-break:break-word; margin-top:4px; }
+
+    .hl { background: rgba(30,144,255,0.18); color: #dff4ff; padding: 0 2px; border-radius: 2px; font-weight: 600; }
+
+    .sr-only { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); white-space: nowrap; border: 0; padding: 0; margin: -1px; }
+
+    .form-grid {
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--form-gap);
+      align-items:start;
+    }
+    .form-row-full { grid-column: 1 / -1; }
+
+    label { display:block; font-size:0.86rem; color:var(--muted); margin-bottom:6px; }
+
+    /* Make specific labels white: Nombre, E-Mail, Teléfono, Telegram */
+    #nameWrap label,
+    #emailWrap label,
+    #phoneWrap label,
+    #telegramWrap label {
+      color: var(--white);
+    }
+
+    /* Make the two panel titles white: Anuncios, Publicar anuncio */
+    #topTitle,
+    #formTitle {
+      color: var(--white);
+    }
+
+    /* Inputs: remove visible border/frame but keep subtle background for contrast */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width:100%;
+      padding:10px 12px;
+      border-radius:6px;
+      border: none;
+      background: rgba(255,255,255,0.01);
+      color:var(--text);
+      font-size:0.95rem;
+      font-family: Inter, system-ui, Arial, sans-serif;
+      outline:none;
+      box-shadow: none;
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      appearance:none;
+    }
+
+    /* Ensure focus doesn't show outline or shadow */
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
+
+    textarea { min-height: 100px; max-height: 140px; resize: none; overflow: auto; }
+
+    textarea::-webkit-scrollbar{ width:8px; height:8px; }
+    textarea::-webkit-scrollbar-track{ background: var(--scroll-track); }
+    textarea::-webkit-scrollbar-thumb{ background: var(--scroll-thumb); border-radius:8px; }
+    textarea::-webkit-scrollbar-thumb:hover{ background: var(--scroll-thumb-hover); }
+    textarea { scrollbar-width: thin; scrollbar-color: var(--scroll-thumb) var(--scroll-track); }
+
+    .form-actions { margin-top:14px; display:flex; justify-content:center; align-items:center; }
+    .btn-publish {
+      background: var(--primary-blue); color: var(--white); border: none; box-shadow: none; padding: 12px 28px; min-width: 240px;
+      border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; display:inline-flex; align-items:center; justify-content:center;
+    }
+
+    @media (max-width:920px){ .form-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width:720px){
+      .form-grid { grid-template-columns: 1fr; }
+      .post-inner{ padding:8px var(--side-pad) 8px var(--side-pad); grid-template-columns: 1fr auto; gap:6px 8px; }
+      .panel { padding: 12px 0; }
+      .panel-content { padding: 0 var(--side-pad); }
+      .meta-left { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .meta-date { white-space: nowrap; }
+      .body { white-space: normal; }
+      .btn-publish { min-width: 160px; padding: 10px 22px; }
+      .panel-triangle { font-size:1.4rem; width:1.4em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+
+    <!-- Top panel "Anuncios" (desoculto por defecto) -->
+    <div id="topPanel" class="panel" aria-expanded="true">
+      <div class="panel-content">
+        <div class="panel-toggle-row" aria-hidden="true">
+          <div class="panel-toggle-left">
+            <h3 id="topTitle" class="panel-title" tabindex="0" aria-controls="topInner" aria-expanded="true">Anuncios</h3>
+          </div>
+          <div id="topTriangle" class="panel-triangle" tabindex="0" aria-hidden="true">▴</div>
+        </div>
+      </div>
+
+      <div id="topInner" class="panel-inner">
+        <div class="panel-content">
+          <!-- Search bar -->
+          <div class="search-bar" role="search" aria-label="Buscar anuncios">
+            <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="6.2"></circle>
+                <path d="M20.5 20.5L16.2 16.2"></path>
+              </g>
+            </svg>
+
+            <input id="search" class="search-input" type="search" placeholder="Buscar usuario o mensaje..." aria-label="Buscar usuario o mensaje" aria-controls="posts" autocomplete="off" />
+            <div id="live" class="sr-only" aria-live="polite" aria-atomic="true" role="status"></div>
+          </div>
+
+          <!-- Sorting header -->
+          <div class="header-bar" role="presentation" aria-hidden="true">
+            <div id="userHeader" class="header-left">
+              <span class="label" id="userLabel">Nombre</span>
+              <span class="sort-icons" id="userIcons" aria-hidden="true"><span class="up">▴</span><span class="down">▾</span></span>
+            </div>
+
+            <div id="dateHeader" class="header-right">
+              <span class="label" id="dateLabel">Fecha</span>
+              <span class="sort-icons" id="dateIcons" aria-hidden="true"><span class="up">▴</span><span class="down">▾</span></span>
+            </div>
+          </div>
+
+          <!-- Publications -->
+          <div class="posts-wrap">
+            <div id="posts" class="posts" aria-label="Lista de anuncios" tabindex="0">
+              <div class="post">
+                <div class="post-inner">
+                  <div class="meta">
+                    <div class="meta-left">AnaLopez</div>
+                    <div class="meta-date">2025-12-22 21:55:30</div>
+                  </div>
+                  <div class="body">Vendo bicicleta de montaña, 26", poco uso. Incluye casco y candado.</div>
+                </div>
+              </div>
+
+              <div class="post">
+                <div class="post-inner">
+                  <div class="meta">
+                    <div class="meta-left">CarlosM</div>
+                    <div class="meta-date">2025-12-22 22:00:12</div>
+                  </div>
+                  <div class="body">Busco recomendaciones de cafeterías con enchufes y buen Wi‑Fi.</div>
+                </div>
+              </div>
+
+              <div class="post">
+                <div class="post-inner">
+                  <div class="meta">
+                    <div class="meta-left">MaríaG</div>
+                    <div class="meta-date">2025-12-22 22:05:05</div>
+                  </div>
+                  <div class="body">Necesito ayuda para instalar una lavadora este fin de semana.</div>
+                </div>
+              </div>
+
+              <!-- Más publicaciones de ejemplo -->
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">TallerSol</div><div class="meta-date">2025-12-22 22:10:45</div></div><div class="body">Taller de cerámica el sábado por la mañana. Cupos limitados.</div></div></div>
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">PedroV</div><div class="meta-date">2025-12-22 22:15:07</div></div><div class="body">Se vende sofá de 3 plazas, color gris, buen estado. Retirar en domicilio.</div></div></div>
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">LuisaR</div><div class="meta-date">2025-12-22 22:20:59</div></div><div class="body">Intercambio de plantas: tengo pothos y monstera para cambiar por suculentas.</div></div></div>
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">JavierK</div><div class="meta-date">2025-12-22 22:25:33</div></div><div class="body">Busco compañero para compartir gastos de internet en zona centro.</div></div></div>
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">MartaS</div><div class="meta-date">2025-12-22 22:30:21</div></div><div class="body">Vendo cámara réflex con lente 50mm, poco uso. Incluye funda y tarjeta SD.</div></div></div>
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">GrupoFut</div><div class="meta-date">2025-12-22 22:35:02</div></div><div class="body">Partido amistoso el domingo a las 9:00 en el polideportivo. Se buscan jugadores.</div></div></div>
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">SofiaP</div><div class="meta-date">2025-12-22 22:40:18</div></div><div class="body">Ofrezco clases de guitarra para principiantes, horarios flexibles.</div></div></div>
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">RicardoH</div><div class="meta-date">2025-12-22 22:45:50</div></div><div class="body">Ordenador portátil i5, 8GB RAM, SSD 256GB. Funciona perfecto, vendo por cambio.</div></div></div>
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">ElenaB</div><div class="meta-date">2025-12-22 22:50:11</div></div><div class="body">Busco niñera para tardes puntuales. Experiencia y referencias requeridas.</div></div></div>
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">MercadoN</div><div class="meta-date">2025-12-22 22:55:44</div></div><div class="body">Mercado de productores el sábado en la plaza central. Productos locales y música.</div></div></div>
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">AndresL</div><div class="meta-date">2025-12-22 23:00:00</div></div><div class="body">Vendo mesa de comedor para 4 personas, madera maciza. Buen estado.</div></div></div>
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">PatriciaC</div><div class="meta-date">2025-12-22 23:05:27</div></div><div class="body">Intercambio libros: llevo novelas y poesía. ¿Quién se apunta para un trueque?</div></div></div>
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">DiegoR</div><div class="meta-date">2025-12-22 23:10:09</div></div><div class="body">Necesito ayuda para montar un mueble este fin de semana. Pago por hora.</div></div></div>
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">ClaudiaM</div><div class="meta-date">2025-12-22 23:15:55</div></div><div class="body">Se regala sofá en buen estado. Solo recoger en la mañana del sábado.</div></div></div>
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">EventosU</div><div class="meta-date">2025-12-22 23:20:42</div></div><div class="body">Concierto local el viernes. Entrada gratuita, trae tu manta y picnic.</div></div></div>
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">HugoT</div><div class="meta-date">2025-12-22 23:25:06</div></div><div class="body">Busco recomendaciones de electricistas en la zona norte. Urgente.</div></div></div>
+              <div class="post"><div class="post-inner"><div class="meta"><div class="meta-left">NataliaF</div><div class="meta-date">2025-12-22 23:30:59</div></div><div class="body">Vendo bicicleta eléctrica, autonomía 40km, batería nueva. Interesados enviar mensaje.</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Publish panel -->
+    <div id="formPanel" class="panel collapsed" aria-expanded="false">
+      <div class="panel-content">
+        <div class="panel-toggle-row" aria-hidden="true">
+          <div class="panel-toggle-left">
+            <h3 id="formTitle" class="panel-title" tabindex="0" aria-controls="formInner" aria-expanded="false">Publicar anuncio</h3>
+          </div>
+          <div id="formTriangle" class="panel-triangle" tabindex="0" aria-hidden="true">▾</div>
+        </div>
+      </div>
+
+      <div id="formInner" class="panel-inner">
+        <div class="panel-content">
+          <form id="publishForm" novalidate>
+            <div class="form-grid" style="margin-top:6px;">
+              <div id="nameWrap">
+                <label for="name">Nombre</label>
+                <input id="name" name="name" type="text" autocomplete="name" placeholder="Tu nombre" />
+              </div>
+
+              <div id="emailWrap">
+                <label for="email">E-Mail</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="tu@ejemplo.com" />
+              </div>
+
+              <div id="phoneWrap">
+                <label for="phone">Teléfono</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+55 99 99999-9999" />
+              </div>
+
+              <div id="telegramWrap">
+                <label for="telegram">Telegram</label>
+                <input id="telegram" name="telegram" type="text" placeholder="@usuario" />
+              </div>
+
+              <div class="form-row-full">
+                <label for="message">Mensaje</label>
+                <textarea id="message" name="message" placeholder="Escribe tu mensaje..."></textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn-publish" type="submit" aria-label="Publicar">Publicar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    (function(){
+      // Preserve original posts data
+      const postsContainer = document.getElementById('posts');
+      const originalNodes = Array.from(postsContainer.children);
+
+      originalNodes.forEach(p => {
+        const metaLeft = p.querySelector('.meta-left');
+        const metaDate = p.querySelector('.meta-date');
+        const bodyEl = p.querySelector('.body');
+        if (metaLeft) metaLeft.dataset.original = metaLeft.textContent.trim();
+        if (metaDate) metaDate.dataset.original = metaDate.textContent.trim();
+        if (bodyEl) bodyEl.dataset.original = bodyEl.textContent.trim();
+      });
+
+      let userSortState = 0;
+      let dateSortState = 0;
+
+      const userLabel = document.getElementById('userLabel');
+      const userIcons = document.getElementById('userIcons');
+      const dateLabel = document.getElementById('dateLabel');
+      const dateIcons = document.getElementById('dateIcons');
+
+      function clearIcons(container) {
+        const icons = container.querySelectorAll('.up, .down');
+        icons.forEach(i => i.classList.remove('active'));
+      }
+      function nextState(current) { return (current + 1) % 3; }
+
+      function handleUserClick(e) {
+        e.stopPropagation();
+        userSortState = nextState(userSortState);
+        if (userSortState !== 0) {
+          dateSortState = 0;
+          clearIcons(dateIcons);
+        }
+        clearIcons(userIcons);
+        const up = userIcons.querySelector('.up');
+        const down = userIcons.querySelector('.down');
+        if (userSortState === 1) up.classList.add('active');
+        else if (userSortState === 2) down.classList.add('active');
+        update();
+      }
+
+      function handleDateClick(e) {
+        e.stopPropagation();
+        dateSortState = nextState(dateSortState);
+        if (dateSortState !== 0) {
+          userSortState = 0;
+          clearIcons(userIcons);
+        }
+        clearIcons(dateIcons);
+        const up = dateIcons.querySelector('.up');
+        const down = dateIcons.querySelector('.down');
+        if (dateSortState === 1) up.classList.add('active');
+        else if (dateSortState === 2) down.classList.add('active');
+        update();
+      }
+
+      userLabel.addEventListener('click', handleUserClick);
+      userIcons.addEventListener('click', handleUserClick);
+      dateLabel.addEventListener('click', handleDateClick);
+      dateIcons.addEventListener('click', handleDateClick);
+
+      function escapeRegExp(string) {
+        return String(string).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      }
+      function escapeHtml(str) {
+        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+      }
+      function normalizeForSearch(s) {
+        if (!s) return '';
+        return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+      }
+      function highlightInsensitive(original, query) {
+        if (!query) return escapeHtml(original);
+        const qNorm = normalizeForSearch(query);
+        const chars = [];
+        const normParts = [];
+        for (let ch of original) {
+          const n = ch.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+          chars.push(ch);
+          normParts.push(n);
+        }
+        const normStr = normParts.join('');
+        const esc = escapeRegExp(qNorm);
+        const re = new RegExp(esc, 'gi');
+        let match;
+        const ranges = [];
+        while ((match = re.exec(normStr)) !== null) {
+          ranges.push([match.index, match.index + match[0].length]);
+          if (re.lastIndex === match.index) re.lastIndex++;
+        }
+        if (ranges.length === 0) return escapeHtml(original);
+
+        const origRanges = ranges.map(([s,e]) => {
+          let acc = 0;
+          let startIdx = 0;
+          for (let i=0;i<normParts.length;i++) {
+            const len = normParts[i].length;
+            if (acc + len > s) { startIdx = i; break; }
+            acc += len;
+          }
+          let acc2 = acc;
+          let endIdx = startIdx;
+          for (let j=startIdx;j<normParts.length;j++) {
+            acc2 += normParts[j].length;
+            endIdx = j;
+            if (acc2 >= e) break;
+          }
+          return [startIdx, endIdx+1];
+        });
+
+        let out = '';
+        let last = 0;
+        for (let [s,e] of origRanges) {
+          if (s > last) out += escapeHtml(chars.slice(last,s).join(''));
+          out += '<span class="hl">' + escapeHtml(chars.slice(s,e).join('')) + '</span>';
+          last = e;
+        }
+        if (last < chars.length) out += escapeHtml(chars.slice(last).join(''));
+        return out;
+      }
+
+      function update() {
+        const q = document.getElementById('search').value.trim();
+        const qNorm = normalizeForSearch(q);
+        let totalMatches = 0;
+        const matched = [];
+
+        originalNodes.forEach(node => {
+          const metaLeft = node.querySelector('.meta-left');
+          const metaDate = node.querySelector('.meta-date');
+          const bodyEl = node.querySelector('.body');
+
+          const username = (metaLeft && (metaLeft.dataset.original || metaLeft.textContent)).trim();
+          const dateStr = (metaDate && (metaDate.dataset.original || metaDate.textContent)).trim();
+          const bodyText = (bodyEl && (bodyEl.dataset.original || bodyEl.textContent)).trim();
+
+          const date = new Date(dateStr.replace(' ', 'T'));
+          const usernameNorm = normalizeForSearch(username);
+          const bodyNorm = normalizeForSearch(bodyText);
+
+          const usernameHas = q ? usernameNorm.includes(qNorm) : false;
+          const bodyHas = q ? bodyNorm.includes(qNorm) : false;
+          const hasAny = q ? (usernameHas || bodyHas) : true;
+
+          if (hasAny) {
+            if (q) {
+              if (usernameHas) {
+                const matches = usernameNorm.match(new RegExp(escapeRegExp(qNorm), 'gi'));
+                totalMatches += matches ? matches.length : 0;
+              }
+              if (bodyHas) {
+                const matches = bodyNorm.match(new RegExp(escapeRegExp(qNorm), 'gi'));
+                totalMatches += matches ? matches.length : 0;
+              }
+            }
+
+            matched.push({
+              node,
+              date,
+              username,
+              dateStr,
+              bodyText,
+              usernameHas,
+              bodyHas
+            });
+          } else {
+            node.style.display = 'none';
+          }
+        });
+
+        if (userSortState !== 0) {
+          if (userSortState === 1) matched.sort((a,b) => a.username.localeCompare(b.username, undefined, {sensitivity:'base'}));
+          else matched.sort((a,b) => b.username.localeCompare(a.username, undefined, {sensitivity:'base'}));
+        } else if (dateSortState !== 0) {
+          if (dateSortState === 1) matched.sort((a,b) => a.date - b.date);
+          else matched.sort((a,b) => b.date - a.date);
+        } else {
+          matched.sort((a,b) => b.date - a.date);
+        }
+
+        postsContainer.innerHTML = '';
+        matched.forEach(item => {
+          const p = item.node;
+          const metaLeft = p.querySelector('.meta-left');
+          const metaDate = p.querySelector('.meta-date');
+          const bodyEl = p.querySelector('.body');
+
+          metaLeft.innerHTML = item.usernameHas ? highlightInsensitive(item.username, q) : escapeHtml(item.username);
+          metaDate.innerHTML = escapeHtml(item.dateStr);
+          bodyEl.innerHTML = item.bodyHas ? highlightInsensitive(item.bodyText, q) : escapeHtml(item.bodyText);
+
+          p.style.display = '';
+          postsContainer.appendChild(p);
+        });
+
+        const live = document.getElementById('live');
+        live.textContent = q ? `${totalMatches} coincidencia${totalMatches === 1 ? '' : 's'} encontrada${totalMatches === 1 ? '' : 's'}.` : '';
+
+        const defaultDateDesc = (userSortState === 0 && dateSortState === 0) || (dateSortState === 2 && userSortState === 0);
+        if (defaultDateDesc) postsContainer.scrollTop = postsContainer.scrollHeight;
+        else postsContainer.scrollTop = 0;
+      }
+
+      document.getElementById('search').addEventListener('input', update);
+      update();
+
+      function setupPanel(panelId, titleId, triangleId, innerId, startCollapsed) {
+        const panel = document.getElementById(panelId);
+        const title = document.getElementById(titleId);
+        const triangle = document.getElementById(triangleId);
+        const inner = document.getElementById(innerId);
+
+        let collapsed = !!startCollapsed;
+
+        function setCollapsed(state) {
+          collapsed = !!state;
+          if (collapsed) {
+            panel.classList.add('collapsed');
+            panel.setAttribute('aria-expanded', 'false');
+            title.setAttribute('aria-expanded', 'false');
+            triangle.textContent = '▾';
+          } else {
+            panel.classList.remove('collapsed');
+            panel.setAttribute('aria-expanded', 'true');
+            title.setAttribute('aria-expanded', 'true');
+            triangle.textContent = '▴';
+          }
+        }
+
+        function toggleFromClick(e) {
+          setCollapsed(!collapsed);
+        }
+
+        title.addEventListener('click', function(e){
+          e.stopPropagation();
+          toggleFromClick(e);
+        });
+        title.addEventListener('keydown', function(e){
+          if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+            e.preventDefault();
+            toggleFromClick(e);
+          }
+        });
+
+        triangle.addEventListener('click', function(e){
+          e.stopPropagation();
+          toggleFromClick(e);
+        });
+        triangle.addEventListener('keydown', function(e){
+          if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+            e.preventDefault();
+            toggleFromClick(e);
+          }
+        });
+
+        inner.addEventListener('click', function(e){ e.stopPropagation(); });
+
+        setCollapsed(startCollapsed);
+      }
+
+      setupPanel('topPanel', 'topTitle', 'topTriangle', 'topInner', false);
+      setupPanel('formPanel', 'formTitle', 'formTriangle', 'formInner', true);
+
+      const form = document.getElementById('publishForm');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        const data = {
+          name: form.name.value.trim(),
+          email: form.email ? form.email.value.trim() : '',
+          phone: form.phone.value.trim(),
+          telegram: form.telegram.value.trim(),
+          message: form.message.value.trim()
+        };
+
+        const now = new Date();
+        function pad(n){ return String(n).padStart(2,'0'); }
+        const dateStr = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+
+        const post = document.createElement('div');
+        post.className = 'post';
+        post.innerHTML = `<div class="post-inner"><div class="meta"><div class="meta-left">${escapeHtml(data.name || 'Anónimo')}</div><div class="meta-date">${escapeHtml(dateStr)}</div></div><div class="body">${escapeHtml(data.message || '')}</div></div>`;
+        postsContainer.appendChild(post);
+
+        form.reset();
+        originalNodes.push(post);
+      });
+
+      function escapeHtml(str) {
+        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+      }
+    })();
+  </script>
+</body>
+</html>
